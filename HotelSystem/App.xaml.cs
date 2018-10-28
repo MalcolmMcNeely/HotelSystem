@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Ioc;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,7 +12,16 @@ namespace HotelSystem
    /// <summary>
    /// Interaction logic for App.xaml
    /// </summary>
-   public partial class App : Application
+   internal partial class App : PrismApplication
    {
+      //protected override void RegisterTypes(IContainerRegistry containerRegistry)
+      //{
+      //   throw new NotImplementedException();
+      //}
+
+      //protected override Window CreateShell()
+      //{
+      //   throw new NotImplementedException();
+      //}
    }
 }

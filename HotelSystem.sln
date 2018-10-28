@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{4DA31627-0FDF-46DB-AB22-A56DA331003A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Infrastructure", "HotelSystem.Infrastructure\HotelSystem.Infrastructure.csproj", "{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +24,10 @@ Global
 		{9E78553B-FB0D-4F55-BE9E-A76B52E8C637}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E78553B-FB0D-4F55-BE9E-A76B52E8C637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E78553B-FB0D-4F55-BE9E-A76B52E8C637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
