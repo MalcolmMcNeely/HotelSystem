@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}</ProjectGuid>
+    <ProjectGuid>{3BD7211D-80DC-4E70-A4EA-87C2638B2A0C}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>HotelSystem.Infrastructure</RootNamespace>
-    <AssemblyName>HotelSystem.Infrastructure</AssemblyName>
+    <RootNamespace>NavigationToolbar</RootNamespace>
+    <AssemblyName>NavigationToolbar</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -66,6 +66,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NavigationToolbarModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,8 +82,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RegionNames.cs" />
-    <Compile Include="StackPanelRegionAdapter.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

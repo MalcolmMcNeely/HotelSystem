@@ -1,8 +1,11 @@
 ﻿using CommonServiceLocator;
 using DryIoc;
+using HotelSystem.Infrastructure;
 using HotelSystem.Ioc;
+using NavigationToolbar;
 using Prism;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -10,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace HotelSystem
 {
@@ -30,8 +34,15 @@ namespace HotelSystem
 
       protected override Window CreateShell()
       {
-         return new Shell();
-         //return Container.Resolve<Shell>();
+         return Container.Resolve<Shell>();
+      }
+
+      protected override void InitializeShell(Window shell)
+      {
+         base.InitializeShell(shell);
+
+         App.Current.MainWindow = shell;
+         App.Current.MainWindow.Show();
       }
 
       protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
@@ -47,6 +58,26 @@ namespace HotelSystem
          base.RegisterFrameworkExceptionTypes();
 
          ExceptionExtensions.RegisterFrameworkExceptionType(typeof(ContainerException));
+      }
+
+      protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)
+      {
+         base.ConfigureRegionAdapterMappings(regionAdapterMappings);
+
+         regionAdapterMappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
+      }
+
+      protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+      {
+         base.ConfigureModuleCatalog(moduleCatalog);
+
+         var navigationToolbarType = typeof(NavigationToolbarModule);
+         moduleCatalog.AddModule(new ModuleInfo()
+         {
+            ModuleName = navigationToolbarType.Name,
+            ModuleType = navigationToolbarType.AssemblyQualifiedName,
+            InitializationMode = InitializationMode.WhenAvailable
+         });
       }
    }
 }
