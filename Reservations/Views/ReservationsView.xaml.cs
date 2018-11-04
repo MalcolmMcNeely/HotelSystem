@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using HotelSystem.Infrastructure.MVVM;
+using Reservations.Intefaces;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Reservations.Views
 {
    /// <summary>
    /// Interaction logic for ReservationsView.xaml
    /// </summary>
-   public partial class ReservationsView : UserControl
+   public partial class ReservationsView : UserControl, IView
    {
-      public ReservationsView()
+      public ReservationsView(IReservationsViewModel viewModel)
       {
          InitializeComponent();
+
+         ViewModel = viewModel;
+      }
+
+      public IViewModel ViewModel
+      {
+         get => (IViewModel)DataContext;
+         set => DataContext = value;
       }
    }
 }

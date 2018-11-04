@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}</ProjectGuid>
+    <ProjectGuid>{9AA2963D-884B-46B5-B5B3-6802B441E0F3}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>HotelSystem.Infrastructure</RootNamespace>
-    <AssemblyName>HotelSystem.Infrastructure</AssemblyName>
+    <RootNamespace>People</RootNamespace>
+    <AssemblyName>People</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -66,22 +66,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BindableBase.cs" />
-    <Compile Include="Common\SmartCollection.cs" />
-    <Compile Include="Common\ValidatableBindableBase.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\InverseBooleanConverter.cs" />
-    <Compile Include="DryIoc\DryIocContainerExtension.cs" />
-    <Compile Include="DryIoc\DryIocServiceLocatorAdapter.cs" />
-    <Compile Include="DryIoc\PrismIocExtensions.cs" />
-    <Compile Include="Helpers\InputHelper.cs" />
-    <Compile Include="CustomControls\CustomDataGrid.cs" />
-    <Compile Include="CustomControls\DataGridDecimalColumn.cs" />
-    <Compile Include="CustomControls\DataGridIntegerColumn.cs" />
-    <Compile Include="CustomControls\DecimalTextBox.cs" />
-    <Compile Include="CustomControls\IntegerTextBox.cs" />
-    <Compile Include="MVVM\IView.cs" />
-    <Compile Include="MVVM\IViewModel.cs" />
+    <Compile Include="PeopleModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,16 +80,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RegionNames.cs" />
-    <Compile Include="PRISM\StackPanelRegionAdapter.cs" />
-    <Compile Include="Styles\MainWindow\ControlDoubleClickBehavior.cs" />
-    <Compile Include="Styles\MainWindow\ShowSystemMenuBehavior.cs" />
-    <Compile Include="Styles\MainWindow\SystemMenuManager.cs" />
-    <Compile Include="Styles\MainWindow\WindowCloseCommand.cs" />
-    <Compile Include="Styles\MainWindow\WindowDragBehavior.cs" />
-    <Compile Include="Styles\MainWindow\WindowMaximizeCommand.cs" />
-    <Compile Include="Styles\MainWindow\WindowMinimizeCommand.cs" />
-    <Compile Include="Styles\MainWindow\WindowResizeBehavior.cs" />
+    <Compile Include="ViewModels\IPeopleViewModel.cs" />
+    <Compile Include="ViewModels\PeopleViewModel.cs" />
+    <Compile Include="Views\PeopleView.xaml.cs">
+      <DependentUpon>PeopleView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -116,14 +96,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UserControls\" />
+    <ProjectReference Include="..\HotelSystem.Infrastructure\HotelSystem.Infrastructure.csproj">
+      <Project>{802cc3fc-cb7f-4a7c-9ad0-ed85c9ab59e2}</Project>
+      <Name>HotelSystem.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Page Include="Styles\CommonBrushes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\MainWindow\MainWindowStyle.xaml">
+    <Page Include="Views\PeopleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

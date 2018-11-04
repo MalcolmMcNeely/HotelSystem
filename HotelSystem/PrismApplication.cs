@@ -2,6 +2,7 @@
 using DryIoc;
 using HotelSystem.Infrastructure;
 using HotelSystem.Infrastructure.DryIoc;
+using HotelSystem.Infrastructure.PRISM;
 using Navigation;
 using Prism;
 using Prism.Ioc;

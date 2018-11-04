@@ -122,6 +122,10 @@
       <Project>{3bd7211d-80dc-4e70-a4ea-87c2638b2a0c}</Project>
       <Name>Navigation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\People\People.csproj">
+      <Project>{9aa2963d-884b-46b5-b5b3-6802b441e0f3}</Project>
+      <Name>People</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Reservations\Reservations.csproj">
       <Project>{9a56d723-99b0-447f-9422-740bf3515b7d}</Project>
       <Name>Reservations</Name>

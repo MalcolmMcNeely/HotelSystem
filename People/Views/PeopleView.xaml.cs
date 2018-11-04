@@ -1,15 +1,15 @@
 ﻿using HotelSystem.Infrastructure.MVVM;
-using NavigationToolbar.ViewModels;
+using People.ViewModels;
 using System.Windows.Controls;
 
-namespace Navigation.Views
+namespace People.Views
 {
    /// <summary>
-   /// Interaction logic for Toolbar.xaml
+   /// Interaction logic for PeopleView.xaml
    /// </summary>
-   public partial class NavigationView : UserControl, IView
+   public partial class PeopleView : UserControl, IView
    {
-      public NavigationView(INavigationViewModel viewModel)
+      public PeopleView(IPeopleViewModel viewModel)
       {
          InitializeComponent();
 
@@ -18,7 +18,7 @@ namespace Navigation.Views
 
       public IViewModel ViewModel
       {
-         get => (IViewModel)DataContext;
+         get => (IViewModel) DataContext;
          set => DataContext = value;
       }
    }

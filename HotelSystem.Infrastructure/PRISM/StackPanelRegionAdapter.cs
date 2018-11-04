@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace HotelSystem.Infrastructure
+namespace HotelSystem.Infrastructure.PRISM
 {
    public class StackPanelRegionAdapter : RegionAdapterBase<StackPanel>
    {

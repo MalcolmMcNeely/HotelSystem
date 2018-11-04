@@ -1,6 +1,5 @@
 ﻿using HotelSystem.Infrastructure;
 using Navigation.Views;
-using NavigationToolbar.Interfaces;
 using NavigationToolbar.ViewModels;
 using Prism.Ioc;
 using Prism.Modularity;

@@ -1,17 +1,23 @@
-﻿using Prism.Ioc;
+﻿using HotelSystem.Infrastructure;
+using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Regions;
+using Reservations.Intefaces;
+using Reservations.ViewModels;
 using Reservations.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Reservations
 {
    [Module(ModuleName = "ReservationsModule")]
    public class ReservationsModule : IModule
    {
+      IRegionManager _regionManager;
+
+      public ReservationsModule(IRegionManager regionManager)
+      {
+         _regionManager = regionManager;
+      }
+
       public void OnInitialized(IContainerProvider containerProvider)
       {
          //throw new NotImplementedException();
@@ -20,6 +26,9 @@ namespace Reservations
       public void RegisterTypes(IContainerRegistry containerRegistry)
       {
          containerRegistry.Register<ReservationsView>();
+         containerRegistry.Register<IReservationsViewModel, ReservationsViewModel>();
+
+         _regionManager.RegisterViewWithRegion(RegionNames.ReservationsRegion, typeof(ReservationsView));
       }
    }
 }

@@ -10,7 +10,9 @@
         Style="{StaticResource MainWindowStyle}"
         Title="Shell">
     <Grid>
-      <StackPanel prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}"/>
-      <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ReservationsRegion}"/>
+      <DockPanel>
+         <StackPanel prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}"/>
+         <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ReservationsRegion}"/>
+      </DockPanel>
    </Grid>
 </Window>
