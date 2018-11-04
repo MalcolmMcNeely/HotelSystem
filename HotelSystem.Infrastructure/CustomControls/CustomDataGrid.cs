@@ -1,5 +1,6 @@
 ﻿using HotelSystem.Infrastructure.Common;
 using HotelSystem.Infrastructure.Helpers;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -230,9 +231,9 @@ namespace HotelSystem.Infrastructure.CustomControls
 
       private void SetCommands()
       {
-         ShowAllColumnsCommand = new RelayCommand(ExecuteShowAllColumnsCommand);
-         ResetLayoutCommand = new RelayCommand(ExecuteResetLayoutCommand);
-         ResetSortCommand = new RelayCommand(ExecuteResetSortCommand);
+         ShowAllColumnsCommand = new DelegateCommand(ExecuteShowAllColumnsCommand);
+         ResetLayoutCommand = new DelegateCommand(ExecuteResetLayoutCommand);
+         ResetSortCommand = new DelegateCommand(ExecuteResetSortCommand);
       }
 
       public ICommand ShowAllColumnsCommand { get; private set; }
