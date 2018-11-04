@@ -13,12 +13,12 @@ namespace NavigationToolbar
    {
       public void OnInitialized(IContainerProvider containerProvider)
       {
-         throw new NotImplementedException();
+         //throw new NotImplementedException();
       }
 
       public void RegisterTypes(IContainerRegistry containerRegistry)
       {
-         throw new NotImplementedException();
+         //throw new NotImplementedException();
       }
    }
 }

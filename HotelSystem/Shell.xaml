@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelSystem"
         mc:Ignorable="d"
+        Style="{StaticResource MainWindowStyle}"
         Title="Shell">
     <Grid>
       <TextBlock>Hello world</TextBlock>

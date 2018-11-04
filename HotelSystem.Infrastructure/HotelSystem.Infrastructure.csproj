@@ -66,6 +66,16 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SmartCollection.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Helpers\InputHelper.cs" />
+    <Compile Include="CustomControls\CustomDataGrid.cs" />
+    <Compile Include="CustomControls\DataGridDecimalColumn.cs" />
+    <Compile Include="CustomControls\DataGridIntegerColumn.cs" />
+    <Compile Include="CustomControls\DecimalTextBox.cs" />
+    <Compile Include="CustomControls\IntegerTextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -81,6 +91,14 @@
     </Compile>
     <Compile Include="RegionNames.cs" />
     <Compile Include="StackPanelRegionAdapter.cs" />
+    <Compile Include="Styles\MainWindow\ControlDoubleClickBehavior.cs" />
+    <Compile Include="Styles\MainWindow\ShowSystemMenuBehavior.cs" />
+    <Compile Include="Styles\MainWindow\SystemMenuManager.cs" />
+    <Compile Include="Styles\MainWindow\WindowCloseCommand.cs" />
+    <Compile Include="Styles\MainWindow\WindowDragBehavior.cs" />
+    <Compile Include="Styles\MainWindow\WindowMaximizeCommand.cs" />
+    <Compile Include="Styles\MainWindow\WindowMinimizeCommand.cs" />
+    <Compile Include="Styles\MainWindow\WindowResizeBehavior.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,6 +108,19 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\CommonBrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MainWindow\MainWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
