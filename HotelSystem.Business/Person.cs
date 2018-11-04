@@ -1,4 +1,5 @@
 ﻿using HotelSystem.Infrastructure.Common;
+using System;
 
 namespace HotelSystem.Business
 {
@@ -93,6 +94,20 @@ namespace HotelSystem.Business
       {
          get => _amountPaid;
          set => SetProperty(ref _amountPaid, value);
+      }
+
+      private DateTime _dateCreated;
+      public DateTime DateCreated
+      {
+         get => _dateCreated;
+         set => SetProperty(ref _dateCreated, value);
+      }
+
+      private DateTime _lastUpdated;
+      public DateTime LastUpdated
+      {
+         get => _lastUpdated;
+         set => SetProperty(ref _lastUpdated, value);
       }
 
       #endregion
