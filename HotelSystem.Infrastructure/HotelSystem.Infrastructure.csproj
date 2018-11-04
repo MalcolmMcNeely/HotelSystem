@@ -105,6 +105,15 @@
     <Compile Include="Styles\MainWindow\WindowMaximizeCommand.cs" />
     <Compile Include="Styles\MainWindow\WindowMinimizeCommand.cs" />
     <Compile Include="Styles\MainWindow\WindowResizeBehavior.cs" />
+    <Compile Include="UserControls\LabelledDecimalTextBox.xaml.cs">
+      <DependentUpon>LabelledDecimalTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LabelledIntegerTextBox.xaml.cs">
+      <DependentUpon>LabelledIntegerTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LabelledTextBox.xaml.cs">
+      <DependentUpon>LabelledTextBox.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -115,9 +124,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Styles\CommonBrushes.xaml">
       <SubType>Designer</SubType>
@@ -128,6 +135,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\MainWindow\MainWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LabelledDecimalTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LabelledIntegerTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LabelledTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

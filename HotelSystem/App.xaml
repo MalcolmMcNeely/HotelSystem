@@ -8,6 +8,7 @@
       <ResourceDictionary>
          <ResourceDictionary.MergedDictionaries>
             <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonBrushes.xaml"/>
+            <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonStyles.xaml"/>
             <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/MainWindow/MainWindowStyle.xaml"/>
          </ResourceDictionary.MergedDictionaries>
       </ResourceDictionary>

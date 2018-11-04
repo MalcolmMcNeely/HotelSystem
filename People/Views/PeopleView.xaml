@@ -6,78 +6,42 @@
              xmlns:local="clr-namespace:People.Views"
              xmlns:localres="clr-namespace:People.Resources"
              xmlns:inf.controls="clr-namespace:HotelSystem.Infrastructure.CustomControls;assembly=HotelSystem.Infrastructure"
+             xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
-    <Grid>
-      <Grid.ColumnDefinitions>
-         <ColumnDefinition/>
-         <ColumnDefinition/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-         <RowDefinition/>
-         <RowDefinition/>
-         <RowDefinition/>
-         <RowDefinition/>
-         <RowDefinition/>
-         <RowDefinition/>
-         <RowDefinition/>
-         <RowDefinition/>
-         <RowDefinition/>
-      </Grid.RowDefinitions>
-       
-       <!--Name-->
-      <Label Content="{x:Static localres:Strings.Name}"/>
-      <TextBox Grid.Column="1"
-               Text="{Binding Name}"/>
-       <!--Age-->
-      <Label Grid.Row="1"
-             Content="{x:Static localres:Strings.Age}"/>
-      <inf.controls:IntegerTextBox Grid.Row="1"
-                                   Grid.Column="1"
-                                   TextAlignment="Left"
-                                   Text="{Binding Age}"/>
-       <!--Address 1-->
-      <Label Grid.Row="2"
-             Content="{x:Static localres:Strings.AddressLineOne}"/>
-      <TextBox Grid.Row="2"
-               Grid.Column="1"/>
-      <!--Address 2-->
-      <Label Grid.Row="3"
-             Content="{x:Static localres:Strings.AddressLineTwo}"/>
-      <TextBox Grid.Row="3"
-               Grid.Column="1"/>
-      <!--City-->
-      <Label Grid.Row="4"
-             Content="{x:Static localres:Strings.City}"/>
-      <TextBox Grid.Row="4"
-               Grid.Column="1"/>
-       <!--Post Code-->
-      <Label Grid.Row="5"
-             Content="{x:Static localres:Strings.Postcode}"/>
-      <TextBox Grid.Row="5"
-               Grid.Column="1"
-               Text="{Binding PostCode}"/>
-       <!--Credit Card Number-->
-      <Label Grid.Row="6"
-             Content="{x:Static localres:Strings.CreditCardNumber}"/>
-      <TextBox Grid.Row="6"
-               Grid.Column="1"/>
-       <!--Amount Owed-->
-      <Label Grid.Row="7"
-             Content="{x:Static localres:Strings.AmountOwed}"/>
-      <inf.controls:DecimalTextBox Grid.Row="7"
-                                   Grid.Column="1"
-                                   Value="{Binding AmountOwed}"
-                                   TextAlignment="Left"
-                                   NumberFormat="C"/>
-       <!--Amount Paid-->
-      <Label Grid.Row="8"
-             Content="{x:Static localres:Strings.AmountPaid}"/>
-      <inf.controls:DecimalTextBox Grid.Row="8"
-                                   Grid.Column="1"
-                                   Value="{Binding AmountPaid}"
-                                   TextAlignment="Left"
-                                   NumberFormat="C"/>
+   <Grid>
+      <StackPanel>
+         <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
+                                           Text="{Binding Name}"/>
+         <inf.userControls:LabelledTextBox Grid.Row="1"
+                                           LabelText="{x:Static localres:Strings.Age}"
+                                           Text="{Binding Age}"/>
+         <inf.userControls:LabelledTextBox Grid.Row="2"
+                                           LabelText="{x:Static localres:Strings.AddressLineOne}"
+                                           Text="{Binding Age}"/>
+         <inf.userControls:LabelledTextBox Grid.Row="3"
+                                           LabelText="{x:Static localres:Strings.AddressLineTwo}"
+                                           Text="{Binding AddressLineTwo}"/>
+         <inf.userControls:LabelledTextBox Grid.Row="4"
+                                           LabelText="{x:Static localres:Strings.City}"
+                                           Text="{Binding City}"/>
+         <inf.userControls:LabelledTextBox Grid.Row="5"
+                                           LabelText="{x:Static localres:Strings.Postcode}"
+                                           Text="{Binding Postcode}"/>
+         <inf.userControls:LabelledTextBox Grid.Row="6"
+                                           LabelText="{x:Static localres:Strings.CreditCardNumber}"
+                                           Text="{Binding CreditCardNumber}"/>
+         <inf.userControls:LabelledDecimalTextBox Grid.Row="7"
+                                                  LabelText="{x:Static localres:Strings.AmountOwed}"
+                                                  Value="{Binding AmountOwed}"
+                                                  DecimalTextBoxTextAlignment="Left"
+                                                  NumberFormat="C"/>
+         <inf.userControls:LabelledDecimalTextBox Grid.Row="8"
+                                                  LabelText="{x:Static localres:Strings.AmountPaid}"
+                                                  Value="{Binding AmountPaid}"
+                                                  DecimalTextBoxTextAlignment="Left"
+                                                  NumberFormat="C"/>
+      </StackPanel>
    </Grid>
 </UserControl>
