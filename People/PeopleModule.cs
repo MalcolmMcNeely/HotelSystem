@@ -1,4 +1,7 @@
-﻿using Prism.Ioc;
+﻿using HotelSystem.Infrastructure;
+using People.ViewModels;
+using People.Views;
+using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
@@ -21,7 +24,10 @@ namespace People
 
       public void RegisterTypes(IContainerRegistry containerRegistry)
       {
-         throw new System.NotImplementedException();
+         containerRegistry.Register<PeopleView>();
+         containerRegistry.Register<IPeopleViewModel, PeopleViewModel>();
+
+         _regionManager.RegisterViewWithRegion(RegionNames.PeopleRegion, typeof(PeopleView));
       }
    }
 }

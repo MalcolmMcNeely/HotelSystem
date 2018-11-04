@@ -10,5 +10,6 @@ namespace HotelSystem.Infrastructure
    {
       public const string NavigationRegion = "NavigationRegion";
       public const string ReservationsRegion = "ReservationsRegion";
+      public const string PeopleRegion = "PeopleRegion";
    }
 }

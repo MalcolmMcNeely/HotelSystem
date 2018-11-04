@@ -2,7 +2,7 @@
 
 namespace Reservations.Intefaces
 {
-   public class IReservationsViewModel : IViewModel
+   public interface IReservationsViewModel : IViewModel
    {
    }
 }

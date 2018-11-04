@@ -80,6 +80,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Resources\Strings.cs" />
     <Compile Include="ViewModels\IPeopleViewModel.cs" />
     <Compile Include="ViewModels\PeopleViewModel.cs" />
     <Compile Include="Views\PeopleView.xaml.cs">
@@ -96,6 +97,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HotelSystem.Business\HotelSystem.Business.csproj">
+      <Project>{fb9a5333-c30b-4ab2-b2d9-3abc337d62ed}</Project>
+      <Name>HotelSystem.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HotelSystem.Infrastructure\HotelSystem.Infrastructure.csproj">
       <Project>{802cc3fc-cb7f-4a7c-9ad0-ed85c9ab59e2}</Project>
       <Name>HotelSystem.Infrastructure</Name>

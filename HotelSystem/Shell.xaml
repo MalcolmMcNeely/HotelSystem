@@ -11,8 +11,9 @@
         Title="Shell">
     <Grid>
       <DockPanel>
-         <StackPanel prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}"/>
-         <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ReservationsRegion}"/>
+         <StackPanel prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}"
+                     DockPanel.Dock="Top"/>
+         <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.PeopleRegion}"/>
       </DockPanel>
    </Grid>
 </Window>

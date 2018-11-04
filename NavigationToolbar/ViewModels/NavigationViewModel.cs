@@ -2,9 +2,9 @@
 {
    public class NavigationViewModel : INavigationViewModel
    {
-      public NavigationViewModel()
+      public void ShutDown()
       {
-
+         throw new System.NotImplementedException();
       }
    }
 }

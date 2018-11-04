@@ -15,8 +15,8 @@ namespace HotelSystem.Business
          _age = other._age;
          _addressLineOne = other._addressLineOne;
          _addressLineTwo = other.AddressLineTwo;
-         _addressLineCity = other.AddressLineCity;
-         _addressLinePostCode = other.AddressLinePostCode;
+         _city = other.City;
+         _postCode = other.PostCode;
          _phoneNumber = other._phoneNumber;
          _creditCardNumber = other._creditCardNumber;
          _amountOwed = other._amountOwed;
@@ -53,18 +53,18 @@ namespace HotelSystem.Business
          set => SetProperty(ref _addressLineTwo, value);
       }
 
-      private string _addressLineCity;
-      public string AddressLineCity
+      private string _city;
+      public string City
       {
-         get => _addressLineCity;
-         set => SetProperty(ref _addressLineCity, value);
+         get => _city;
+         set => SetProperty(ref _city, value);
       }
 
-      private string _addressLinePostCode;
-      public string AddressLinePostCode
+      private string _postCode;
+      public string PostCode
       {
-         get => _addressLinePostCode;
-         set => SetProperty(ref _addressLinePostCode, value);
+         get => _postCode;
+         set => SetProperty(ref _postCode, value);
       }
 
       private string _phoneNumber;

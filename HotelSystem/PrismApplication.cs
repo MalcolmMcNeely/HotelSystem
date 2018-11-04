@@ -4,6 +4,7 @@ using HotelSystem.Infrastructure;
 using HotelSystem.Infrastructure.DryIoc;
 using HotelSystem.Infrastructure.PRISM;
 using Navigation;
+using People;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -82,6 +83,14 @@ namespace HotelSystem
          {
             ModuleName = reservationsModuleType.Name,
             ModuleType = reservationsModuleType.AssemblyQualifiedName,
+            InitializationMode = InitializationMode.WhenAvailable
+         });
+
+         var peopleModuleType = typeof(PeopleModule);
+         moduleCatalog.AddModule(new ModuleInfo()
+         {
+            ModuleName = peopleModuleType.Name,
+            ModuleType = peopleModuleType.AssemblyQualifiedName,
             InitializationMode = InitializationMode.WhenAvailable
          });
       }
