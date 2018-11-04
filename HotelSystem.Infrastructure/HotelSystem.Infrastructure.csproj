@@ -70,12 +70,17 @@
     <Compile Include="Common\SmartCollection.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="DryIoc\DryIocContainerExtension.cs" />
+    <Compile Include="DryIoc\DryIocServiceLocatorAdapter.cs" />
+    <Compile Include="DryIoc\PrismIocExtensions.cs" />
     <Compile Include="Helpers\InputHelper.cs" />
     <Compile Include="CustomControls\CustomDataGrid.cs" />
     <Compile Include="CustomControls\DataGridDecimalColumn.cs" />
     <Compile Include="CustomControls\DataGridIntegerColumn.cs" />
     <Compile Include="CustomControls\DecimalTextBox.cs" />
     <Compile Include="CustomControls\IntegerTextBox.cs" />
+    <Compile Include="MVVM\IView.cs" />
+    <Compile Include="MVVM\IViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

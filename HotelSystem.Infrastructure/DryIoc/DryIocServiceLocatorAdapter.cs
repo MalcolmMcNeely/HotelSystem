@@ -3,7 +3,7 @@ using CommonServiceLocator;
 using System;
 using System.Collections.Generic;
 
-namespace HotelSystem.Ioc
+namespace HotelSystem.Infrastructure.DryIoc
 {
    public class DryIocServiceLocatorAdapter : ServiceLocatorImplBase
    {

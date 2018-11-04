@@ -1,7 +1,7 @@
 ﻿using DryIoc;
 using Prism.Ioc;
 
-namespace HotelSystem.Ioc
+namespace HotelSystem.Infrastructure.DryIoc
 {
    public static class PrismIocExtensions
    {

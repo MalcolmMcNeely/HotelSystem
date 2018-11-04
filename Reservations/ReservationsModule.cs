@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using Reservations.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,12 @@ namespace Reservations
    {
       public void OnInitialized(IContainerProvider containerProvider)
       {
-         throw new NotImplementedException();
+         //throw new NotImplementedException();
       }
 
       public void RegisterTypes(IContainerRegistry containerRegistry)
       {
-         throw new NotImplementedException();
+         containerRegistry.Register<ReservationsView>();
       }
    }
 }

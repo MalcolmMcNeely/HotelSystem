@@ -8,7 +8,7 @@ namespace HotelSystem.Infrastructure
 {
    public class RegionNames
    {
-      public const string NavigationRegion = "NavigationToolbarRegion";
+      public const string NavigationRegion = "NavigationRegion";
       public const string ReservationsRegion = "ReservationsRegion";
    }
 }

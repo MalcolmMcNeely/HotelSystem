@@ -80,9 +80,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ioc\DryIocContainerExtension.cs" />
-    <Compile Include="Ioc\DryIocServiceLocatorAdapter.cs" />
-    <Compile Include="Ioc\PrismIocExtensions.cs" />
     <Page Include="Shell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,9 +118,9 @@
       <Project>{802cc3fc-cb7f-4a7c-9ad0-ed85c9ab59e2}</Project>
       <Name>HotelSystem.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NavigationToolbar\NavigationToolbar.csproj">
+    <ProjectReference Include="..\NavigationToolbar\Navigation.csproj">
       <Project>{3bd7211d-80dc-4e70-a4ea-87c2638b2a0c}</Project>
-      <Name>NavigationToolbar</Name>
+      <Name>Navigation</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reservations\Reservations.csproj">
       <Project>{9a56d723-99b0-447f-9422-740bf3515b7d}</Project>

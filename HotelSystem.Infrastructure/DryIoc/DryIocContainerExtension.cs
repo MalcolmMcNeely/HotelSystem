@@ -2,7 +2,7 @@
 using Prism.Ioc;
 using System;
 
-namespace HotelSystem.Ioc
+namespace HotelSystem.Infrastructure.DryIoc
 {
    public class DryIocContainerExtension : IContainerExtension<IContainer>
    {

@@ -1,17 +1,14 @@
 ﻿using CommonServiceLocator;
 using DryIoc;
 using HotelSystem.Infrastructure;
-using HotelSystem.Ioc;
-using NavigationToolbar;
+using HotelSystem.Infrastructure.DryIoc;
+using Navigation;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using Reservations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -71,11 +68,19 @@ namespace HotelSystem
       {
          base.ConfigureModuleCatalog(moduleCatalog);
 
-         var navigationToolbarType = typeof(NavigationToolbarModule);
+         var navigationModuleType = typeof(NavigationModule);
          moduleCatalog.AddModule(new ModuleInfo()
          {
-            ModuleName = navigationToolbarType.Name,
-            ModuleType = navigationToolbarType.AssemblyQualifiedName,
+            ModuleName = navigationModuleType.Name,
+            ModuleType = navigationModuleType.AssemblyQualifiedName,
+            InitializationMode = InitializationMode.WhenAvailable
+         });
+
+         var reservationsModuleType = typeof(ReservationsModule);
+         moduleCatalog.AddModule(new ModuleInfo()
+         {
+            ModuleName = reservationsModuleType.Name,
+            ModuleType = reservationsModuleType.AssemblyQualifiedName,
             InitializationMode = InitializationMode.WhenAvailable
          });
       }

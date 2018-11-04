@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{4DA3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Infrastructure", "HotelSystem.Infrastructure\HotelSystem.Infrastructure.csproj", "{802CC3FC-CB7F-4A7C-9AD0-ED85C9AB59E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationToolbar", "NavigationToolbar\NavigationToolbar.csproj", "{3BD7211D-80DC-4E70-A4EA-87C2638B2A0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navigation", "NavigationToolbar\Navigation.csproj", "{3BD7211D-80DC-4E70-A4EA-87C2638B2A0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservations", "Reservations\Reservations.csproj", "{9A56D723-99B0-447F-9422-740BF3515B7D}"
 EndProject
