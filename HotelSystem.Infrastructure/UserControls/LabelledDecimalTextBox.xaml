@@ -24,6 +24,7 @@
                                      NumberFormat="{Binding NumberFormat}"
                                      DecimalPlaces="{Binding DecimalPlaces}"
                                      MinimumValue="{Binding MinimumValue}"
-                                     MaximumValue="{Binding MaximumValue}"/>
+                                     MaximumValue="{Binding MaximumValue}"
+                                     ShowZeroValue="{Binding ShowZeroValue}"/>
    </Grid>
 </UserControl>

@@ -40,14 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorStrings.cs" />
+    <Compile Include="ValidationConstants.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HotelSystem.Data\HotelSystem.Data.csproj">
+      <Project>{10bd477c-1a60-4402-90d8-bff380789e89}</Project>
+      <Name>HotelSystem.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HotelSystem.Infrastructure\HotelSystem.Infrastructure.csproj">
       <Project>{802cc3fc-cb7f-4a7c-9ad0-ed85c9ab59e2}</Project>
       <Name>HotelSystem.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Person.Validation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

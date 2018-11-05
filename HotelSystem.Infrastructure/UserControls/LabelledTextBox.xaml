@@ -18,6 +18,6 @@
       <Label Content="{Binding LabelText}"/>
       <TextBox Grid.Column="1"                                     
                IsReadOnly="{Binding IsReadOnly}"
-               Text="{Binding Text}"/>      
+               Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>      
    </Grid>
 </UserControl>

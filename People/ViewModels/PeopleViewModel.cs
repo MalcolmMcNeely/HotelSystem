@@ -1,6 +1,9 @@
 ﻿using HotelSystem.Business;
 using HotelSystem.Infrastructure.Common;
+using Prism.Commands;
+using System;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace People.ViewModels
 {
@@ -12,6 +15,8 @@ namespace People.ViewModels
       {
          _model = new Person();
          _model.PropertyChanged += OnModelPropertyChanged;
+
+         SetupCommands();
       }
 
       public void ShutDown()
@@ -27,7 +32,7 @@ namespace People.ViewModels
       public string Name
       {
          get => _model.Name;
-         set => _model.Name = value;
+         set => _model.Name = value;         
       }
 
       public int Age
@@ -90,7 +95,31 @@ namespace People.ViewModels
 
       private void OnModelPropertyChanged(object sender, PropertyChangedEventArgs e)
       {
+         SaveCommand.RaiseCanExecuteChanged();
+
          RaisePropertyChanged(e.PropertyName);
+      }
+
+      #endregion
+
+      #region Commands
+
+      private void SetupCommands()
+      {
+         SaveCommand = new DelegateCommand(SaveCommandExecute, CanSaveCommandExecute);
+      }
+
+      public DelegateCommand SaveCommand;
+
+      public void SaveCommandExecute()
+      {
+         _model.LastUpdated = DateTime.Now;
+         _model.Save();
+      }
+
+      public bool CanSaveCommandExecute()
+      {
+         return !_model.HasErrors;
       }
 
       #endregion

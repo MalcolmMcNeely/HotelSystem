@@ -41,7 +41,9 @@ namespace HotelSystem.Infrastructure.UserControls
       }
 
       public static readonly DependencyProperty TextProperty =
-         DependencyProperty.Register("Text", typeof(string), typeof(LabelledTextBox));
+         DependencyProperty.Register("Text", typeof(string), typeof(LabelledTextBox),
+            new FrameworkPropertyMetadata(string.Empty,
+               FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
       public string LabelText
       {
