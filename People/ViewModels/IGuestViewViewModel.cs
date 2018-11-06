@@ -2,7 +2,7 @@
 
 namespace Guests.ViewModels
 {
-    public interface IGuestViewModel : IViewModel
+    public interface IGuestViewViewModel : IViewModel
     {
     }
 }

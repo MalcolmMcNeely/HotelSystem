@@ -1,9 +1,9 @@
-﻿using HotelSystem.Data.DataTransferObjects;
+﻿using HotelSystem.Data.Data;
 using HotelSystem.Data.Repositories;
 using HotelSystem.Infrastructure.Common;
 using System;
 
-namespace HotelSystem.Business
+namespace HotelSystem.Business.DomainObjects
 {
     public class Guest : BindableBase
     {
@@ -18,13 +18,27 @@ namespace HotelSystem.Business
             _name = other._name;
             _age = other._age;
             _addressLineOne = other._addressLineOne;
-            _addressLineTwo = other.AddressLineTwo;
+            _addressLineTwo = other._addressLineTwo;
             _city = other.City;
             _postCode = other.PostCode;
             _phoneNumber = other._phoneNumber;
             _creditCardNumber = other._creditCardNumber;
             _amountOwed = other._amountOwed;
-            _amountPaid = other.AmountPaid;
+            _amountPaid = other._amountPaid;
+        }
+
+        public Guest(GuestData data)
+        {
+            _name = data.Name;
+            _age = data.Age;
+            _addressLineOne = data.AddressLineOne;
+            _addressLineTwo = data.AddressLineTwo;
+            _city = data.City;
+            _postCode = data.PostCode;
+            _phoneNumber = data.PhoneNumber;
+            _creditCardNumber = data.CreditCardNumber;
+            _amountOwed = data.AmountOwed;
+            _amountPaid = data.AmountPaid;
         }
 
         #region Properties
@@ -117,9 +131,9 @@ namespace HotelSystem.Business
 
         #endregion
 
-        public GuestDataTransferObject ToDALGuest()
+        public GuestData ToGuestData()
         {
-            var dalPerson = new GuestDataTransferObject()
+            var dalPerson = new GuestData()
             {
                 Name = Name,
                 Age = Age,
@@ -139,8 +153,8 @@ namespace HotelSystem.Business
 
         public void Save()
         {
-            var person = ToDALGuest();
-            _repository.AddOrUpdate(ToDALGuest());
+            var person = ToGuestData();
+            _repository.AddOrUpdate(ToGuestData());
         }
     }
 }

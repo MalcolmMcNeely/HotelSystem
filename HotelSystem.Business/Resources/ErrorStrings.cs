@@ -1,4 +1,4 @@
-﻿namespace HotelSystem.Business
+﻿namespace HotelSystem.Business.Resources
 {
     public class ErrorStrings
     {

@@ -26,7 +26,7 @@ namespace Guests
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<GuestView>();
-            containerRegistry.Register<IGuestViewModel, GuestViewModel>();
+            containerRegistry.Register<IGuestViewViewModel, GuestViewViewModel>();
 
             _regionManager.RegisterViewWithRegion(RegionNames.GuestsRegion, typeof(GuestView));
         }

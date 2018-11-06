@@ -1,12 +1,13 @@
-﻿using HotelSystem.Data.DataTransferObjects;
-using HotelSystem.DataContexes;
+﻿using HotelSystem.Data.Data;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace HotelSystem.Data.Repositories
 {
-    public class GuestRepository
+    public class GuestRepository : IGuestRepository
     {
-        public void AddOrUpdate(GuestDataTransferObject person)
+        public void AddOrUpdate(GuestData person)
         {
             using (var db = new Context())
             {
@@ -25,15 +26,15 @@ namespace HotelSystem.Data.Repositories
             }
         }
 
-        public ObservableCollection<GuestDataTransferObject> GetAll()
+        public List<GuestData> GetAll()
         {
             using (var db = new Context())
             {
-                return db.Guests.Local;
+                return db.Guests.ToList();
             }
         }
 
-        public GuestDataTransferObject GetById(int id)
+        public GuestData GetById(int id)
         {
             using (var db = new Context())
             {

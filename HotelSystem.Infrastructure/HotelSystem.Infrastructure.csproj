@@ -84,6 +84,7 @@
     <Compile Include="Common\ValidatableBindableBase.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Attributes\DoNotAutoGenerateAttribute.cs" />
     <Compile Include="DryIoc\DryIocContainerExtension.cs" />
     <Compile Include="DryIoc\DryIocServiceLocatorAdapter.cs" />
     <Compile Include="DryIoc\PrismIocExtensions.cs" />

@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ErrorStrings.cs" />
+    <Compile Include="DataManagers\GuestManager.cs" />
+    <Compile Include="Resources\ErrorStrings.cs" />
     <Compile Include="StaticData.cs" />
-    <Compile Include="ValidationConstants.cs" />
-    <Compile Include="Guest.cs" />
+    <Compile Include="Resources\ValidationConstants.cs" />
+    <Compile Include="DomainObjects\Guest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

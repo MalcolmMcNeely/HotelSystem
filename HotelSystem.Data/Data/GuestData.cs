@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HotelSystem.Data.DataTransferObjects
+namespace HotelSystem.Data.Data
 {
-    public class GuestDataTransferObject
+    public class GuestData
     {
-        public GuestDataTransferObject() { }
+        public GuestData() { }
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -22,6 +22,9 @@ namespace HotelSystem.Data.DataTransferObjects
 
         [Required]
         public string AddressLineTwo { get; set; }
+
+        [Required]
+        public string PostCode { get; set; }
 
         [Required]
         public string City { get; set; }
@@ -42,7 +45,7 @@ namespace HotelSystem.Data.DataTransferObjects
         [Required]
         public DateTime LastUpdated { get; set; }
 
-        public void Update(GuestDataTransferObject other)
+        public void Update(GuestData other)
         {
             Id = other.Id;
             Name = other.Name;

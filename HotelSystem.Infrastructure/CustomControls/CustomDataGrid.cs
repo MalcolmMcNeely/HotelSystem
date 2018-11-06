@@ -1,4 +1,5 @@
-﻿using HotelSystem.Infrastructure.Common;
+﻿using HotelSystem.Infrastructure.Attributes;
+using HotelSystem.Infrastructure.Common;
 using HotelSystem.Infrastructure.Helpers;
 using Prism.Commands;
 using System;
@@ -295,6 +296,12 @@ namespace HotelSystem.Infrastructure.CustomControls
             base.OnAutoGeneratingColumn(e);
 
             Type propertyType = e.PropertyType;
+            PropertyDescriptor pd = e.PropertyDescriptor as PropertyDescriptor;
+
+            if (pd.Attributes.OfType<DoNotAutoGenerateAttribute>().Any())
+            {
+                e.Cancel = true;
+            }
 
             // Replace the auto generated column with the column we generate ourselves
             if (typeof(decimal).IsAssignableFrom(propertyType))
@@ -346,6 +353,7 @@ namespace HotelSystem.Infrastructure.CustomControls
                 {
                     // Configure column based on attributes
                     var attributes = pd.Attributes;
+
                     if (pd.Attributes.OfType<DisplayNameAttribute>().Any())
                     {
                         var displayName = pd.Attributes.OfType<DisplayNameAttribute>().First();

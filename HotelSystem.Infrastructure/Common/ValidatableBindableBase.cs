@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using HotelSystem.Infrastructure.Attributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -84,11 +85,13 @@ namespace HotelSystem.Infrastructure.Common
             return _errors[propertyName];
         }
 
+        [DoNotAutoGenerate]
         public bool ValidationPassed
         {
             get => !HasErrors;
         }
 
+        [DoNotAutoGenerate]
         public bool HasErrors
         {
             get => _errors.Any(x => x.Value != null && x.Value.Count > 0);

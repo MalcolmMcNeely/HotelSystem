@@ -28,7 +28,7 @@ namespace HotelSystem.Infrastructure.UserControls
         }
 
         public static readonly DependencyProperty OverlayContentProperty =
-            DependencyProperty.Register("MenuContent", typeof(ScrollViewer), typeof(OverlayControl));
+            DependencyProperty.Register("OverlayContent", typeof(ScrollViewer), typeof(OverlayControl));
 
         public double OverlayWidth
         {
@@ -37,8 +37,37 @@ namespace HotelSystem.Infrastructure.UserControls
         }
 
         public static readonly DependencyProperty OverlayWidthProperty =
-            DependencyProperty.Register("MenuWidth", typeof(double), typeof(OverlayControl),
+            DependencyProperty.Register("OverlayWidth", typeof(double), typeof(OverlayControl),
                 new PropertyMetadata(200d));
+
+        public bool IsOverlayVisible
+        {
+            get { return (bool)GetValue(IsOverlayVisibleProperty); }
+            set { SetValue(IsOverlayVisibleProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsOverlayVisibleProperty =
+            DependencyProperty.Register("IsOverlayVisible", typeof(bool), typeof(OverlayControl),
+                new FrameworkPropertyMetadata(false, 
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, 
+                    OnIsOverlayVisibleChanged));
+
+        private static void OnIsOverlayVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var overlay = d as OverlayControl;
+
+            if(d != null)
+            {
+                if((bool)e.NewValue)
+                {
+                    overlay.Show();
+                }
+                else
+                {
+                    overlay.Hide();
+                }
+            }
+        }
 
         public double AnimationTime
         {
@@ -104,6 +133,7 @@ namespace HotelSystem.Infrastructure.UserControls
 
             RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
             ShadowColumn.Width = new GridLength(0);
+            IsOverlayVisible = false;
             _isShown = false;
         }
 

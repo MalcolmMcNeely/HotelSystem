@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Guests.Views.CreateUpdateGuest"
+﻿<UserControl x:Class="Guests.Views.CreateUpdateGuestView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,6 +7,7 @@
              xmlns:localres="clr-namespace:Guests.Resources"
              xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
              xmlns:bll="clr-namespace:HotelSystem.Business;assembly=HotelSystem.Business"
+             xmlns:bllres="clr-namespace:HotelSystem.Business.Resources;assembly=HotelSystem.Business"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -43,16 +44,16 @@
             <inf.userControls:LabelledDecimalTextBox Grid.Row="7"
                                                      LabelText="{x:Static localres:Strings.AmountOwed}"
                                                      Value="{Binding AmountOwed}"
-                                                     MaximumValue="{x:Static bll:ValidationConstants.MaxDecimal}"
-                                                     MinimumValue="{x:Static bll:ValidationConstants.MinDecimal}"
+                                                     MaximumValue="{x:Static bllres:ValidationConstants.MaxDecimal}"
+                                                     MinimumValue="{x:Static bllres:ValidationConstants.MinDecimal}"
                                                      DecimalTextBoxTextAlignment="Left"
                                                      NumberFormat="C"
                                                      ShowZeroValue="False"/>
             <inf.userControls:LabelledDecimalTextBox Grid.Row="8"
                                                      LabelText="{x:Static localres:Strings.AmountPaid}"
                                                      Value="{Binding AmountPaid}"
-                                                     MaximumValue="{x:Static bll:ValidationConstants.MaxDecimal}"
-                                                     MinimumValue="{x:Static bll:ValidationConstants.MinDecimal}"
+                                                     MaximumValue="{x:Static bllres:ValidationConstants.MaxDecimal}"
+                                                     MinimumValue="{x:Static bllres:ValidationConstants.MinDecimal}"
                                                      DecimalTextBoxTextAlignment="Left"
                                                      NumberFormat="C"
                                                      ShowZeroValue="False"/>

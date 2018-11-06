@@ -1,11 +1,8 @@
 ﻿using FluentValidation;
-using HotelSystem.Business;
+using HotelSystem.Business.DomainObjects;
+using HotelSystem.Business.Resources;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Guests.Validators
 {

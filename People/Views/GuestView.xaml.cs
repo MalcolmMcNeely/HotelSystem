@@ -9,7 +9,7 @@ namespace Guests.Views
     /// </summary>
     public partial class GuestView : UserControl, IView
     {
-        public GuestView(IGuestViewModel viewModel)
+        public GuestView(IGuestViewViewModel viewModel)
         {
             InitializeComponent();
 
@@ -19,7 +19,17 @@ namespace Guests.Views
         public IViewModel ViewModel
         {
             get => (IViewModel)DataContext;
-            set => DataContext = value;
+            set
+            {
+                if(DataContext != null)
+                {
+                    ((IViewModel)DataContext).ShutDown();
+                }
+
+                DataContext = value;
+
+                ((IViewModel)DataContext).Initialise();
+            }
         }
     }
 }

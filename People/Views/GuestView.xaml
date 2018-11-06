@@ -8,58 +8,47 @@
              xmlns:inf.controls="clr-namespace:HotelSystem.Infrastructure.CustomControls;assembly=HotelSystem.Infrastructure"
              xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
              xmlns:bll="clr-namespace:HotelSystem.Business;assembly=HotelSystem.Business"
+             xmlns:bllres="clr-namespace:HotelSystem.Business.Resources;assembly=HotelSystem.Business"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
+    <UserControl.Resources>
+        <sys:Double x:Key="AnimTime">100</sys:Double>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel>
-            <!--MM validation works but doesn't show error template-->
-            <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
-                                              Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-            <inf.userControls:LabelledTextBox Grid.Row="1"
-                                              LabelText="{x:Static localres:Strings.Age}"
-                                              Text="{Binding Age, ValidatesOnDataErrors=True}"
-                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-            <inf.userControls:LabelledTextBox Grid.Row="2"
-                                              LabelText="{x:Static localres:Strings.AddressLineOne}"
-                                              Text="{Binding AddressLineOne, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-            <inf.userControls:LabelledTextBox Grid.Row="3"
-                                              LabelText="{x:Static localres:Strings.AddressLineTwo}"
-                                              Text="{Binding AddressLineTwo, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-            <inf.userControls:LabelledTextBox Grid.Row="4"
-                                              LabelText="{x:Static localres:Strings.City}"
-                                              Text="{Binding City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-            <inf.userControls:LabelledTextBox Grid.Row="5"
-                                              LabelText="{x:Static localres:Strings.Postcode}"
-                                              Text="{Binding Postcode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-            <inf.userControls:LabelledTextBox Grid.Row="6"
-                                              LabelText="{x:Static localres:Strings.CreditCardNumber}"
-                                              Text="{Binding CreditCardNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-            <!--MM ShowZeroValue not working-->
-            <inf.userControls:LabelledDecimalTextBox Grid.Row="7"
-                                                     LabelText="{x:Static localres:Strings.AmountOwed}"
-                                                     Value="{Binding AmountOwed}"
-                                                     MaximumValue="{x:Static bll:ValidationConstants.MaxDecimal}"
-                                                     MinimumValue="{x:Static bll:ValidationConstants.MinDecimal}"
-                                                     DecimalTextBoxTextAlignment="Left"
-                                                     NumberFormat="C"
-                                                     ShowZeroValue="False"/>
-            <inf.userControls:LabelledDecimalTextBox Grid.Row="8"
-                                                     LabelText="{x:Static localres:Strings.AmountPaid}"
-                                                     Value="{Binding AmountPaid}"
-                                                     MaximumValue="{x:Static bll:ValidationConstants.MaxDecimal}"
-                                                     MinimumValue="{x:Static bll:ValidationConstants.MinDecimal}"
-                                                     DecimalTextBoxTextAlignment="Left"
-                                                     NumberFormat="C"
-                                                     ShowZeroValue="False"/>
-            <Button Content="Save"
-                    Command="{Binding SaveCommand}"/>
-        </StackPanel>
+        <!-- Create or update guest overlay -->
+        <inf.userControls:OverlayControl x:Name="ProductSearchOverlayMenu"
+                                         Panel.ZIndex="1000"
+                                         HorizontalAlignment="Left"
+                                         OverlayWidth="350"
+                                         IsOverlayVisible="{Binding IsCreateUpdateGuestViewVisible}"
+                                         AnimationTime="{StaticResource AnimTime}"
+                                         HiddenMargin="5">
+            <inf.userControls:OverlayControl.OverlayContent>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <local:CreateUpdateGuestView/>
+                </ScrollViewer>
+            </inf.userControls:OverlayControl.OverlayContent>
+        </inf.userControls:OverlayControl>
+
+        <DockPanel Margin="10">
+            <WrapPanel DockPanel.Dock="Top">
+                <TextBlock Text="Guest Section"
+                           FontFamily="Segoe UI Symbol"
+                           FontSize="30"/>
+            </WrapPanel>
+
+            <DockPanel>
+                <StackPanel>
+                    <Button Content="Show Something"
+                            Command="{Binding ShowCreateUpdateGuestViewCommand}"/>
+                </StackPanel>
+                <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
+                                             IsReadOnly="True"
+                                             AutoGenerateColumns="True"
+                                             Margin="10 0 0 0"/>
+            </DockPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

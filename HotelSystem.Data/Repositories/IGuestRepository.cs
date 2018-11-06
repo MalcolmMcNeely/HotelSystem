@@ -1,12 +1,13 @@
-﻿using HotelSystem.Data.DataTransferObjects;
+﻿using HotelSystem.Data.Data;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace HotelSystem.Data.Repositories
 {
     public interface IGuestRepository
     {
-        void AddOrUpdate(GuestDataTransferObject person);
-        ObservableCollection<GuestDataTransferObject> GetAll();
-        GuestDataTransferObject GetById(int id);
+        void AddOrUpdate(GuestData person);
+        List<GuestData> GetAll();
+        GuestData GetById(int id);
     }
 }

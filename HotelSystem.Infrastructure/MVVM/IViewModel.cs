@@ -2,6 +2,7 @@
 {
     public interface IViewModel
     {
+        void Initialise();
         void ShutDown();
     }
 }

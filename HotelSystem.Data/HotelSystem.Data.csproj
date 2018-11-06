@@ -47,8 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTransferObjects\GuestDataTransferObject.cs" />
-    <Compile Include="DataContexes\Context.cs" />
+    <Compile Include="Data\GuestData.cs" />
+    <Compile Include="Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IGuestRepository.cs" />
     <Compile Include="Repositories\GuestRepository.cs" />

@@ -96,11 +96,11 @@
     <Compile Include="Resources\Strings.cs" />
     <Compile Include="Validators\GuestValidator.cs" />
     <Compile Include="ViewModels\CreateUpdateGuestViewModel.cs" />
-    <Compile Include="ViewModels\ICreateUpdateGuestViewModel.cs" />
-    <Compile Include="ViewModels\IGuestViewModel.cs" />
+    <Compile Include="ViewModels\GuestViewViewModel.cs" />
+    <Compile Include="ViewModels\IGuestViewViewModel.cs" />
     <Compile Include="ViewModels\GuestViewModel.cs" />
-    <Compile Include="Views\CreateUpdateGuest.xaml.cs">
-      <DependentUpon>CreateUpdateGuest.xaml</DependentUpon>
+    <Compile Include="Views\CreateUpdateGuestView.xaml.cs">
+      <DependentUpon>CreateUpdateGuestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GuestView.xaml.cs">
       <DependentUpon>GuestView.xaml</DependentUpon>
@@ -127,7 +127,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Views\CreateUpdateGuest.xaml">
+    <Page Include="Views\CreateUpdateGuestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
