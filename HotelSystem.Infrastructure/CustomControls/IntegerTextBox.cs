@@ -326,8 +326,9 @@ namespace HotelSystem.Infrastructure.CustomControls
 
         private void SetDisplayString(int? number = null)
         {
-            // If ShowZeroValue is true and number is not null, always display the number
-            if (number != null && (number != 0M || ShowZeroValue))
+            // If ShowZeroValue is true and number is not null
+            // then always display the number
+            if (number != null && (number != 0 || ShowZeroValue))
             {
                 DisplayString = String.Format(StringFormatString, number);
             }

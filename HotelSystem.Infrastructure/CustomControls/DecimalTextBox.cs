@@ -382,16 +382,15 @@ namespace HotelSystem.Infrastructure.CustomControls
 
         private void SetDisplayString(decimal? number = null)
         {
-            // If ShowZeroValue is true, always display the number
-            if (ShowZeroValue)
+            // If ShowZeroValue is true and number is not null
+            // then always display the number
+            if (number != null && (number != 0M || ShowZeroValue))
             {
-                DisplayString = number == null ? String.Format(StringFormatString, 0M) :
-                    String.Format(StringFormatString, number);
+                DisplayString = String.Format(StringFormatString, number);
             }
             else
             {
-                DisplayString = number == null ? string.Empty :
-                    String.Format(StringFormatString, number);
+                DisplayString = string.Empty;
             }
         }
 
