@@ -1,14 +1,14 @@
-﻿using HotelSystem.Data.DataModels;
+﻿using HotelSystem.Data.DataTransferObjects;
 using HotelSystem.DataContexes;
 using System.Collections.ObjectModel;
 
 namespace HotelSystem.Data.Repositories
 {
-    public class PersonRepository
+    public class GuestRepository
     {
-        public void AddOrUpdate(DALPerson person)
+        public void AddOrUpdate(GuestDataTransferObject person)
         {
-            using (var db = new PersonContext())
+            using (var db = new GuestContext())
             {
                 var existingPerson = db.People.Find(person.Id);
 
@@ -25,17 +25,17 @@ namespace HotelSystem.Data.Repositories
             }
         }
 
-        public ObservableCollection<DALPerson> GetAll()
+        public ObservableCollection<GuestDataTransferObject> GetAll()
         {
-            using (var db = new PersonContext())
+            using (var db = new GuestContext())
             {
                 return db.People.Local;
             }
         }
 
-        public DALPerson GetById(int id)
+        public GuestDataTransferObject GetById(int id)
         {
-            using (var db = new PersonContext())
+            using (var db = new GuestContext())
             {
                 return db.People.Find(id);
             }

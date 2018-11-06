@@ -1,18 +1,18 @@
 ﻿using HotelSystem.Infrastructure;
-using People.ViewModels;
-using People.Views;
+using Guests.ViewModels;
+using Guests.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace People
+namespace Guests
 {
-    [Module(ModuleName = "PeopleModule")]
-    public class PeopleModule : IModule
+    [Module(ModuleName = "GuestsModule")]
+    public class GuestsModule : IModule
     {
         IRegionManager _regionManager;
 
-        public PeopleModule(IRegionManager regionManager)
+        public GuestsModule(IRegionManager regionManager)
         {
             _regionManager = regionManager;
         }
@@ -24,10 +24,10 @@ namespace People
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<PeopleView>();
-            containerRegistry.Register<IPeopleViewModel, PeopleViewModel>();
+            containerRegistry.Register<GuestView>();
+            containerRegistry.Register<IGuestViewModel, GuestViewModel>();
 
-            _regionManager.RegisterViewWithRegion(RegionNames.PeopleRegion, typeof(PeopleView));
+            _regionManager.RegisterViewWithRegion(RegionNames.GuestsRegion, typeof(GuestView));
         }
     }
 }

@@ -7,15 +7,15 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace People.Validators
+namespace Guests.Validators
 {
-    public class PersonValidator : AbstractValidator<Person>
+    public class GuestValidator : AbstractValidator<Guest>
     {
         private Regex _onlyAlphaNumericRegex = new Regex(ValidationConstants.OnlyAlphaNumericCharactersRegex);
         private Regex _onlyAlphaRegex = new Regex(ValidationConstants.OnlyAlphaCharactersRegex);
         private Regex _onlyNumericRegex = new Regex(ValidationConstants.OnlyNumericCharactersRegex);
 
-        public PersonValidator()
+        public GuestValidator()
         {
             RuleFor(person => person.Name)
                 .NotEmpty()

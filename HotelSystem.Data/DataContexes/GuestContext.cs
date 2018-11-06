@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using HotelSystem.Data.DataModels;
+using HotelSystem.Data.DataTransferObjects;
 
 namespace HotelSystem.DataContexes
 {
-    public class PersonContext : DbContext
+    public class GuestContext : DbContext
     {
-        public DbSet<DALPerson> People { get; set; }
+        public DbSet<GuestDataTransferObject> People { get; set; }
     }
 }

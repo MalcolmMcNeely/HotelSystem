@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HotelSystem.Data.DataModels
+namespace HotelSystem.Data.DataTransferObjects
 {
-    public class DALPerson
+    public class GuestDataTransferObject
     {
-        public DALPerson() { }
+        public GuestDataTransferObject() { }
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -42,7 +42,7 @@ namespace HotelSystem.Data.DataModels
         [Required]
         public DateTime LastUpdated { get; set; }
 
-        public void Update(DALPerson other)
+        public void Update(GuestDataTransferObject other)
         {
             Id = other.Id;
             Name = other.Name;

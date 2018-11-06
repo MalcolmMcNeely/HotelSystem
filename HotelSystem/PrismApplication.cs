@@ -1,10 +1,10 @@
 ﻿using CommonServiceLocator;
 using DryIoc;
+using Guests;
 using HotelSystem.Infrastructure;
 using HotelSystem.Infrastructure.DryIoc;
 using HotelSystem.Infrastructure.PRISM;
 using Navigation;
-using People;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -86,7 +86,7 @@ namespace HotelSystem
                 InitializationMode = InitializationMode.WhenAvailable
             });
 
-            var peopleModuleType = typeof(PeopleModule);
+            var peopleModuleType = typeof(GuestsModule);
             moduleCatalog.AddModule(new ModuleInfo()
             {
                 ModuleName = peopleModuleType.Name,

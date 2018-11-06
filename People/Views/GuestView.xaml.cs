@@ -1,15 +1,15 @@
 ﻿using HotelSystem.Infrastructure.MVVM;
-using People.ViewModels;
+using Guests.ViewModels;
 using System.Windows.Controls;
 
-namespace People.Views
+namespace Guests.Views
 {
     /// <summary>
-    /// Interaction logic for PeopleView.xaml
+    /// Interaction logic for GuestView.xaml
     /// </summary>
-    public partial class PeopleView : UserControl, IView
+    public partial class GuestView : UserControl, IView
     {
-        public PeopleView(IPeopleViewModel viewModel)
+        public GuestView(IGuestViewModel viewModel)
         {
             InitializeComponent();
 

@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="ErrorStrings.cs" />
     <Compile Include="ValidationConstants.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Guest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

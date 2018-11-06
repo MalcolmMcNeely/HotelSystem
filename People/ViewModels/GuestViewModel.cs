@@ -3,22 +3,22 @@ using FluentValidation.Internal;
 using FluentValidation.Results;
 using HotelSystem.Business;
 using HotelSystem.Infrastructure.Common;
-using People.Validators;
+using Guests.Validators;
 using Prism.Commands;
 using System;
 using System.ComponentModel;
 using System.Windows.Input;
 
-namespace People.ViewModels
+namespace Guests.ViewModels
 {
-    public class PeopleViewModel : ValidatableBindableBase, IPeopleViewModel
+    public class GuestViewModel : ValidatableBindableBase, IGuestViewModel
     {
-        private Person _model;
-        private PersonValidator _validator = new PersonValidator();
+        private Guest _model;
+        private GuestValidator _validator = new GuestValidator();
 
-        public PeopleViewModel()
+        public GuestViewModel()
         {
-            _model = new Person();
+            _model = new Guest();
             _model.PropertyChanged += OnModelPropertyChanged;
 
             SetupCommands();
@@ -138,7 +138,7 @@ namespace People.ViewModels
         {
             ClearError(propertyName);
 
-            var context = new ValidationContext<Person>(
+            var context = new ValidationContext<Guest>(
                 _model, new PropertyChain(), 
                 new MemberNameValidatorSelector(new[] { propertyName }));
             var result = _validator.Validate(context);

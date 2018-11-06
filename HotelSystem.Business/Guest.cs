@@ -1,4 +1,4 @@
-﻿using HotelSystem.Data.DataModels;
+﻿using HotelSystem.Data.DataTransferObjects;
 using HotelSystem.Data.Repositories;
 using HotelSystem.DataContexes;
 using HotelSystem.Infrastructure.Common;
@@ -7,15 +7,15 @@ using System.ComponentModel;
 
 namespace HotelSystem.Business
 {
-    public partial class Person : BindableBase
+    public class Guest : BindableBase
     {
-        PersonRepository _repository = new PersonRepository();
+        GuestRepository _repository = new GuestRepository();
 
-        public Person()
+        public Guest()
         {
         }
 
-        public Person(Person other)
+        public Guest(Guest other)
         {
             _name = other._name;
             _age = other._age;
@@ -119,9 +119,9 @@ namespace HotelSystem.Business
 
         #endregion
 
-        public DALPerson ToDALPerson()
+        public GuestDataTransferObject ToDALGuest()
         {
-            var dalPerson = new DALPerson()
+            var dalPerson = new GuestDataTransferObject()
             {
                 Name = Name,
                 Age = Age,
@@ -141,8 +141,8 @@ namespace HotelSystem.Business
 
         public void Save()
         {
-            var person = ToDALPerson();
-            _repository.AddOrUpdate(ToDALPerson());
+            var person = ToDALGuest();
+            _repository.AddOrUpdate(ToDALGuest());
         }
     }
 }

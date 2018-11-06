@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{77
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelSystem.Business", "HotelSystem.Business\HotelSystem.Business.csproj", "{FB9A5333-C30B-4AB2-B2D9-3ABC337D62ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "People", "People\People.csproj", "{9AA2963D-884B-46B5-B5B3-6802B441E0F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guests", "People\Guests.csproj", "{9AA2963D-884B-46B5-B5B3-6802B441E0F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{EC257AAE-F59D-414C-87DB-1D0A9CE7ABB8}"
 EndProject
