@@ -7,6 +7,7 @@
              xmlns:localres="clr-namespace:People.Resources"
              xmlns:inf.controls="clr-namespace:HotelSystem.Infrastructure.CustomControls;assembly=HotelSystem.Infrastructure"
              xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
+             xmlns:bll="clr-namespace:HotelSystem.Business;assembly=HotelSystem.Business"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
@@ -14,39 +15,51 @@
         <StackPanel>
             <!--MM validation works but doesn't show error template-->
             <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
-                                              Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                              Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                               Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
             <inf.userControls:LabelledTextBox Grid.Row="1"
                                               LabelText="{x:Static localres:Strings.Age}"
-                                              Text="{Binding Age}"/>
+                                              Text="{Binding Age, ValidatesOnDataErrors=True}"
+                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
             <inf.userControls:LabelledTextBox Grid.Row="2"
                                               LabelText="{x:Static localres:Strings.AddressLineOne}"
-                                              Text="{Binding AddressLineOne}"/>
+                                              Text="{Binding AddressLineOne, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
             <inf.userControls:LabelledTextBox Grid.Row="3"
                                               LabelText="{x:Static localres:Strings.AddressLineTwo}"
-                                              Text="{Binding AddressLineTwo}"/>
+                                              Text="{Binding AddressLineTwo, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
             <inf.userControls:LabelledTextBox Grid.Row="4"
                                               LabelText="{x:Static localres:Strings.City}"
-                                              Text="{Binding City}"/>
+                                              Text="{Binding City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
             <inf.userControls:LabelledTextBox Grid.Row="5"
                                               LabelText="{x:Static localres:Strings.Postcode}"
-                                              Text="{Binding Postcode}"/>
+                                              Text="{Binding Postcode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
             <inf.userControls:LabelledTextBox Grid.Row="6"
                                               LabelText="{x:Static localres:Strings.CreditCardNumber}"
-                                              Text="{Binding CreditCardNumber}"/>
+                                              Text="{Binding CreditCardNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
             <!--MM ShowZeroValue not working-->
             <inf.userControls:LabelledDecimalTextBox Grid.Row="7"
                                                      LabelText="{x:Static localres:Strings.AmountOwed}"
                                                      Value="{Binding AmountOwed}"
+                                                     MaximumValue="{x:Static bll:ValidationConstants.MaxDecimal}"
+                                                     MinimumValue="{x:Static bll:ValidationConstants.MinDecimal}"
                                                      DecimalTextBoxTextAlignment="Left"
                                                      NumberFormat="C"
                                                      ShowZeroValue="False"/>
             <inf.userControls:LabelledDecimalTextBox Grid.Row="8"
                                                      LabelText="{x:Static localres:Strings.AmountPaid}"
                                                      Value="{Binding AmountPaid}"
+                                                     MaximumValue="{x:Static bll:ValidationConstants.MaxDecimal}"
+                                                     MinimumValue="{x:Static bll:ValidationConstants.MinDecimal}"
                                                      DecimalTextBoxTextAlignment="Left"
                                                      NumberFormat="C"
                                                      ShowZeroValue="False"/>
+            <Button Content="Save"
+                    Command="{Binding SaveCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

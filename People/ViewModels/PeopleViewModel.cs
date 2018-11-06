@@ -1,5 +1,9 @@
-﻿using HotelSystem.Business;
+﻿using FluentValidation;
+using FluentValidation.Internal;
+using FluentValidation.Results;
+using HotelSystem.Business;
 using HotelSystem.Infrastructure.Common;
+using People.Validators;
 using Prism.Commands;
 using System;
 using System.ComponentModel;
@@ -7,9 +11,10 @@ using System.Windows.Input;
 
 namespace People.ViewModels
 {
-    public class PeopleViewModel : BindableBase, IPeopleViewModel
+    public class PeopleViewModel : ValidatableBindableBase, IPeopleViewModel
     {
         private Person _model;
+        private PersonValidator _validator = new PersonValidator();
 
         public PeopleViewModel()
         {
@@ -95,8 +100,7 @@ namespace People.ViewModels
 
         private void OnModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            SaveCommand.RaiseCanExecuteChanged();
-
+            ValidateModelProperty(e.PropertyName);
             RaisePropertyChanged(e.PropertyName);
         }
 
@@ -106,10 +110,10 @@ namespace People.ViewModels
 
         private void SetupCommands()
         {
-            SaveCommand = new DelegateCommand(SaveCommandExecute, CanSaveCommandExecute);
+            SaveCommand = new DelegateCommand(SaveCommandExecute).ObservesCanExecute(() => ValidationPassed);
         }
 
-        public DelegateCommand SaveCommand;
+        public DelegateCommand SaveCommand { get; private set; }
 
         public void SaveCommandExecute()
         {
@@ -117,11 +121,31 @@ namespace People.ViewModels
             _model.Save();
         }
 
-        public bool CanSaveCommandExecute()
+        #endregion
+
+        public ValidationResult ValidateModel()
         {
-            return !_model.HasErrors;
+            ClearAllErrors();
+
+            var result = _validator.Validate(_model);
+
+            AddErrors(result);
+
+            return result;
         }
 
-        #endregion
+        public ValidationResult ValidateModelProperty(string propertyName)
+        {
+            ClearError(propertyName);
+
+            var context = new ValidationContext<Person>(
+                _model, new PropertyChain(), 
+                new MemberNameValidatorSelector(new[] { propertyName }));
+            var result = _validator.Validate(context);
+
+            AddErrors(result);
+
+            return result;
+        }
     }
 }

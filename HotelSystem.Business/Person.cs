@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace HotelSystem.Business
 {
-    public partial class Person : ValidatableBindableBase
+    public partial class Person : BindableBase
     {
         PersonRepository _repository = new PersonRepository();
 
@@ -37,91 +37,49 @@ namespace HotelSystem.Business
         public string Name
         {
             get => _name;
-            set
-            {
-                if (SetProperty(ref _name, value))
-                {
-                    ValidateText(ref _name);
-                }
-            }
+            set => SetProperty(ref _name, value);
         }
 
         private int _age;
         public int Age
         {
             get => _age;
-            set
-            {
-                if (SetProperty(ref _age, value))
-                {
-                    ValidateAge();
-                }
-            }
+            set => SetProperty(ref _age, value);
         }
 
         private string _addressLineOne;
         public string AddressLineOne
         {
             get => _addressLineOne;
-            set
-            {
-                if (SetProperty(ref _addressLineOne, value))
-                {
-                    ValidateText(ref _addressLineOne);
-                }
-            }
+            set => SetProperty(ref _addressLineOne, value);
         }
 
         private string _addressLineTwo;
         public string AddressLineTwo
         {
             get => _addressLineTwo;
-            set
-            {
-                if (SetProperty(ref _addressLineTwo, value))
-                {
-                    ValidateText(ref _addressLineTwo);
-                }
-            }
+            set => SetProperty(ref _addressLineTwo, value);
         }
 
         private string _city;
         public string City
         {
             get => _city;
-            set
-            {
-                if (SetProperty(ref _city, value))
-                {
-                    ValidateText(ref _city);
-                }
-            }
+            set => SetProperty(ref _city, value);
         }
 
         private string _postCode;
         public string PostCode
         {
             get => _postCode;
-            set
-            {
-                if (SetProperty(ref _postCode, value))
-                {
-                    ValidateText(ref _postCode);
-                }
-            }
+            set => SetProperty(ref _postCode, value);
         }
 
         private string _phoneNumber;
         public string PhoneNumber
         {
             get => _phoneNumber;
-            set
-            {
-                if (SetProperty(ref _phoneNumber, value))
-                {
-                    ValidatePhoneNumber();
-                }
-            }
+            set => SetProperty(ref _phoneNumber, value);
         }
 
         private string _creditCardNumber;
