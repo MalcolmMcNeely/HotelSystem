@@ -7,27 +7,27 @@ using Prism.Regions;
 
 namespace People
 {
-   [Module(ModuleName = "PeopleModule")]
-   public class PeopleModule : IModule
-   {
-      IRegionManager _regionManager;
+    [Module(ModuleName = "PeopleModule")]
+    public class PeopleModule : IModule
+    {
+        IRegionManager _regionManager;
 
-      public PeopleModule(IRegionManager regionManager)
-      {
-         _regionManager = regionManager;
-      }
+        public PeopleModule(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
+        }
 
-      public void OnInitialized(IContainerProvider containerProvider)
-      {
-         //throw new System.NotImplementedException();
-      }
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
+            //throw new System.NotImplementedException();
+        }
 
-      public void RegisterTypes(IContainerRegistry containerRegistry)
-      {
-         containerRegistry.Register<PeopleView>();
-         containerRegistry.Register<IPeopleViewModel, PeopleViewModel>();
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.Register<PeopleView>();
+            containerRegistry.Register<IPeopleViewModel, PeopleViewModel>();
 
-         _regionManager.RegisterViewWithRegion(RegionNames.PeopleRegion, typeof(PeopleView));
-      }
-   }
+            _regionManager.RegisterViewWithRegion(RegionNames.PeopleRegion, typeof(PeopleView));
+        }
+    }
 }

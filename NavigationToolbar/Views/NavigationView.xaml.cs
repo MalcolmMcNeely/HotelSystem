@@ -4,22 +4,22 @@ using System.Windows.Controls;
 
 namespace Navigation.Views
 {
-   /// <summary>
-   /// Interaction logic for Toolbar.xaml
-   /// </summary>
-   public partial class NavigationView : UserControl, IView
-   {
-      public NavigationView(INavigationViewModel viewModel)
-      {
-         InitializeComponent();
+    /// <summary>
+    /// Interaction logic for Toolbar.xaml
+    /// </summary>
+    public partial class NavigationView : UserControl, IView
+    {
+        public NavigationView(INavigationViewModel viewModel)
+        {
+            InitializeComponent();
 
-         ViewModel = viewModel;
-      }
+            ViewModel = viewModel;
+        }
 
-      public IViewModel ViewModel
-      {
-         get => (IViewModel)DataContext;
-         set => DataContext = value;
-      }
-   }
+        public IViewModel ViewModel
+        {
+            get => (IViewModel)DataContext;
+            set => DataContext = value;
+        }
+    }
 }

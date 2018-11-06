@@ -1,13 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:HotelSystem.Infrastructure.Styles">
-   
-   <!-- Main Window Brushes -->
-   <SolidColorBrush x:Key="brushPrimaryWindowForegroundColour" Color="#ecf0f1"/>
-   <SolidColorBrush x:Key="brushPrimaryWindowBackgroundColour" Color="#424342"/>
-   <SolidColorBrush x:Key="brushWindowDefaultButtonColour" Color="#424342"/>
-   <SolidColorBrush x:Key="brushWindowHoverButtonColour" Color="#535453"/>
-   <SolidColorBrush x:Key="brushWindowPressedButtonColour" Color="#646564"/>
-   <SolidColorBrush x:Key="brushWindowExitHoverButtonColour" Color="#d7263d"/>
-   <SolidColorBrush x:Key="brushWindowExitPressedButtonColour" Color="#de4d60"/>
+
+    <!-- Main Window Brushes -->
+    <SolidColorBrush x:Key="brushPrimaryWindowForegroundColour" Color="#ecf0f1"/>
+    <SolidColorBrush x:Key="brushPrimaryWindowBackgroundColour" Color="#424342"/>
+    <SolidColorBrush x:Key="brushWindowDefaultButtonColour" Color="#424342"/>
+    <SolidColorBrush x:Key="brushWindowHoverButtonColour" Color="#535453"/>
+    <SolidColorBrush x:Key="brushWindowPressedButtonColour" Color="#646564"/>
+    <SolidColorBrush x:Key="brushWindowExitHoverButtonColour" Color="#d7263d"/>
+    <SolidColorBrush x:Key="brushWindowExitPressedButtonColour" Color="#de4d60"/>
 </ResourceDictionary>

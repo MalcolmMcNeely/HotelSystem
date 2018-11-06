@@ -2,7 +2,7 @@
 
 namespace People.ViewModels
 {
-   public interface IPeopleViewModel : IViewModel
-   {
-   }
+    public interface IPeopleViewModel : IViewModel
+    {
+    }
 }

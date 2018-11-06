@@ -4,22 +4,22 @@ using System.Windows.Controls;
 
 namespace People.Views
 {
-   /// <summary>
-   /// Interaction logic for PeopleView.xaml
-   /// </summary>
-   public partial class PeopleView : UserControl, IView
-   {
-      public PeopleView(IPeopleViewModel viewModel)
-      {
-         InitializeComponent();
+    /// <summary>
+    /// Interaction logic for PeopleView.xaml
+    /// </summary>
+    public partial class PeopleView : UserControl, IView
+    {
+        public PeopleView(IPeopleViewModel viewModel)
+        {
+            InitializeComponent();
 
-         ViewModel = viewModel;
-      }
+            ViewModel = viewModel;
+        }
 
-      public IViewModel ViewModel
-      {
-         get => (IViewModel) DataContext;
-         set => DataContext = value;
-      }
-   }
+        public IViewModel ViewModel
+        {
+            get => (IViewModel)DataContext;
+            set => DataContext = value;
+        }
+    }
 }

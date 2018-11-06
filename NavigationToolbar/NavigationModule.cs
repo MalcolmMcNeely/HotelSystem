@@ -7,28 +7,28 @@ using Prism.Regions;
 
 namespace Navigation
 {
-   [Module(ModuleName = "NavigationModule")]
-   public class NavigationModule : IModule
-   {
-      IRegionManager _regionManager;
+    [Module(ModuleName = "NavigationModule")]
+    public class NavigationModule : IModule
+    {
+        IRegionManager _regionManager;
 
-      public NavigationModule(IRegionManager regionManager)
-      {
-         _regionManager = regionManager;
-      }
+        public NavigationModule(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
+        }
 
-      // this will give out infra.dryioccontainerextension
-      public void OnInitialized(IContainerProvider containerProvider)
-      {
-         //throw new NotImplementedException();
-      }
+        // this will give out infra.dryioccontainerextension
+        public void OnInitialized(IContainerProvider containerProvider)
+        {
+            //throw new NotImplementedException();
+        }
 
-      public void RegisterTypes(IContainerRegistry containerRegistry)
-      {
-         containerRegistry.Register<NavigationView>();
-         containerRegistry.Register<INavigationViewModel, NavigationViewModel>();
+        public void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.Register<NavigationView>();
+            containerRegistry.Register<INavigationViewModel, NavigationViewModel>();
 
-         _regionManager.RegisterViewWithRegion(RegionNames.NavigationRegion, typeof(NavigationView));
-      }
-   }
+            _regionManager.RegisterViewWithRegion(RegionNames.NavigationRegion, typeof(NavigationView));
+        }
+    }
 }

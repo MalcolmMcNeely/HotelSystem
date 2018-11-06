@@ -8,23 +8,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" 
              d:DesignWidth="400">
-   <Grid x:Name="LayoutRoot">
-      <Grid.RowDefinitions>
-         <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-         <ColumnDefinition Width="*" />
-         <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-      <Label Content="{Binding LabelText}"/>
-      <local.controls:DecimalTextBox Grid.Column="1"
-                                     IsReadOnly="{Binding IsReadOnly}"
-                                     TextAlignment="{Binding DecimalTextBoxTextAlignment}"
-                                     Value="{Binding Value}"
-                                     NumberFormat="{Binding NumberFormat}"
-                                     DecimalPlaces="{Binding DecimalPlaces}"
-                                     MinimumValue="{Binding MinimumValue}"
-                                     MaximumValue="{Binding MaximumValue}"
-                                     ShowZeroValue="{Binding ShowZeroValue}"/>
-   </Grid>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding LabelText}"/>
+        <local.controls:DecimalTextBox Grid.Column="1"
+                                       IsReadOnly="{Binding IsReadOnly}"
+                                       TextAlignment="{Binding DecimalTextBoxTextAlignment}"
+                                       Value="{Binding Value}"
+                                       NumberFormat="{Binding NumberFormat}"
+                                       DecimalPlaces="{Binding DecimalPlaces}"
+                                       MinimumValue="{Binding MinimumValue}"
+                                       MaximumValue="{Binding MaximumValue}"
+                                       ShowZeroValue="{Binding ShowZeroValue}"/>
+    </Grid>
 </UserControl>

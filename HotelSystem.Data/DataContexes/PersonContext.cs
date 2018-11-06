@@ -8,8 +8,8 @@ using HotelSystem.Data.DataModels;
 
 namespace HotelSystem.DataContexes
 {
-   public class PersonContext : DbContext
-   {
-      public DbSet<DALPerson> People { get; set; }
-   }
+    public class PersonContext : DbContext
+    {
+        public DbSet<DALPerson> People { get; set; }
+    }
 }

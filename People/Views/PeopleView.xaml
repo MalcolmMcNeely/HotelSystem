@@ -10,43 +10,43 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800">
-   <Grid>
-      <StackPanel>
-         <!--MM validation works but doesn't show error template-->
-         <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
-                                           Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
-                                           Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-         <inf.userControls:LabelledTextBox Grid.Row="1"
-                                           LabelText="{x:Static localres:Strings.Age}"
-                                           Text="{Binding Age}"/>
-         <inf.userControls:LabelledTextBox Grid.Row="2"
-                                           LabelText="{x:Static localres:Strings.AddressLineOne}"
-                                           Text="{Binding AddressLineOne}"/>
-         <inf.userControls:LabelledTextBox Grid.Row="3"
-                                           LabelText="{x:Static localres:Strings.AddressLineTwo}"
-                                           Text="{Binding AddressLineTwo}"/>
-         <inf.userControls:LabelledTextBox Grid.Row="4"
-                                           LabelText="{x:Static localres:Strings.City}"
-                                           Text="{Binding City}"/>
-         <inf.userControls:LabelledTextBox Grid.Row="5"
-                                           LabelText="{x:Static localres:Strings.Postcode}"
-                                           Text="{Binding Postcode}"/>
-         <inf.userControls:LabelledTextBox Grid.Row="6"
-                                           LabelText="{x:Static localres:Strings.CreditCardNumber}"
-                                           Text="{Binding CreditCardNumber}"/>
-         <!--MM ShowZeroValue not working-->
-         <inf.userControls:LabelledDecimalTextBox Grid.Row="7"
-                                                  LabelText="{x:Static localres:Strings.AmountOwed}"
-                                                  Value="{Binding AmountOwed}"
-                                                  DecimalTextBoxTextAlignment="Left"
-                                                  NumberFormat="C"
-                                                  ShowZeroValue="False"/>
-         <inf.userControls:LabelledDecimalTextBox Grid.Row="8"
-                                                  LabelText="{x:Static localres:Strings.AmountPaid}"
-                                                  Value="{Binding AmountPaid}"
-                                                  DecimalTextBoxTextAlignment="Left"
-                                                  NumberFormat="C"
-                                                  ShowZeroValue="False"/>
-      </StackPanel>
-   </Grid>
+    <Grid>
+        <StackPanel>
+            <!--MM validation works but doesn't show error template-->
+            <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
+                                              Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                              Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
+            <inf.userControls:LabelledTextBox Grid.Row="1"
+                                              LabelText="{x:Static localres:Strings.Age}"
+                                              Text="{Binding Age}"/>
+            <inf.userControls:LabelledTextBox Grid.Row="2"
+                                              LabelText="{x:Static localres:Strings.AddressLineOne}"
+                                              Text="{Binding AddressLineOne}"/>
+            <inf.userControls:LabelledTextBox Grid.Row="3"
+                                              LabelText="{x:Static localres:Strings.AddressLineTwo}"
+                                              Text="{Binding AddressLineTwo}"/>
+            <inf.userControls:LabelledTextBox Grid.Row="4"
+                                              LabelText="{x:Static localres:Strings.City}"
+                                              Text="{Binding City}"/>
+            <inf.userControls:LabelledTextBox Grid.Row="5"
+                                              LabelText="{x:Static localres:Strings.Postcode}"
+                                              Text="{Binding Postcode}"/>
+            <inf.userControls:LabelledTextBox Grid.Row="6"
+                                              LabelText="{x:Static localres:Strings.CreditCardNumber}"
+                                              Text="{Binding CreditCardNumber}"/>
+            <!--MM ShowZeroValue not working-->
+            <inf.userControls:LabelledDecimalTextBox Grid.Row="7"
+                                                     LabelText="{x:Static localres:Strings.AmountOwed}"
+                                                     Value="{Binding AmountOwed}"
+                                                     DecimalTextBoxTextAlignment="Left"
+                                                     NumberFormat="C"
+                                                     ShowZeroValue="False"/>
+            <inf.userControls:LabelledDecimalTextBox Grid.Row="8"
+                                                     LabelText="{x:Static localres:Strings.AmountPaid}"
+                                                     Value="{Binding AmountPaid}"
+                                                     DecimalTextBoxTextAlignment="Left"
+                                                     NumberFormat="C"
+                                                     ShowZeroValue="False"/>
+        </StackPanel>
+    </Grid>
 </UserControl>

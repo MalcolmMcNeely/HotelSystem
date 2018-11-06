@@ -14,14 +14,14 @@ using System.Windows.Shapes;
 
 namespace HotelSystem
 {
-   /// <summary>
-   /// Interaction logic for Shell.xaml
-   /// </summary>
-   public partial class Shell : Window
-   {
-      public Shell()
-      {
-         InitializeComponent();
-      }
-   }
+    /// <summary>
+    /// Interaction logic for Shell.xaml
+    /// </summary>
+    public partial class Shell : Window
+    {
+        public Shell()
+        {
+            InitializeComponent();
+        }
+    }
 }

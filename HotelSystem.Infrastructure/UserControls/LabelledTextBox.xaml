@@ -7,17 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" 
              d:DesignWidth="400">
-   <Grid x:Name="LayoutRoot">
-      <Grid.RowDefinitions>
-         <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-         <ColumnDefinition Width="*"/>
-         <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Label Content="{Binding LabelText}"/>
-      <TextBox Grid.Column="1"                                     
-               IsReadOnly="{Binding IsReadOnly}"
-               Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>      
-   </Grid>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding LabelText}"/>
+        <TextBox Grid.Column="1"                                     
+                 IsReadOnly="{Binding IsReadOnly}"
+                 Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+    </Grid>
 </UserControl>

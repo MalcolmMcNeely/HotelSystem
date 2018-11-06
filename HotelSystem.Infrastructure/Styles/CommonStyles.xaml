@@ -2,46 +2,46 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:HotelSystem.Infrastructure.Styles"
                     xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls">
-   <!--Default Styles-->
-   <Style TargetType="{x:Type inf.userControls:LabelledTextBox}">
-      <Setter Property="Height" Value="24"/>
-      <Setter Property="Width" Value="240"/>
-   </Style>
+    <!--Default Styles-->
+    <Style TargetType="{x:Type inf.userControls:LabelledTextBox}">
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Width" Value="240"/>
+    </Style>
 
-   <Style TargetType="{x:Type inf.userControls:LabelledDecimalTextBox}">
-      <Setter Property="Height" Value="24"/>
-      <Setter Property="Width" Value="240"/>
-   </Style>
+    <Style TargetType="{x:Type inf.userControls:LabelledDecimalTextBox}">
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Width" Value="240"/>
+    </Style>
 
-   <Style TargetType="{x:Type inf.userControls:LabelledIntegerTextBox}">
-      <Setter Property="Height" Value="24"/>
-      <Setter Property="Width" Value="240"/>
-   </Style>
+    <Style TargetType="{x:Type inf.userControls:LabelledIntegerTextBox}">
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Width" Value="240"/>
+    </Style>
 
-   <!--Validation Error Template-->
-   <ControlTemplate x:Key="ValidationErrorTemplate">
-      <DockPanel>
-         <StackPanel Orientation="Horizontal" 
-                     DockPanel.Dock="Right"
-                     Margin="-6 0 0 0"
-                     ToolTip="{Binding ElementName=ErrorAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
-            <Grid Width="16" 
-                  Height="16">
-               <Ellipse Width="16" 
-                        Height="16" 
-                        Fill="Red" 
-                        HorizontalAlignment="Center" 
-                        VerticalAlignment="Center"/>
-               <TextBlock Text="!"
-                          Foreground="White" 
-                          FontWeight="Heavy" 
-                          FontSize="12"
-                          HorizontalAlignment="Center" 
-                          VerticalAlignment="Center" 
-                          TextAlignment="Center"/>
-            </Grid>
-         </StackPanel>
-         <AdornedElementPlaceholder x:Name="ErrorAdorner"/>
-      </DockPanel>
-   </ControlTemplate>
+    <!--Validation Error Template-->
+    <ControlTemplate x:Key="ValidationErrorTemplate">
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" 
+                        DockPanel.Dock="Right"
+                        Margin="-6 0 0 0"
+                        ToolTip="{Binding ElementName=ErrorAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                <Grid Width="16" 
+                      Height="16">
+                    <Ellipse Width="16" 
+                             Height="16" 
+                             Fill="Red" 
+                             HorizontalAlignment="Center" 
+                             VerticalAlignment="Center"/>
+                    <TextBlock Text="!"
+                               Foreground="White" 
+                               FontWeight="Heavy" 
+                               FontSize="12"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" 
+                               TextAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+            <AdornedElementPlaceholder x:Name="ErrorAdorner"/>
+        </DockPanel>
+    </ControlTemplate>
 </ResourceDictionary>

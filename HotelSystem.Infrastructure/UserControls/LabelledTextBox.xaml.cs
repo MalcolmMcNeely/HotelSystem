@@ -15,91 +15,91 @@ using System.Windows.Shapes;
 
 namespace HotelSystem.Infrastructure.UserControls
 {
-   /// <summary>
-   /// Interaction logic for LabelledTextBox.xaml
-   /// </summary>
-   public partial class LabelledTextBox : UserControl
-   {
-      public LabelledTextBox()
-      {
-         InitializeComponent();
-         LayoutRoot.DataContext = this;
-      }
+    /// <summary>
+    /// Interaction logic for LabelledTextBox.xaml
+    /// </summary>
+    public partial class LabelledTextBox : UserControl
+    {
+        public LabelledTextBox()
+        {
+            InitializeComponent();
+            LayoutRoot.DataContext = this;
+        }
 
-      static LabelledTextBox()
-      {
-         MyTextChangedEvent = TextBox.TextChangedEvent.AddOwner(typeof(LabelledTextBox));
-         MyPreviewKeyDownEvent = TextBox.PreviewKeyDownEvent.AddOwner(typeof(LabelledTextBox));
-      }
+        static LabelledTextBox()
+        {
+            MyTextChangedEvent = TextBox.TextChangedEvent.AddOwner(typeof(LabelledTextBox));
+            MyPreviewKeyDownEvent = TextBox.PreviewKeyDownEvent.AddOwner(typeof(LabelledTextBox));
+        }
 
-      #region Dependency Properties
+        #region Dependency Properties
 
-      public string Text
-      {
-         get { return (string)GetValue(TextProperty); }
-         set { SetValue(TextProperty, value); }
-      }
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
 
-      public static readonly DependencyProperty TextProperty =
-         DependencyProperty.Register("Text", typeof(string), typeof(LabelledTextBox),
-            new FrameworkPropertyMetadata(string.Empty,
-               FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+        public static readonly DependencyProperty TextProperty =
+           DependencyProperty.Register("Text", typeof(string), typeof(LabelledTextBox),
+              new FrameworkPropertyMetadata(string.Empty,
+                 FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
-      public string LabelText
-      {
-         get { return (string)GetValue(LabelTextBoxProperty); }
-         set { SetValue(LabelTextBoxProperty, value); }
-      }
+        public string LabelText
+        {
+            get { return (string)GetValue(LabelTextBoxProperty); }
+            set { SetValue(LabelTextBoxProperty, value); }
+        }
 
-      public static readonly DependencyProperty LabelTextBoxProperty =
-          DependencyProperty.Register("LabelText", typeof(string), typeof(LabelledTextBox));
+        public static readonly DependencyProperty LabelTextBoxProperty =
+            DependencyProperty.Register("LabelText", typeof(string), typeof(LabelledTextBox));
 
-      public bool IsReadOnly
-      {
-         get { return (bool)GetValue(IsReadOnlyProperty); }
-         set { SetValue(IsReadOnlyProperty, value); }
-      }
+        public bool IsReadOnly
+        {
+            get { return (bool)GetValue(IsReadOnlyProperty); }
+            set { SetValue(IsReadOnlyProperty, value); }
+        }
 
-      public static readonly DependencyProperty IsReadOnlyProperty =
-          DependencyProperty.Register("IsReadOnly", typeof(bool),
-              typeof(LabelledTextBox));
+        public static readonly DependencyProperty IsReadOnlyProperty =
+            DependencyProperty.Register("IsReadOnly", typeof(bool),
+                typeof(LabelledTextBox));
 
-      public GridLength TextBoxGridLength
-      {
-         get { return (GridLength)GetValue(TextBoxGridLengthProperty); }
-         set { SetValue(TextBoxGridLengthProperty, value); }
-      }
+        public GridLength TextBoxGridLength
+        {
+            get { return (GridLength)GetValue(TextBoxGridLengthProperty); }
+            set { SetValue(TextBoxGridLengthProperty, value); }
+        }
 
-      public static readonly DependencyProperty TextBoxGridLengthProperty =
-          DependencyProperty.Register("TextBoxGridLength", typeof(GridLength),
-              typeof(LabelledTextBox), new FrameworkPropertyMetadata(
-                 new GridLength(1, GridUnitType.Star)));
+        public static readonly DependencyProperty TextBoxGridLengthProperty =
+            DependencyProperty.Register("TextBoxGridLength", typeof(GridLength),
+                typeof(LabelledTextBox), new FrameworkPropertyMetadata(
+                   new GridLength(1, GridUnitType.Star)));
 
-      #endregion
+        #endregion
 
-      #region Events
+        #region Events
 
-      public static readonly RoutedEvent MyTextChangedEvent;
-      public static readonly RoutedEvent MyPreviewKeyDownEvent;
+        public static readonly RoutedEvent MyTextChangedEvent;
+        public static readonly RoutedEvent MyPreviewKeyDownEvent;
 
-      public event TextChangedEventHandler MyTextChanged
-      {
-         add { AddHandler(MyTextChangedEvent, value); }
-         remove { RemoveHandler(MyTextChangedEvent, value); }
-      }
+        public event TextChangedEventHandler MyTextChanged
+        {
+            add { AddHandler(MyTextChangedEvent, value); }
+            remove { RemoveHandler(MyTextChangedEvent, value); }
+        }
 
-      public event KeyEventHandler MyPreviewKeyDown
-      {
-         add { AddHandler(MyPreviewKeyDownEvent, value); }
-         remove { RemoveHandler(MyPreviewKeyDownEvent, value); }
-      }
+        public event KeyEventHandler MyPreviewKeyDown
+        {
+            add { AddHandler(MyPreviewKeyDownEvent, value); }
+            remove { RemoveHandler(MyPreviewKeyDownEvent, value); }
+        }
 
-      protected virtual void OnMyTextChanged()
-      {
-         TextChangedEventArgs evargs = new TextChangedEventArgs(MyTextChangedEvent, UndoAction.None);
-         RaiseEvent(evargs);
-      }
+        protected virtual void OnMyTextChanged()
+        {
+            TextChangedEventArgs evargs = new TextChangedEventArgs(MyTextChangedEvent, UndoAction.None);
+            RaiseEvent(evargs);
+        }
 
-      #endregion
-   }
+        #endregion
+    }
 }

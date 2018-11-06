@@ -10,39 +10,39 @@ using System.Windows.Controls;
 
 namespace HotelSystem.Infrastructure.PRISM
 {
-   public class StackPanelRegionAdapter : RegionAdapterBase<StackPanel>
-   {
-      protected StackPanelRegionAdapter(IRegionBehaviorFactory regionBehaviorFactory) : 
-         base(regionBehaviorFactory)
-      {
+    public class StackPanelRegionAdapter : RegionAdapterBase<StackPanel>
+    {
+        protected StackPanelRegionAdapter(IRegionBehaviorFactory regionBehaviorFactory) :
+           base(regionBehaviorFactory)
+        {
 
-      }
+        }
 
-      protected override void Adapt(IRegion region, StackPanel regionTarget)
-      {
-         region.Views.CollectionChanged += (s, e) =>
-            {
-               if (e.Action == NotifyCollectionChangedAction.Add)
+        protected override void Adapt(IRegion region, StackPanel regionTarget)
+        {
+            region.Views.CollectionChanged += (s, e) =>
                {
-                  foreach (FrameworkElement element in e.NewItems)
-                  {
-                     regionTarget.Children.Add(element);
-                  }
-               }
+                   if (e.Action == NotifyCollectionChangedAction.Add)
+                   {
+                       foreach (FrameworkElement element in e.NewItems)
+                       {
+                           regionTarget.Children.Add(element);
+                       }
+                   }
 
-               if (e.Action == NotifyCollectionChangedAction.Remove)
-               {
-                  foreach (FrameworkElement element in e.NewItems)
-                  {
-                     regionTarget.Children.Remove(element);
-                  }
-               }
-            };
-      }
+                   if (e.Action == NotifyCollectionChangedAction.Remove)
+                   {
+                       foreach (FrameworkElement element in e.NewItems)
+                       {
+                           regionTarget.Children.Remove(element);
+                       }
+                   }
+               };
+        }
 
-      protected override IRegion CreateRegion()
-      {
-         return new AllActiveRegion();
-      }
-   }
+        protected override IRegion CreateRegion()
+        {
+            return new AllActiveRegion();
+        }
+    }
 }

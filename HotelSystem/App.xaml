@@ -4,13 +4,13 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                         xmlns:local="clr-namespace:HotelSystem"
                         xmlns:prism="http://prismlibrary.com/">
-   <Application.Resources>
-      <ResourceDictionary>
-         <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonBrushes.xaml"/>
-            <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonStyles.xaml"/>
-            <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/MainWindow/MainWindowStyle.xaml"/>
-         </ResourceDictionary.MergedDictionaries>
-      </ResourceDictionary>
-   </Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonBrushes.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/MainWindow/MainWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </local:PrismApplication>

@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace HotelSystem.Infrastructure.UserControls
 {
-   /// <summary>
-   /// Interaction logic for LabelledIntegerTextBox.xaml
-   /// </summary>
-   public partial class LabelledIntegerTextBox : UserControl
-   {
-      public LabelledIntegerTextBox()
-      {
-         InitializeComponent();
-      }
-   }
+    /// <summary>
+    /// Interaction logic for LabelledIntegerTextBox.xaml
+    /// </summary>
+    public partial class LabelledIntegerTextBox : UserControl
+    {
+        public LabelledIntegerTextBox()
+        {
+            InitializeComponent();
+        }
+    }
 }

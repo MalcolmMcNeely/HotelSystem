@@ -9,19 +9,19 @@ using System.Windows;
 
 namespace HotelSystem
 {
-   /// <summary>
-   /// Interaction logic for App.xaml
-   /// </summary>
-   internal partial class App : PrismApplication
-   {
-      //protected override void RegisterTypes(IContainerRegistry containerRegistry)
-      //{
-      //   throw new NotImplementedException();
-      //}
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    internal partial class App : PrismApplication
+    {
+        //protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        //{
+        //   throw new NotImplementedException();
+        //}
 
-      //protected override Window CreateShell()
-      //{
-      //   throw new NotImplementedException();
-      //}
-   }
+        //protected override Window CreateShell()
+        //{
+        //   throw new NotImplementedException();
+        //}
+    }
 }

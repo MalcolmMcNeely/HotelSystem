@@ -4,22 +4,22 @@ using System.Windows.Controls;
 
 namespace Reservations.Views
 {
-   /// <summary>
-   /// Interaction logic for ReservationsView.xaml
-   /// </summary>
-   public partial class ReservationsView : UserControl, IView
-   {
-      public ReservationsView(IReservationsViewModel viewModel)
-      {
-         InitializeComponent();
+    /// <summary>
+    /// Interaction logic for ReservationsView.xaml
+    /// </summary>
+    public partial class ReservationsView : UserControl, IView
+    {
+        public ReservationsView(IReservationsViewModel viewModel)
+        {
+            InitializeComponent();
 
-         ViewModel = viewModel;
-      }
+            ViewModel = viewModel;
+        }
 
-      public IViewModel ViewModel
-      {
-         get => (IViewModel)DataContext;
-         set => DataContext = value;
-      }
-   }
+        public IViewModel ViewModel
+        {
+            get => (IViewModel)DataContext;
+            set => DataContext = value;
+        }
+    }
 }
