@@ -117,8 +117,13 @@ namespace Guests.ViewModels
 
         public void SaveCommandExecute()
         {
-            _model.LastUpdated = DateTime.Now;
-            _model.Save();
+            ValidateModel();
+
+            if (ValidationPassed)
+            {
+                _model.LastUpdated = DateTime.Now;
+                _model.Save();
+            }
         }
 
         #endregion

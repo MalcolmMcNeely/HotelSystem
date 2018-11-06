@@ -1,9 +1,7 @@
 ﻿using HotelSystem.Data.DataTransferObjects;
 using HotelSystem.Data.Repositories;
-using HotelSystem.DataContexes;
 using HotelSystem.Infrastructure.Common;
 using System;
-using System.ComponentModel;
 
 namespace HotelSystem.Business
 {

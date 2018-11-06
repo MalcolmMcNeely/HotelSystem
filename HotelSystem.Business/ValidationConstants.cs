@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace HotelSystem.Business
+﻿namespace HotelSystem.Business
 {
     public class ValidationConstants
     {

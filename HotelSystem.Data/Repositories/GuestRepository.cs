@@ -8,9 +8,9 @@ namespace HotelSystem.Data.Repositories
     {
         public void AddOrUpdate(GuestDataTransferObject person)
         {
-            using (var db = new GuestContext())
+            using (var db = new Context())
             {
-                var existingPerson = db.People.Find(person.Id);
+                var existingPerson = db.Guests.Find(person.Id);
 
                 if (existingPerson != null)
                 {
@@ -19,7 +19,7 @@ namespace HotelSystem.Data.Repositories
                 }
                 else
                 {
-                    db.People.Add(person);
+                    db.Guests.Add(person);
                     db.SaveChanges();
                 }
             }
@@ -27,17 +27,17 @@ namespace HotelSystem.Data.Repositories
 
         public ObservableCollection<GuestDataTransferObject> GetAll()
         {
-            using (var db = new GuestContext())
+            using (var db = new Context())
             {
-                return db.People.Local;
+                return db.Guests.Local;
             }
         }
 
         public GuestDataTransferObject GetById(int id)
         {
-            using (var db = new GuestContext())
+            using (var db = new Context())
             {
-                return db.People.Find(id);
+                return db.Guests.Find(id);
             }
         }
     }

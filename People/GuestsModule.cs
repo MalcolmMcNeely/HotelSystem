@@ -4,6 +4,7 @@ using Guests.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using HotelSystem.Business;
 
 namespace Guests
 {
@@ -19,7 +20,7 @@ namespace Guests
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            //throw new System.NotImplementedException();
+            StaticData.EnsureGuestsAreInDatabase();
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
