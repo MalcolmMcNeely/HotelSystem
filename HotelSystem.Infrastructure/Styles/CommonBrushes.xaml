@@ -13,4 +13,12 @@
     
     <!--Overlay brushes-->
     <SolidColorBrush x:Key="brushOverlayShadowColour" Color="Black" Opacity="0.2"/>
+
+    <!--General brushes-->
+    <SolidColorBrush x:Key="brushPrimaryBackgroundColour" Color="#30313A"/>
+    <SolidColorBrush x:Key="brushPrimaryForegroundColour" Color="#E9E0E0"/>
+    <SolidColorBrush x:Key="brushPrimaryHeaderColour" Color="#840032"/>
+    <SolidColorBrush x:Key="brushSecondaryHeaderColour" Color="#E59500"/>
+    <SolidColorBrush x:Key="brushTertiaryHeaderColour" Color="#DFF2D8"/>
+    
 </ResourceDictionary>

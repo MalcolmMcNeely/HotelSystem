@@ -219,6 +219,7 @@
     </ControlTemplate>
 
     <Style x:Key="MainWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="FontFamily" Value="{StaticResource Lato}"/>
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="Background" Value="{StaticResource brushPrimaryWindowBackgroundColour}"/>

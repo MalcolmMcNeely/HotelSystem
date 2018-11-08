@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="DataManagers\GuestManager.cs" />
     <Compile Include="Resources\ErrorStrings.cs" />
-    <Compile Include="StaticData.cs" />
     <Compile Include="Resources\ValidationConstants.cs" />
     <Compile Include="DomainObjects\Guest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

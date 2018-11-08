@@ -13,8 +13,9 @@
              d:DesignWidth="350">
     <Border BorderBrush="Black"
             BorderThickness="1"
-            CornerRadius="3">
-        <StackPanel Background="Red">
+            CornerRadius="3"
+            Background="{StaticResource brushPrimaryBackgroundColour}">
+        <StackPanel>
             <!--MM validation works but doesn't show error template-->
             <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
                                               Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"

@@ -6,8 +6,6 @@ namespace HotelSystem.Data.Data
 {
     public class GuestData
     {
-        public GuestData() { }
-
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 

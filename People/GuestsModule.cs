@@ -20,7 +20,7 @@ namespace Guests
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            StaticData.EnsureGuestsAreInDatabase();
+            
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
