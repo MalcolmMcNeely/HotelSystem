@@ -9,9 +9,12 @@
              xmlns:bll="clr-namespace:HotelSystem.Business;assembly=HotelSystem.Business"
              xmlns:bllres="clr-namespace:HotelSystem.Business.Resources;assembly=HotelSystem.Business"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel>
+             d:DesignHeight="450" 
+             d:DesignWidth="350">
+    <Border BorderBrush="Black"
+            BorderThickness="1"
+            CornerRadius="3">
+        <StackPanel Background="Red">
             <!--MM validation works but doesn't show error template-->
             <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
                                               Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
@@ -60,5 +63,5 @@
             <Button Content="Save"
                     Command="{Binding SaveCommand}"/>
         </StackPanel>
-    </Grid>
+    </Border>
 </UserControl>

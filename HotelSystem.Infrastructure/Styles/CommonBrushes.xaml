@@ -10,4 +10,7 @@
     <SolidColorBrush x:Key="brushWindowPressedButtonColour" Color="#646564"/>
     <SolidColorBrush x:Key="brushWindowExitHoverButtonColour" Color="#d7263d"/>
     <SolidColorBrush x:Key="brushWindowExitPressedButtonColour" Color="#de4d60"/>
+    
+    <!--Overlay brushes-->
+    <SolidColorBrush x:Key="brushOverlayShadowColour" Color="Black" Opacity="0.2"/>
 </ResourceDictionary>
