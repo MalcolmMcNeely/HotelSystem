@@ -93,8 +93,16 @@ namespace HotelSystem.Infrastructure.UserControls
 
         public override void OnApplyTemplate()
         {
-            RenderTransform = new TranslateTransform(-OverlayWidth - HiddenMargin, 0);
-            MenuColumn.Width = new GridLength(OverlayWidth);
+            if (HorizontalAlignment == HorizontalAlignment.Left)
+            {
+                RenderTransform = new TranslateTransform(-OverlayWidth - HiddenMargin, 0);
+            }
+            else
+            {
+                RenderTransform = new TranslateTransform(OverlayWidth + HiddenMargin, 0);
+            }
+
+            ContentColumn.Width = new GridLength(OverlayWidth);
         }
 
         public void Toggle()
@@ -113,13 +121,21 @@ namespace HotelSystem.Infrastructure.UserControls
         {
             var animation = new DoubleAnimation
             {
-                From = -OverlayWidth * .95,
-                To = 0,
+                To = GetShowPositionX(),
                 Duration = TimeSpan.FromMilliseconds(AnimationTime)
             };
 
             RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
-            ShadowColumn.Width = new GridLength(10000);
+
+            if (HorizontalAlignment == HorizontalAlignment.Left)
+            {
+                ShadowColumnRight.Width = new GridLength(10000);
+            }
+            else
+            {
+                //ShadowColumnLeft.Width = new GridLength(10000);
+            }
+
             _isShown = true;
         }
 
@@ -127,14 +143,53 @@ namespace HotelSystem.Infrastructure.UserControls
         {
             var animation = new DoubleAnimation
             {
-                To = -OverlayWidth - HiddenMargin,
+                To = GetHidePositionX(),
                 Duration = TimeSpan.FromMilliseconds(AnimationTime)
             };
 
             RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
-            ShadowColumn.Width = new GridLength(0);
+
+            if (HorizontalAlignment == HorizontalAlignment.Left)
+            {
+                ShadowColumnRight.Width = new GridLength(0);
+            }
+            else
+            {
+                //ShadowColumnLeft.Width = new GridLength(0);
+            }
+
             IsOverlayVisible = false;
             _isShown = false;
+        }
+
+        private double GetShowPositionX()
+        {
+            if (HorizontalAlignment == HorizontalAlignment.Left)
+            {
+                var xLocation = TranslatePoint(new Point(0, 0), (UIElement)VisualParent).X;
+                return xLocation + OverlayWidth + HiddenMargin;
+            }
+            else
+            {
+                var xLocation = TranslatePoint(new Point(0, 0), (UIElement)VisualParent).X;
+                var parentWidth = ((FrameworkElement)VisualParent).ActualWidth;
+                return parentWidth - OverlayWidth - HiddenMargin;
+            }
+        }
+
+
+        private double GetHidePositionX()
+        {
+            if (HorizontalAlignment == HorizontalAlignment.Left)
+            {
+                var xLocation = TranslatePoint(new Point(0, 0), (UIElement)VisualParent).X;
+                return xLocation - OverlayWidth - HiddenMargin;
+            }
+            else
+            {
+                var parentWidth = ((FrameworkElement)VisualParent).ActualWidth;
+                return parentWidth + OverlayWidth + HiddenMargin;
+            }
         }
 
         private void ShadowMouseDown(object sender, MouseButtonEventArgs e)

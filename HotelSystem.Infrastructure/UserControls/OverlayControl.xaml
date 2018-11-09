@@ -10,13 +10,17 @@
              Name="ControlRoot">
     <Grid Panel.ZIndex="1000">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="MenuColumn" Width="{Binding MenuWidth}"/>
-            <ColumnDefinition x:Name="ShadowColumn" Width="0"/>
+            <ColumnDefinition x:Name="ShadowColumnLeft" Width="0"/>
+            <ColumnDefinition x:Name="ContentColumn"/>
+            <ColumnDefinition x:Name="ShadowColumnRight" Width="0"/>
         </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" 
+                Background="{DynamicResource brushOverlayShadowColour}" 
+                MouseDown="ShadowMouseDown"/>
         <ContentPresenter x:Name="MenuPresenter" 
-                          Grid.Column="0" 
+                          Grid.Column="1" 
                           Content="{Binding OverlayContent, ElementName=ControlRoot}"/>
-        <Border Grid.Column="1" 
+        <Border Grid.Column="2" 
                 Background="{DynamicResource brushOverlayShadowColour}" 
                 MouseDown="ShadowMouseDown"/>
     </Grid>

@@ -22,7 +22,7 @@
         <!-- Create or update guest overlay -->
         <inf.userControls:OverlayControl x:Name="ProductSearchOverlayMenu"
                                          Panel.ZIndex="1000"
-                                         HorizontalAlignment="Left"
+                                         HorizontalAlignment="Right"
                                          OverlayWidth="270"
                                          IsOverlayVisible="{Binding IsCreateUpdateGuestViewVisible}"
                                          AnimationTime="{StaticResource OverlayAnimationTime}"
