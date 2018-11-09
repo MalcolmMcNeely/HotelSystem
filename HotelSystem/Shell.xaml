@@ -8,7 +8,7 @@
         xmlns:inf="clr-namespace:HotelSystem.Infrastructure;assembly=HotelSystem.Infrastructure"
         mc:Ignorable="d"
         Style="{StaticResource MainWindowStyle}"
-        Title="Shell">
+        Title="Hotel System">
     <Grid>
         <DockPanel>
             <StackPanel prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}"

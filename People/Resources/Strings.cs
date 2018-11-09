@@ -8,6 +8,10 @@ namespace Guests.Resources
 {
     internal class Strings
     {
+        public const string ModuleHeader = "Guests";
+        public const string AddorUpdateHeader = "Add or Update";
+        public const string AddGuest = "Add";
+
         public const string Name = "Name:";
         public const string Age = "Age:";
         public const string AddressLineOne = "Address:";

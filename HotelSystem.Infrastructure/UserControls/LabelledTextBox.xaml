@@ -15,7 +15,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="{Binding LabelText}"/>
+        <Label Content="{Binding LabelText}"
+               Foreground="{Binding Foreground}"/>
         <TextBox Grid.Column="1"                                     
                  IsReadOnly="{Binding IsReadOnly}"
                  Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>

@@ -16,7 +16,8 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Content="{Binding LabelText}"/>
+        <Label Content="{Binding LabelText}"
+               Foreground="{Binding Foreground}"/>
         <local.controls:DecimalTextBox Grid.Column="1"
                                        IsReadOnly="{Binding IsReadOnly}"
                                        TextAlignment="{Binding DecimalTextBoxTextAlignment}"

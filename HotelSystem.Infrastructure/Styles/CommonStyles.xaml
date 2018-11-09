@@ -6,6 +6,7 @@
                     xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls">
     <!--Constants-->
     <sys:Double x:Key="CustomDataGridMaximumHeaderHeight">72</sys:Double>
+    <sys:Double x:Key="OverlayAnimationTime">100</sys:Double>
     
     <!--Fonts-->
     <FontFamily x:Key="Lato">pack://application:,,,/Resources/Fonts/Lato/#Lato</FontFamily>
@@ -15,24 +16,51 @@
     <Style TargetType="{x:Type inf.userControls:LabelledTextBox}">
         <Setter Property="Height" Value="24"/>
         <Setter Property="Width" Value="240"/>
+        <Setter Property="Margin" Value="2"/>
     </Style>
 
     <Style TargetType="{x:Type inf.userControls:LabelledDecimalTextBox}">
         <Setter Property="Height" Value="24"/>
         <Setter Property="Width" Value="240"/>
+        <Setter Property="Margin" Value="2"/>
     </Style>
 
     <Style TargetType="{x:Type inf.userControls:LabelledIntegerTextBox}">
         <Setter Property="Height" Value="24"/>
         <Setter Property="Width" Value="240"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Margin" Value="2"/>
     </Style>
     
     <!--Header Styles-->
-    <Style x:Key="PrimaryHeaderStyle"
+    <Style x:Key="PrimaryHeaderWrapPanelStyle"
+           TargetType="{x:Type WrapPanel}">
+        <Setter Property="Background" Value="{StaticResource brushPrimaryHeaderColour}"/>
+    </Style>
+    
+    <Style x:Key="PrimaryHeaderTextBlockStyle"
            TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="{StaticResource Roboto}"/>
         <Setter Property="FontSize" Value="34"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="15 5"/>
+    </Style>
+
+    <Style x:Key="SecondaryHeaderWrapPanelStyle"
+           TargetType="{x:Type WrapPanel}">
+        <Setter Property="Background" Value="{StaticResource brushSecondaryHeaderColour}"/>
+    </Style>
+
+    <Style x:Key="SecondaryHeaderTextBlockStyle"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="{StaticResource Roboto}"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="5 5"/>
     </Style>
 
     <!--CustomDataGrid Styles-->

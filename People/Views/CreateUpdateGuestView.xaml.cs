@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using Guests.ViewModels;
+using HotelSystem.Infrastructure.MVVM;
+using System.Windows.Controls;
 
 namespace Guests.Views
 {
@@ -7,9 +9,12 @@ namespace Guests.Views
     /// </summary>
     public partial class CreateUpdateGuestView : UserControl
     {
+        CreateUpdateGuestViewModel _viewModel = new CreateUpdateGuestViewModel();
+
         public CreateUpdateGuestView()
         {
             InitializeComponent();
+            DataContext = _viewModel;
         }
     }
 }

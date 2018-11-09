@@ -12,14 +12,13 @@ namespace Guests.ViewModels
 {
     public class CreateUpdateGuestViewModel : ValidatableBindableBase
     {
-        private Guest _model;
+        private Guest _model = new Guest();
         private GuestValidator _validator = new GuestValidator();
 
-        public CreateUpdateGuestViewModel(Guest guest)
+        public CreateUpdateGuestViewModel()
         {
             SetupCommands();
 
-            _model = guest;
             _model.PropertyChanged += OnModelPropertyChanged;
         }
 
@@ -30,6 +29,70 @@ namespace Guests.ViewModels
                 _model.PropertyChanged -= OnModelPropertyChanged;
             }
         }
+
+        #region Bound Properties
+
+        public string Name
+        {
+            get => _model.Name;
+            set => _model.Name = value;
+        }
+
+        public int Age
+        {
+            get => _model.Age;
+            set => _model.Age = value;
+        }
+
+        public string AddressLineOne
+        {
+            get => _model.AddressLineOne;
+            set => _model.AddressLineOne = value;
+        }
+
+        public string AddressLineTwo
+        {
+            get => _model.AddressLineTwo;
+            set => _model.AddressLineTwo = value;
+        }
+
+        public string City
+        {
+            get => _model.City;
+            set => _model.City = value;
+        }
+
+        public string PostCode
+        {
+            get => _model.PostCode;
+            set => _model.PostCode = value;
+        }
+
+        public string PhoneNumber
+        {
+            get => _model.PhoneNumber;
+            set => _model.PhoneNumber = value;
+        }
+
+        public string CreditCardNumber
+        {
+            get => _model.CreditCardNumber;
+            set => _model.CreditCardNumber = value;
+        }
+
+        public decimal AmountOwed
+        {
+            get => _model.AmountOwed;
+            set => _model.AmountOwed = value;
+        }
+
+        public decimal AmountPaid
+        {
+            get => _model.AmountPaid;
+            set => _model.AmountPaid = value;
+        }
+
+        #endregion
 
         #region Commands
 

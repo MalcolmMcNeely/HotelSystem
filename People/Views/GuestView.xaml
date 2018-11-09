@@ -12,18 +12,20 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
-             d:DesignWidth="800">
+             d:DesignWidth="800"
+             Background="{StaticResource brushPrimaryBackgroundColour}"
+             Foreground="{StaticResource brushPrimaryForegroundColour}">
     <UserControl.Resources>
-        <sys:Double x:Key="AnimTime">100</sys:Double>
+        
     </UserControl.Resources>
     <Grid>
         <!-- Create or update guest overlay -->
         <inf.userControls:OverlayControl x:Name="ProductSearchOverlayMenu"
                                          Panel.ZIndex="1000"
                                          HorizontalAlignment="Left"
-                                         OverlayWidth="350"
+                                         OverlayWidth="270"
                                          IsOverlayVisible="{Binding IsCreateUpdateGuestViewVisible}"
-                                         AnimationTime="{StaticResource AnimTime}"
+                                         AnimationTime="{StaticResource OverlayAnimationTime}"
                                          HiddenMargin="5">
             <inf.userControls:OverlayControl.OverlayContent>
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
@@ -32,16 +34,16 @@
             </inf.userControls:OverlayControl.OverlayContent>
         </inf.userControls:OverlayControl>
 
-        <DockPanel Margin="10">
-            <WrapPanel DockPanel.Dock="Top">
-                <TextBlock Text="Guest Section"
-                           FontFamily="Segoe UI Symbol"
-                           FontSize="30"/>
+        <DockPanel>
+            <WrapPanel DockPanel.Dock="Top"
+                       Style="{StaticResource PrimaryHeaderWrapPanelStyle}">
+                <TextBlock Text="{x:Static localres:Strings.ModuleHeader}"
+                           Style="{StaticResource PrimaryHeaderTextBlockStyle}"/>
             </WrapPanel>
 
             <DockPanel>
                 <StackPanel>
-                    <Button Content="Show Something"
+                    <Button Content="{x:Static localres:Strings.AddGuest}"
                             Command="{Binding ShowCreateUpdateGuestViewCommand}"/>
                 </StackPanel>
                 <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
