@@ -96,13 +96,16 @@ namespace HotelSystem.Infrastructure.UserControls
             if (HorizontalAlignment == HorizontalAlignment.Left)
             {
                 RenderTransform = new TranslateTransform(-OverlayWidth - HiddenMargin, 0);
+                OverlayContentPresenter.SetValue(DockPanel.DockProperty, Dock.Left);
             }
             else
             {
                 RenderTransform = new TranslateTransform(OverlayWidth + HiddenMargin, 0);
+                OverlayContentPresenter.SetValue(DockPanel.DockProperty, Dock.Right);
             }
 
-            ContentColumn.Width = new GridLength(OverlayWidth);
+            OverlayContentPresenter.Width = OverlayWidth;
+            
         }
 
         public void Toggle()
@@ -121,20 +124,12 @@ namespace HotelSystem.Infrastructure.UserControls
         {
             var animation = new DoubleAnimation
             {
-                To = GetShowPositionX(),
+                To = 0,
                 Duration = TimeSpan.FromMilliseconds(AnimationTime)
             };
 
             RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
-
-            if (HorizontalAlignment == HorizontalAlignment.Left)
-            {
-                ShadowColumnRight.Width = new GridLength(10000);
-            }
-            else
-            {
-                //ShadowColumnLeft.Width = new GridLength(10000);
-            }
+            ShadowColumn.Width = new GridLength(10000);
 
             _isShown = true;
         }
@@ -148,35 +143,11 @@ namespace HotelSystem.Infrastructure.UserControls
             };
 
             RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
-
-            if (HorizontalAlignment == HorizontalAlignment.Left)
-            {
-                ShadowColumnRight.Width = new GridLength(0);
-            }
-            else
-            {
-                //ShadowColumnLeft.Width = new GridLength(0);
-            }
+            ShadowColumn.Width = new GridLength(0);
 
             IsOverlayVisible = false;
             _isShown = false;
         }
-
-        private double GetShowPositionX()
-        {
-            if (HorizontalAlignment == HorizontalAlignment.Left)
-            {
-                var xLocation = TranslatePoint(new Point(0, 0), (UIElement)VisualParent).X;
-                return xLocation + OverlayWidth + HiddenMargin;
-            }
-            else
-            {
-                var xLocation = TranslatePoint(new Point(0, 0), (UIElement)VisualParent).X;
-                var parentWidth = ((FrameworkElement)VisualParent).ActualWidth;
-                return parentWidth - OverlayWidth - HiddenMargin;
-            }
-        }
-
 
         private double GetHidePositionX()
         {
