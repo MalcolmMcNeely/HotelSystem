@@ -16,6 +16,7 @@ namespace Guests.Models
 
         public Guest(GuestDataTransferObject data)
         {
+            Id = data.Id;
             _name = data.Name;
             _age = data.Age;
             _addressLineOne = data.AddressLineOne;
@@ -127,6 +128,7 @@ namespace Guests.Models
         {
             var guestDTO = new GuestDataTransferObject
             {
+                Id = Id,
                 Name = Name,
                 Age = Age,
                 AddressLineOne = AddressLineOne,
@@ -157,6 +159,8 @@ namespace Guests.Models
             _creditCardNumber = other._creditCardNumber;
             _amountOwed = other._amountOwed;
             _amountPaid = other._amountPaid;
+            _dateCreated = other._dateCreated;
+            _lastUpdated = other._lastUpdated;
 
             RaisePropertyChanged(string.Empty);
         }
