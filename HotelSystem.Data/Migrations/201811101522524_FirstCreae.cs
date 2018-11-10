@@ -3,7 +3,7 @@ namespace HotelSystem.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class FirstCreae : DbMigration
     {
         public override void Up()
         {
@@ -15,7 +15,7 @@ namespace HotelSystem.Data.Migrations
                         Name = c.String(nullable: false),
                         Age = c.Int(nullable: false),
                         AddressLineOne = c.String(nullable: false),
-                        AddressLineTwo = c.String(nullable: false),
+                        AddressLineTwo = c.String(),
                         PostCode = c.String(nullable: false),
                         City = c.String(nullable: false),
                         PhoneNumber = c.String(),
@@ -24,8 +24,11 @@ namespace HotelSystem.Data.Migrations
                         AmountPaid = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DateCreated = c.DateTime(nullable: false),
                         LastUpdated = c.DateTime(nullable: false),
+                        RoomData_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.RoomDatas", t => t.RoomData_Id)
+                .Index(t => t.RoomData_Id);
             
             CreateTable(
                 "dbo.RoomDatas",
@@ -39,7 +42,7 @@ namespace HotelSystem.Data.Migrations
                         OnPromotionPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                         IsOccupied = c.Boolean(nullable: false),
                         BookedFrom = c.DateTime(nullable: false),
-                        BookTo = c.DateTime(nullable: false),
+                        BookedTo = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.RoomTypeDatas", t => t.RoomTypeDataId, cascadeDelete: true)
@@ -62,7 +65,9 @@ namespace HotelSystem.Data.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.RoomDatas", "RoomTypeDataId", "dbo.RoomTypeDatas");
+            DropForeignKey("dbo.GuestDatas", "RoomData_Id", "dbo.RoomDatas");
             DropIndex("dbo.RoomDatas", new[] { "RoomTypeDataId" });
+            DropIndex("dbo.GuestDatas", new[] { "RoomData_Id" });
             DropTable("dbo.RoomTypeDatas");
             DropTable("dbo.RoomDatas");
             DropTable("dbo.GuestDatas");

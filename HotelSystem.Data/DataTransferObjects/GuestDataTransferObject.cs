@@ -47,6 +47,7 @@ namespace HotelSystem.Data.DataTransferObjects
                 AddressLineOne = AddressLineOne,
                 AddressLineTwo = AddressLineTwo,
                 City = City,
+                PostCode = PostCode,
                 PhoneNumber = PhoneNumber,
                 CreditCardNumber = CreditCardNumber,
                 AmountOwed = AmountOwed,

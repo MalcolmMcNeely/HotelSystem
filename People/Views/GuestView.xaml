@@ -4,18 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Guests.Views"
+             xmlns:localViewModels="clr-namespace:Guests.ViewModels"
              xmlns:localres="clr-namespace:Guests.Resources"
              xmlns:inf.controls="clr-namespace:HotelSystem.Infrastructure.CustomControls;assembly=HotelSystem.Infrastructure"
              xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
              Background="{StaticResource brushPrimaryBackgroundColour}"
              Foreground="{StaticResource brushPrimaryForegroundColour}">
-    <UserControl.Resources>
-        
-    </UserControl.Resources>
     <Grid>
         <!-- Create or update guest overlay -->
         <inf.userControls:OverlayControl x:Name="ProductSearchOverlayMenu"
@@ -26,8 +25,9 @@
                                          AnimationTime="{StaticResource OverlayAnimationTime}"
                                          HiddenMargin="5">
             <inf.userControls:OverlayControl.OverlayContent>
-                <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                    <local:CreateUpdateGuestView/>
+                <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                              prism:RegionManager.RegionName="{x:Static localres:Strings.CreateUpdateGuestRegion}">
+                    <!--<local:CreateUpdateGuestView Guest="{Binding EditingGuest}"/>-->
                 </ScrollViewer>
             </inf.userControls:OverlayControl.OverlayContent>
         </inf.userControls:OverlayControl>
@@ -42,7 +42,7 @@
             <DockPanel>
                 <StackPanel>
                     <Button Content="{x:Static localres:Strings.AddGuest}"
-                            Command="{Binding ShowCreateUpdateGuestViewCommand}"/>
+                            Command="{Binding CreateGuestCommand}"/>
                 </StackPanel>
                 <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
                                              IsReadOnly="True"

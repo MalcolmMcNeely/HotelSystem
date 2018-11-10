@@ -27,40 +27,35 @@
                 <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Name}"
                                                   Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                                   Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-                <inf.userControls:LabelledTextBox Grid.Row="1"
-                                                  LabelText="{x:Static localres:Strings.Age}"
+                <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Age}"
                                                   Text="{Binding Age, ValidatesOnDataErrors=True}"
                                                   Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-                <inf.userControls:LabelledTextBox Grid.Row="2"
-                                                  LabelText="{x:Static localres:Strings.AddressLineOne}"
+                <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.AddressLineOne}"
                                                   Text="{Binding AddressLineOne, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                                   Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-                <inf.userControls:LabelledTextBox Grid.Row="3"
-                                                  LabelText="{x:Static localres:Strings.AddressLineTwo}"
+                <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.AddressLineTwo}"
                                                   Text="{Binding AddressLineTwo, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                                   Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-                <inf.userControls:LabelledTextBox Grid.Row="4"
-                                                  LabelText="{x:Static localres:Strings.City}"
+                <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.City}"
                                                   Text="{Binding City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                                   Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-                <inf.userControls:LabelledTextBox Grid.Row="5"
-                                                  LabelText="{x:Static localres:Strings.Postcode}"
-                                                  Text="{Binding Postcode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Postcode}"
+                                                  Text="{Binding PostCode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                                   Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-                <inf.userControls:LabelledTextBox Grid.Row="6"
-                                                  LabelText="{x:Static localres:Strings.CreditCardNumber}"
+                <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.PhoneNumber}"
+                                                  Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                                  Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
+                <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.CreditCardNumber}"
                                                   Text="{Binding CreditCardNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                                   Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
-                <inf.userControls:LabelledDecimalTextBox Grid.Row="7"
-                                                         LabelText="{x:Static localres:Strings.AmountOwed}"
+                <inf.userControls:LabelledDecimalTextBox LabelText="{x:Static localres:Strings.AmountOwed}"
                                                          Value="{Binding AmountOwed}"
                                                          MaximumValue="{x:Static constants:ValidationConstants.MaxDecimal}"
                                                          MinimumValue="{x:Static constants:ValidationConstants.MinDecimal}"
                                                          DecimalTextBoxTextAlignment="Left"
                                                          NumberFormat="C"
                                                          ShowZeroValue="False"/>
-                <inf.userControls:LabelledDecimalTextBox Grid.Row="8"
-                                                         LabelText="{x:Static localres:Strings.AmountPaid}"
+                <inf.userControls:LabelledDecimalTextBox LabelText="{x:Static localres:Strings.AmountPaid}"
                                                          Value="{Binding AmountPaid}"
                                                          MaximumValue="{x:Static constants:ValidationConstants.MaxDecimal}"
                                                          MinimumValue="{x:Static constants:ValidationConstants.MinDecimal}"
@@ -70,8 +65,10 @@
             </StackPanel>
             <WrapPanel HorizontalAlignment="Right"
                        Margin="0 5 24 0">
-            <Button Content="Save"
-                    Command="{Binding SaveCommand}"/>
+                <Button Content="Save"
+                        Command="{Binding SaveCommand}"/>
+                <Button Content="Undo"
+                        Command="{Binding UndoCommand}"/>
             </WrapPanel>
         </StackPanel>
     </Border>

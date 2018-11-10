@@ -18,7 +18,6 @@ namespace HotelSystem.Data.Data
         [Required]
         public string AddressLineOne { get; set; }
 
-        [Required]
         public string AddressLineTwo { get; set; }
 
         [Required]

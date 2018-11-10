@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,8 +41,29 @@ namespace HotelSystem.Data.Repositories
         {
             using (var context = new Context())
             {
-                context.Set<T>().AddOrUpdate(entity);
-                context.SaveChanges();
+                try
+                {
+                    context.Set<T>().AddOrUpdate(entity);
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    if (!System.Diagnostics.Debugger.IsAttached)
+                        System.Diagnostics.Debugger.Launch();
+
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+
+                    throw;
+                }
             }
         }
 

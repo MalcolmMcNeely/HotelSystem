@@ -12,7 +12,6 @@ namespace Guests.Views
         public GuestView(IGuestViewViewModel viewModel)
         {
             InitializeComponent();
-
             ViewModel = viewModel;
         }
 

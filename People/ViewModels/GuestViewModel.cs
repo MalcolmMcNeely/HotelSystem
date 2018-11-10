@@ -2,26 +2,29 @@
 using Guests.Validators;
 using System.ComponentModel;
 using Guests.Models;
+using System;
 
 namespace Guests.ViewModels
 {
     public class GuestViewModel : BindableBase
     {
-        private Guest _model;
         private GuestValidator _validator = new GuestValidator();
 
         public GuestViewModel(Guest guest)
         {
-            _model = guest;
-            _model.PropertyChanged += OnModelPropertyChanged;
+            Model = guest;
+            AttachEvents();
+        }
+
+        public GuestViewModel(GuestViewModel other)
+        {
+            Model = new Guest(other.Model);
+            AttachEvents();
         }
 
         public void ShutDown()
         {
-            if (_model != null)
-            {
-                _model.PropertyChanged -= OnModelPropertyChanged;
-            }
+            DetachEvents();
         }
 
         #region Model Accessors
@@ -86,9 +89,56 @@ namespace Guests.ViewModels
             set => _model.AmountPaid = value;
         }
 
+        public DateTime LastUpdated
+        {
+            get => _model.LastUpdated;
+            set => _model.LastUpdated = value;
+        }
+
+        #endregion
+
+        #region Properties
+
+        private Guest _model;
+        public Guest Model
+        {
+            get => _model;
+            private set
+            {
+                Guest oldGuest = _model;
+
+                if (SetProperty(ref _model, value))
+                {
+                    if(oldGuest != null)
+                    {
+                        oldGuest.PropertyChanged -= OnModelPropertyChanged;
+                    }
+
+                    AttachEvents();
+                    RaisePropertyChanged(string.Empty);
+                }
+            }
+        }
+
         #endregion
 
         #region Events
+
+        private void AttachEvents()
+        {
+            if (_model != null)
+            {
+                _model.PropertyChanged += OnModelPropertyChanged;
+            }
+        }
+
+        private void DetachEvents()
+        {
+            if (_model != null)
+            {
+                _model.PropertyChanged -= OnModelPropertyChanged;
+            }
+        }
 
         private void OnModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

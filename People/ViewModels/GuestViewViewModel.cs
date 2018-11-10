@@ -1,4 +1,6 @@
-﻿using HotelSystem.Infrastructure.Common;
+﻿using Guests.Models;
+using Guests.Repositories;
+using HotelSystem.Infrastructure.Common;
 using Prism.Commands;
 using System;
 
@@ -6,6 +8,20 @@ namespace Guests.ViewModels
 {
     public class GuestViewViewModel : BindableBase, IGuestViewViewModel
     {
+        IGuestRepository _repository;
+
+        public GuestViewViewModel(IGuestRepository repository)
+        {
+            _repository = repository;
+
+            var allGuestData = _repository.GetAll();
+
+            foreach(var guest in allGuestData)
+            {
+                Guests.Add(new GuestViewModel(new Guest(guest)));
+            }
+        }
+
         public void Initialise()
         {
             SetupCommands();
@@ -17,6 +33,8 @@ namespace Guests.ViewModels
             {
                 guest.ShutDown();
             }
+
+            EditingGuest?.ShutDown();
         }
 
         #region Properties
@@ -34,6 +52,13 @@ namespace Guests.ViewModels
             set => SetProperty(ref _selectedGuest, value);
         }
 
+        private GuestViewModel _editingGuest;
+        public GuestViewModel EditingGuest
+        {
+            get => _editingGuest;
+            set => SetProperty(ref _editingGuest, value);
+        }
+
         private bool _isCreateUpdateGuestViewVisible;
         public bool IsCreateUpdateGuestViewVisible
         {
@@ -47,14 +72,15 @@ namespace Guests.ViewModels
 
         private void SetupCommands()
         {
-            ShowCreateUpdateGuestViewCommand =
-                new DelegateCommand(ShowCreateUpdateGuestViewCommandExecute);
+            CreateGuestCommand =
+                new DelegateCommand(CreateGuestCommandExecute);
         }
 
-        public DelegateCommand ShowCreateUpdateGuestViewCommand { get; private set; }
+        public DelegateCommand CreateGuestCommand { get; private set; }
 
-        public void ShowCreateUpdateGuestViewCommandExecute()
+        public void CreateGuestCommandExecute()
         {
+            EditingGuest = new GuestViewModel(new Guest());
             IsCreateUpdateGuestViewVisible = true;
         }
 

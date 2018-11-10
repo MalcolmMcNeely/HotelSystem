@@ -136,6 +136,7 @@ namespace Guests.Models
                 AddressLineOne = AddressLineOne,
                 AddressLineTwo = AddressLineTwo,
                 City = City,
+                PostCode = PostCode,
                 PhoneNumber = PhoneNumber,
                 CreditCardNumber = CreditCardNumber,
                 AmountOwed = AmountOwed,

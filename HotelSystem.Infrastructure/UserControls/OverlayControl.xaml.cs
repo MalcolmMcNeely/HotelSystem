@@ -56,7 +56,7 @@ namespace HotelSystem.Infrastructure.UserControls
         {
             var overlay = d as OverlayControl;
 
-            if(d != null)
+            if(overlay != null)
             {
                 if((bool)e.NewValue)
                 {

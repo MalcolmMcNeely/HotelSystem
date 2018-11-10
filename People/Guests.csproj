@@ -100,6 +100,7 @@
     <Compile Include="Validators\GuestValidator.cs" />
     <Compile Include="ViewModels\CreateUpdateGuestViewModel.cs" />
     <Compile Include="ViewModels\GuestViewViewModel.cs" />
+    <Compile Include="ViewModels\ICreateUpdateGuestViewModel.cs" />
     <Compile Include="ViewModels\IGuestViewViewModel.cs" />
     <Compile Include="ViewModels\GuestViewModel.cs" />
     <Compile Include="Views\CreateUpdateGuestView.xaml.cs">

@@ -2,6 +2,7 @@
 using FluentValidation.Internal;
 using FluentValidation.Results;
 using Guests.Models;
+using Guests.Repositories;
 using Guests.Validators;
 using HotelSystem.Infrastructure.Common;
 using Prism.Commands;
@@ -10,87 +11,126 @@ using System.ComponentModel;
 
 namespace Guests.ViewModels
 {
-    public class CreateUpdateGuestViewModel : ValidatableBindableBase
+    public class CreateUpdateGuestViewModel : ValidatableBindableBase, ICreateUpdateGuestViewModel
     {
-        private Guest _model = new Guest();
-        private Guest _editedModel;
         private GuestValidator _validator = new GuestValidator();
+        IGuestRepository _repository;
 
-        public CreateUpdateGuestViewModel()
+        public CreateUpdateGuestViewModel(IGuestRepository repository)
         {
+            _repository = repository;
             SetupCommands();
+            AttachEvents();
+        }
 
-            _model.PropertyChanged += OnModelPropertyChanged;
+        public void Initialise()
+        {
+            
         }
 
         public void ShutDown()
         {
-            if (_model != null)
-            {
-                _model.PropertyChanged -= OnModelPropertyChanged;
-            }
+            DetachEvents();
         }
 
         #region Bound Properties
 
         public string Name
         {
-            get => _model.Name;
-            set => _model.Name = value;
+            get => _editedModel.Name;
+            set => _editedModel.Name = value;
         }
 
         public int Age
         {
-            get => _model.Age;
-            set => _model.Age = value;
+            get => _editedModel.Age;
+            set => _editedModel.Age = value;
         }
 
         public string AddressLineOne
         {
-            get => _model.AddressLineOne;
-            set => _model.AddressLineOne = value;
+            get => _editedModel.AddressLineOne;
+            set => _editedModel.AddressLineOne = value;
         }
 
         public string AddressLineTwo
         {
-            get => _model.AddressLineTwo;
-            set => _model.AddressLineTwo = value;
+            get => _editedModel.AddressLineTwo;
+            set => _editedModel.AddressLineTwo = value;
         }
 
         public string City
         {
-            get => _model.City;
-            set => _model.City = value;
+            get => _editedModel.City;
+            set => _editedModel.City = value;
         }
 
         public string PostCode
         {
-            get => _model.PostCode;
-            set => _model.PostCode = value;
+            get => _editedModel.PostCode;
+            set => _editedModel.PostCode = value;
         }
 
         public string PhoneNumber
         {
-            get => _model.PhoneNumber;
-            set => _model.PhoneNumber = value;
+            get => _editedModel.PhoneNumber;
+            set => _editedModel.PhoneNumber = value;
         }
 
         public string CreditCardNumber
         {
-            get => _model.CreditCardNumber;
-            set => _model.CreditCardNumber = value;
+            get => _editedModel.CreditCardNumber;
+            set => _editedModel.CreditCardNumber = value;
         }
 
         public decimal AmountOwed
         {
-            get => _model.AmountOwed;
-            set => _model.AmountOwed = value;
+            get => _editedModel.AmountOwed;
+            set => _editedModel.AmountOwed = value;
         }
 
         public decimal AmountPaid
         {
-            get => _model.AmountPaid;
-            set => _model.AmountPaid = value;
+            get => _editedModel.AmountPaid;
+            set => _editedModel.AmountPaid = value;
+        }
+
+        #endregion
+
+        #region Properties
+
+        private GuestViewModel _model = new GuestViewModel(new Guest());
+        public GuestViewModel Model
+        {
+            get => _model;
+            set
+            {
+                if(SetProperty(ref _model, value))
+                {
+                    EditedModel = new GuestViewModel(_model);                    
+                }
+            }
+        }
+
+        private GuestViewModel _editedModel = new GuestViewModel(new Guest());
+        public GuestViewModel EditedModel
+        {
+            get => _editedModel;
+            set
+            {
+                var oldModel = _model;
+
+                if (SetProperty(ref _editedModel, value))
+                {
+                    if (oldModel != null)
+                    {
+                        oldModel.PropertyChanged -= OnModelPropertyChanged;
+                    }
+
+                    AttachEvents();
+                    RaisePropertyChanged(string.Empty);
+                }
+            }
         }
 
         #endregion
@@ -100,6 +140,7 @@ namespace Guests.ViewModels
         private void SetupCommands()
         {
             SaveCommand = new DelegateCommand(SaveCommandExecute).ObservesCanExecute(() => ValidationPassed);
+            UndoCommand = new DelegateCommand(UndoCommandExecute);
         }
 
         public DelegateCommand SaveCommand { get; private set; }
@@ -110,14 +151,41 @@ namespace Guests.ViewModels
 
             if (ValidationPassed)
             {
-                _model.LastUpdated = DateTime.Now;
-                //_model.Save();
+                _editedModel.LastUpdated = DateTime.Now;
+
+                _model = _editedModel;
+
+                _repository.AddOrUpdate(_model.Model.ToGuestDataTransferObject());
             }
+        }
+
+        public DelegateCommand UndoCommand { get; private set; }
+
+        public void UndoCommandExecute()
+        {
+            EditedModel = Model;
+            ClearAllErrors();
         }
 
         #endregion
 
         #region Events
+
+        private void AttachEvents()
+        {
+            if(_model != null)
+            {
+                _editedModel.PropertyChanged += OnModelPropertyChanged;
+            }
+        }
+
+        private void DetachEvents()
+        {
+            if (_model != null)
+            {
+                _editedModel.PropertyChanged -= OnModelPropertyChanged;
+            }
+        }
 
         private void OnModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -131,7 +199,7 @@ namespace Guests.ViewModels
         {
             ClearAllErrors();
 
-            var result = _validator.Validate(_model);
+            var result = _validator.Validate(EditedModel.Model);
 
             AddErrors(result);
 
@@ -143,7 +211,7 @@ namespace Guests.ViewModels
             ClearError(propertyName);
 
             var context = new ValidationContext<Guest>(
-                _model, new PropertyChain(),
+                EditedModel.Model, new PropertyChain(),
                 new MemberNameValidatorSelector(new[] { propertyName }));
             var result = _validator.Validate(context);
 
