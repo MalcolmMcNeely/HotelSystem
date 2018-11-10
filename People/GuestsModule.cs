@@ -1,10 +1,12 @@
-﻿using HotelSystem.Infrastructure;
-using Guests.ViewModels;
+﻿using Guests.ViewModels;
 using Guests.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using HotelSystem.Business;
+using HotelSystem.Infrastructure.Constants;
+using HotelSystem.Data.DataTransferObjects;
+using HotelSystem.Data.Repositories;
+using Guests.Repositories;
 
 namespace Guests
 {
@@ -27,6 +29,8 @@ namespace Guests
         {
             containerRegistry.Register<GuestView>();
             containerRegistry.Register<IGuestViewViewModel, GuestViewViewModel>();
+            containerRegistry.Register<IGuestRepository, GuestRepository>();
+            containerRegistry.Register<IRepository<GuestDataTransferObject>, Repository<GuestDataTransferObject>>();
 
             _regionManager.RegisterViewWithRegion(RegionNames.GuestsRegion, typeof(GuestView));
         }

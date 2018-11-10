@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using HotelSystem.Business.DomainObjects;
-using HotelSystem.Business.Resources;
+using Guests.Models;
+using HotelSystem.Infrastructure.Constants;
 using System;
 using System.Text.RegularExpressions;
 

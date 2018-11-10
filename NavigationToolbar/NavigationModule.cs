@@ -1,4 +1,4 @@
-﻿using HotelSystem.Infrastructure;
+﻿using HotelSystem.Infrastructure.Constants;
 using Navigation.Views;
 using NavigationToolbar.ViewModels;
 using Prism.Ioc;

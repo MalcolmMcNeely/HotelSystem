@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GuestsModule.cs" />
+    <Compile Include="Models\Guest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +94,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositories\GuestRepository.cs" />
+    <Compile Include="Repositories\IGuestRepository.cs" />
     <Compile Include="Resources\Strings.cs" />
     <Compile Include="Validators\GuestValidator.cs" />
     <Compile Include="ViewModels\CreateUpdateGuestViewModel.cs" />
@@ -116,9 +119,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HotelSystem.Business\HotelSystem.Business.csproj">
-      <Project>{fb9a5333-c30b-4ab2-b2d9-3abc337d62ed}</Project>
-      <Name>HotelSystem.Business</Name>
+    <ProjectReference Include="..\HotelSystem.Data\HotelSystem.Data.csproj">
+      <Project>{10bd477c-1a60-4402-90d8-bff380789e89}</Project>
+      <Name>HotelSystem.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\HotelSystem.Infrastructure\HotelSystem.Infrastructure.csproj">
       <Project>{802cc3fc-cb7f-4a7c-9ad0-ed85c9ab59e2}</Project>

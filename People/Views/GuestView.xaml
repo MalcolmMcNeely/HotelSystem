@@ -7,8 +7,6 @@
              xmlns:localres="clr-namespace:Guests.Resources"
              xmlns:inf.controls="clr-namespace:HotelSystem.Infrastructure.CustomControls;assembly=HotelSystem.Infrastructure"
              xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
-             xmlns:bll="clr-namespace:HotelSystem.Business;assembly=HotelSystem.Business"
-             xmlns:bllres="clr-namespace:HotelSystem.Business.Resources;assembly=HotelSystem.Business"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" 

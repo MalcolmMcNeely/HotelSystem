@@ -1,5 +1,4 @@
-﻿using HotelSystem.Business.DataManagers;
-using HotelSystem.Infrastructure.Common;
+﻿using HotelSystem.Infrastructure.Common;
 using Prism.Commands;
 using System;
 
@@ -7,18 +6,9 @@ namespace Guests.ViewModels
 {
     public class GuestViewViewModel : BindableBase, IGuestViewViewModel
     {
-        GuestManager _guestManager = new GuestManager();
-
         public void Initialise()
         {
             SetupCommands();
-
-            var allGuests = _guestManager.GetAllGuests();
-
-            foreach(var guest in allGuests)
-            {
-                Guests.Add(new GuestViewModel(guest));
-            }
         }
 
         public void ShutDown()

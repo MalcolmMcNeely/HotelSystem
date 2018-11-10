@@ -1,7 +1,7 @@
 ﻿using HotelSystem.Infrastructure.Common;
 using Guests.Validators;
 using System.ComponentModel;
-using HotelSystem.Business.DomainObjects;
+using Guests.Models;
 
 namespace Guests.ViewModels
 {

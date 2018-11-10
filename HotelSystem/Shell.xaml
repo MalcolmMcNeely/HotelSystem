@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelSystem"
         xmlns:prism="http://prismlibrary.com/"
-        xmlns:inf="clr-namespace:HotelSystem.Infrastructure;assembly=HotelSystem.Infrastructure"
+        xmlns:constants="clr-namespace:HotelSystem.Infrastructure.Constants;assembly=HotelSystem.Infrastructure"
         mc:Ignorable="d"
         Style="{StaticResource MainWindowStyle}"
         Title="Hotel System">
     <Grid>
         <DockPanel>
-            <StackPanel prism:RegionManager.RegionName="{x:Static inf:RegionNames.NavigationRegion}"
+            <StackPanel prism:RegionManager.RegionName="{x:Static constants:RegionNames.NavigationRegion}"
                         DockPanel.Dock="Top"/>
-            <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.GuestsRegion}"/>
+            <ContentControl prism:RegionManager.RegionName="{x:Static constants:RegionNames.GuestsRegion}"/>
         </DockPanel>
     </Grid>
 </Window>

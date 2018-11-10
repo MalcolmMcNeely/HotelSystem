@@ -32,8 +32,8 @@ namespace HotelSystem.Data.Data
 
         public DateTime BookedFrom { get; set; }
 
-        public DateTime BookTo { get; set; }
+        public DateTime BookedTo { get; set; }
 
-        ICollection<GuestData> Guests { get; set; }
+        public ICollection<GuestData> Guests { get; set; }
     }
 }

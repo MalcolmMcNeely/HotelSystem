@@ -1,4 +1,4 @@
-﻿using HotelSystem.Infrastructure;
+﻿using HotelSystem.Infrastructure.Constants;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;

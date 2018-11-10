@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.Internal;
 using FluentValidation.Results;
+using Guests.Models;
 using Guests.Validators;
-using HotelSystem.Business.DomainObjects;
 using HotelSystem.Infrastructure.Common;
 using Prism.Commands;
 using System;
@@ -13,6 +13,7 @@ namespace Guests.ViewModels
     public class CreateUpdateGuestViewModel : ValidatableBindableBase
     {
         private Guest _model = new Guest();
+        private Guest _editedModel;
         private GuestValidator _validator = new GuestValidator();
 
         public CreateUpdateGuestViewModel()
@@ -110,7 +111,7 @@ namespace Guests.ViewModels
             if (ValidationPassed)
             {
                 _model.LastUpdated = DateTime.Now;
-                _model.Save();
+                //_model.Save();
             }
         }
 
