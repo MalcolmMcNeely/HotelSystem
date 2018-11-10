@@ -144,6 +144,48 @@ namespace HotelSystem.Infrastructure.CustomControls
             }
         }
 
+
+        public ICommand DataGridDoubleClickCommand
+        {
+            get { return (ICommand)GetValue(DataGridDoubleClickCommandProperty); }
+            set { SetValue(DataGridDoubleClickCommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty DataGridDoubleClickCommandProperty =
+            DependencyProperty.RegisterAttached("DataGridDoubleClickCommand", typeof(ICommand), typeof(CustomDataGrid),
+                    new PropertyMetadata(new PropertyChangedCallback(AttachOrRemoveDataGridDoubleClickEvent)));
+
+        public static void AttachOrRemoveDataGridDoubleClickEvent(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+            DataGrid dataGrid = obj as DataGrid;
+            if (dataGrid != null)
+            {
+                ICommand cmd = (ICommand)args.NewValue;
+
+                if (args.OldValue == null && args.NewValue != null)
+                {
+                    dataGrid.MouseDoubleClick += ExecuteDataGridDoubleClick;
+                }
+                else if (args.OldValue != null && args.NewValue == null)
+                {
+                    dataGrid.MouseDoubleClick -= ExecuteDataGridDoubleClick;
+                }
+            }
+        }
+
+        private static void ExecuteDataGridDoubleClick(object sender, MouseButtonEventArgs args)
+        {
+            DependencyObject obj = sender as DependencyObject;
+            ICommand cmd = (ICommand)obj.GetValue(DataGridDoubleClickCommandProperty);
+            if (cmd != null)
+            {
+                if (cmd.CanExecute(obj))
+                {
+                    cmd.Execute(obj);
+                }
+            }
+        }
+
         #endregion
 
         #region Events

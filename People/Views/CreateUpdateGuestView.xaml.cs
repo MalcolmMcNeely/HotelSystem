@@ -1,6 +1,7 @@
 ﻿using Guests.Models;
 using Guests.ViewModels;
 using HotelSystem.Infrastructure.MVVM;
+using Prism.Events;
 using System;
 using System.Windows;
 using System.Windows.Controls;

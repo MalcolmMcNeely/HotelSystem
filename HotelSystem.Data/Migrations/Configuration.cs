@@ -15,13 +15,16 @@ namespace HotelSystem.Data.Migrations
         protected override void Seed(HotelSystem.Data.Context context)
         {
             //  This method will be called after migrating to the latest version.
-
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
             var seedData = new SeedData();
             var guests = seedData.GetGuestData();
-            context.Guests.AddRange(guests);
+
+            foreach (var guest in guests)
+            {
+                context.Guests.AddOrUpdate(guest);
+            }
         }
     }
 }

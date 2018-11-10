@@ -11,16 +11,7 @@ namespace Guests.Models
 
         public Guest(Guest other)
         {
-            _name = other._name;
-            _age = other._age;
-            _addressLineOne = other._addressLineOne;
-            _addressLineTwo = other._addressLineTwo;
-            _city = other.City;
-            _postCode = other.PostCode;
-            _phoneNumber = other._phoneNumber;
-            _creditCardNumber = other._creditCardNumber;
-            _amountOwed = other._amountOwed;
-            _amountPaid = other._amountPaid;
+            UpdateFromGuest(other);
         }
 
         public Guest(GuestDataTransferObject data)
@@ -37,9 +28,14 @@ namespace Guests.Models
             _amountPaid = data.AmountPaid;
         }
 
+        public void Update(Guest other)
+        {
+            UpdateFromGuest(other);
+        }
+
         #region Properties
 
-        public int Key { get; }
+        public int Id { get; private set; }
 
         private string _name;
         public string Name
@@ -146,6 +142,23 @@ namespace Guests.Models
             };
 
             return guestDTO;
+        }
+
+        private void UpdateFromGuest(Guest other)
+        {
+            Id = other.Id;
+            _name = other._name;
+            _age = other._age;
+            _addressLineOne = other._addressLineOne;
+            _addressLineTwo = other._addressLineTwo;
+            _city = other.City;
+            _postCode = other.PostCode;
+            _phoneNumber = other._phoneNumber;
+            _creditCardNumber = other._creditCardNumber;
+            _amountOwed = other._amountOwed;
+            _amountPaid = other._amountPaid;
+
+            RaisePropertyChanged(string.Empty);
         }
     }
 }

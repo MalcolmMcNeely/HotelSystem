@@ -10,7 +10,10 @@ namespace Guests.Resources
     {
         public const string ModuleHeader = "Guests";
         public const string AddorUpdateHeader = "Add or Update";
+
         public const string AddGuest = "Add";
+        public const string UpdateGuest = "Update";
+        public const string DeleteGuest = "Delete";
 
         public const string Name = "Name:";
         public const string Age = "Age:";

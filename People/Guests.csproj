@@ -79,6 +79,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\GuestSelectedEvent.cs" />
+    <Compile Include="Events\GuestUpdatedEvent.cs" />
     <Compile Include="GuestsModule.cs" />
     <Compile Include="Models\Guest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

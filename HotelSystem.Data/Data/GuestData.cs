@@ -6,7 +6,8 @@ namespace HotelSystem.Data.Data
 {
     public class GuestData
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
@@ -41,21 +42,5 @@ namespace HotelSystem.Data.Data
 
         [Required]
         public DateTime LastUpdated { get; set; }
-
-        public void Update(GuestData other)
-        {
-            Id = other.Id;
-            Name = other.Name;
-            Age = other.Age;
-            AddressLineOne = other.AddressLineOne;
-            AddressLineTwo = other.AddressLineTwo;
-            City = other.City;
-            PhoneNumber = other.PhoneNumber;
-            CreditCardNumber = other.CreditCardNumber;
-            AmountOwed = other.AmountOwed;
-            AmountPaid = other.AmountPaid;
-            DateCreated = other.DateCreated;
-            LastUpdated = other.LastUpdated;
-        }
     }
 }

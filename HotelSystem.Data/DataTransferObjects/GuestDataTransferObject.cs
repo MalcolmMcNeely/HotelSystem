@@ -16,6 +16,7 @@ namespace HotelSystem.Data.DataTransferObjects
             AddressLineTwo = data.AddressLineTwo;
             City = data.City;
             PhoneNumber = data.PhoneNumber;
+            PostCode = data.PostCode;
             CreditCardNumber = data.CreditCardNumber;
             AmountOwed = data.AmountOwed;
             AmountPaid = data.AmountPaid;

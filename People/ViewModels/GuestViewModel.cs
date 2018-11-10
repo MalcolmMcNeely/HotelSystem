@@ -23,6 +23,11 @@ namespace Guests.ViewModels
             AttachEvents();
         }
 
+        public void Update(GuestViewModel other)
+        {
+            Model.Update(other.Model);
+        }
+
         public void ShutDown()
         {
             DetachEvents();

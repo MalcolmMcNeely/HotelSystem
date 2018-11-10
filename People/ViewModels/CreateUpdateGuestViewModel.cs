@@ -1,11 +1,13 @@
 ﻿using FluentValidation;
 using FluentValidation.Internal;
 using FluentValidation.Results;
+using Guests.Events;
 using Guests.Models;
 using Guests.Repositories;
 using Guests.Validators;
 using HotelSystem.Infrastructure.Common;
 using Prism.Commands;
+using Prism.Events;
 using System;
 using System.ComponentModel;
 
@@ -15,10 +17,14 @@ namespace Guests.ViewModels
     {
         private GuestValidator _validator = new GuestValidator();
         IGuestRepository _repository;
+        IEventAggregator _eventAggregator;
 
-        public CreateUpdateGuestViewModel(IGuestRepository repository)
+        public CreateUpdateGuestViewModel(IGuestRepository repository,
+                                          IEventAggregator eventAggregator)
         {
             _repository = repository;
+            _eventAggregator = eventAggregator;
+
             SetupCommands();
             AttachEvents();
         }
@@ -118,7 +124,7 @@ namespace Guests.ViewModels
             get => _editedModel;
             set
             {
-                var oldModel = _model;
+                var oldModel = _editedModel;
 
                 if (SetProperty(ref _editedModel, value))
                 {
@@ -156,6 +162,8 @@ namespace Guests.ViewModels
                 _model = _editedModel;
 
                 _repository.AddOrUpdate(_model.Model.ToGuestDataTransferObject());
+
+                _eventAggregator.GetEvent<GuestUpdatedEvent>().Publish(_model);
             }
         }
 
@@ -177,6 +185,8 @@ namespace Guests.ViewModels
             {
                 _editedModel.PropertyChanged += OnModelPropertyChanged;
             }
+
+            _eventAggregator.GetEvent<GuestSelectedEvent>().Subscribe(GuestViewModelSelected);
         }
 
         private void DetachEvents()
@@ -191,6 +201,11 @@ namespace Guests.ViewModels
         {
             ValidateModelProperty(e.PropertyName);
             RaisePropertyChanged(e.PropertyName);
+        }
+
+        private void GuestViewModelSelected(GuestViewModel guestViewModel)
+        {
+            Model = guestViewModel;
         }
 
         #endregion

@@ -40,14 +40,20 @@
             </WrapPanel>
 
             <DockPanel>
-                <StackPanel>
+                <StackPanel Margin="10 10 0 0">
                     <Button Content="{x:Static localres:Strings.AddGuest}"
                             Command="{Binding CreateGuestCommand}"/>
+                    <Button Content="{x:Static localres:Strings.UpdateGuest}"
+                            Command="{Binding UpdateGuestCommand}"/>
+                    <Button Content="{x:Static localres:Strings.DeleteGuest}"
+                            Command="{Binding DeleteGuestCommand}"/>
                 </StackPanel>
                 <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
+                                             SelectedItem="{Binding SelectedGuest}"
+                                             DataGridDoubleClickCommand="{Binding UpdateGuestCommand}"
                                              IsReadOnly="True"
                                              AutoGenerateColumns="True"
-                                             Margin="10 0 0 0"/>
+                                             Margin="10"/>
             </DockPanel>
         </DockPanel>
     </Grid>

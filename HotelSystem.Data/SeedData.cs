@@ -12,6 +12,7 @@ namespace HotelSystem.Data
 
             guestData.Add(new GuestData()
             {
+                Id = 1,
                 Name = "Clive",
                 Age = 64,
                 AddressLineOne = "Flat 1",
@@ -28,6 +29,7 @@ namespace HotelSystem.Data
 
             guestData.Add(new GuestData()
             {
+                Id = 2,
                 Name = "Jimmy",
                 Age = 15,
                 AddressLineOne = "Flat 1",
@@ -44,6 +46,7 @@ namespace HotelSystem.Data
 
             guestData.Add(new GuestData()
             {
+                Id = 3,
                 Name = "Andrea",
                 Age = 28,
                 AddressLineOne = "123 Fakestreet",
@@ -60,6 +63,7 @@ namespace HotelSystem.Data
 
             guestData.Add(new GuestData()
             {
+                Id = 4,
                 Name = "Mordred",
                 Age = 31,
                 AddressLineOne = "1st Barracks",
@@ -76,6 +80,7 @@ namespace HotelSystem.Data
 
             guestData.Add(new GuestData()
             {
+                Id = 5,
                 Name = "Arthur",
                 Age = 52,
                 AddressLineOne = "Throne Room",
