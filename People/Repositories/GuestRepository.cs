@@ -2,6 +2,7 @@
 using HotelSystem.Data.DataTransferObjects;
 using HotelSystem.Data.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Guests.Repositories
 {
@@ -19,7 +20,7 @@ namespace Guests.Repositories
             _repository.AddOrUpdate(person.ToGuestData());
         }
 
-        public IList<GuestDataTransferObject> GetAll()
+        public List<GuestDataTransferObject> GetAll()
         {
             var allData = _repository.GetAll();
 

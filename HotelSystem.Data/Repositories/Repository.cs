@@ -20,11 +20,11 @@ namespace HotelSystem.Data.Repositories
             }
         }
 
-        public IList<T> GetAll()
+        public List<T> GetAll()
         {
             using (var context = new Context())
             {
-                return context.Set<T>().Local;
+                return context.Set<T>().ToList();
             }
         }
 

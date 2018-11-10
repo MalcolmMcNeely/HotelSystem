@@ -9,7 +9,7 @@ namespace HotelSystem.Data.Repositories
     public interface IRepository<T> where T : class
     {
         T Get(int id);
-        IList<T> GetAll();
+        List<T> GetAll();
         void Add(params T[] entities);
         void AddOrUpdate(T entity);
         void Remove(params T[] entities);

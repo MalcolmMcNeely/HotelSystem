@@ -3,6 +3,7 @@ using Guests.Validators;
 using System.ComponentModel;
 using Guests.Models;
 using System;
+using HotelSystem.Infrastructure.Attributes;
 
 namespace Guests.ViewModels
 {
@@ -89,6 +90,7 @@ namespace Guests.ViewModels
             set => _model.AmountPaid = value;
         }
 
+        [DoNotAutoGenerate]
         public DateTime LastUpdated
         {
             get => _model.LastUpdated;
@@ -100,6 +102,7 @@ namespace Guests.ViewModels
         #region Properties
 
         private Guest _model;
+        [DoNotAutoGenerate]
         public Guest Model
         {
             get => _model;
