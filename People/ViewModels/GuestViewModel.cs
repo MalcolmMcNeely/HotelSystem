@@ -1,9 +1,9 @@
-﻿using HotelSystem.Infrastructure.Common;
+﻿using HotelSystem.Infrastructure.WPF;
 using Guests.Validators;
 using System.ComponentModel;
 using Guests.Models;
 using System;
-using HotelSystem.Infrastructure.Attributes;
+using HotelSystem.Infrastructure.WPF.Attributes;
 
 namespace Guests.ViewModels
 {

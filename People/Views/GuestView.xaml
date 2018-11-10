@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:Guests.Views"
              xmlns:localViewModels="clr-namespace:Guests.ViewModels"
              xmlns:localres="clr-namespace:Guests.Resources"
-             xmlns:inf.controls="clr-namespace:HotelSystem.Infrastructure.CustomControls;assembly=HotelSystem.Infrastructure"
-             xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
+             xmlns:inf.controls="clr-namespace:HotelSystem.Infrastructure.WPF.CustomControls;assembly=HotelSystem.Infrastructure"
+             xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.WPF.UserControls;assembly=HotelSystem.Infrastructure"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
@@ -15,6 +15,19 @@
              d:DesignWidth="800"
              Background="{StaticResource brushPrimaryBackgroundColour}"
              Foreground="{StaticResource brushPrimaryForegroundColour}">
+    <UserControl.Resources>
+        <!--DataGridColumnHeader Style-->
+        <ContextMenu x:Key="ColumnHeaderContextMenu">
+            <MenuItem Header="Hide Column"
+                  Click="ColumnHeaderContextMenuHideItemClick"/>
+        </ContextMenu>
+
+        <Style x:Key="HideableDataGridColumnHeader"
+               TargetType="{x:Type DataGridColumnHeader}"
+               BasedOn="{StaticResource CustomDataGridHeader}">
+            <Setter Property="ContextMenu" Value="{StaticResource ColumnHeaderContextMenu}"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <!-- Create or update guest overlay -->
         <inf.userControls:OverlayControl x:Name="ProductSearchOverlayMenu"
@@ -35,12 +48,16 @@
         <DockPanel>
             <WrapPanel DockPanel.Dock="Top"
                        Style="{StaticResource PrimaryHeaderWrapPanelStyle}">
+                <Image Source="{StaticResource ImageWoman}"
+                       Height="30"
+                       Width="30"
+                       Margin="10 0 0 0"/>
                 <TextBlock Text="{x:Static localres:Strings.ModuleHeader}"
                            Style="{StaticResource PrimaryHeaderTextBlockStyle}"/>
             </WrapPanel>
 
             <DockPanel>
-                <StackPanel Margin="10 10 0 0">
+                <StackPanel Margin="10 49 0 10">
                     <Button Content="{x:Static localres:Strings.AddGuest}"
                             Command="{Binding CreateGuestCommand}"/>
                     <Button Content="{x:Static localres:Strings.UpdateGuest}"
@@ -48,12 +65,31 @@
                     <Button Content="{x:Static localres:Strings.DeleteGuest}"
                             Command="{Binding DeleteGuestCommand}"/>
                 </StackPanel>
-                <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
+                <DockPanel>
+                    <WrapPanel Orientation="Horizontal"
+                                DockPanel.Dock="Top"
+                                Margin="10 10 0 0">
+                        <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Filter}"
+                                                          Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                                          Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
+                        <Button x:Name="ResetLayoutButton"
+                                Content="{x:Static localres:Strings.ResetLayout}"/>
+                        <Button x:Name="ResetSortButton"
+                                Content="{x:Static localres:Strings.ResetSort}"/>
+                        <Button x:Name="ShowAllColumnsButton"
+                                Content="{x:Static localres:Strings.ShowAllColumns}"/>
+                    </WrapPanel>
+                    <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
                                              SelectedItem="{Binding SelectedGuest}"
                                              DataGridDoubleClickCommand="{Binding UpdateGuestCommand}"
+                                             ResetLayoutButton="{Binding ElementName=ResetLayoutButton}"
+                                             ResetSortButton="{Binding ElementName=ResetSortButton}"
+                                             ShowAllColumnsButton="{Binding ElementName=ShowAllColumnsButton}"
                                              IsReadOnly="True"
                                              AutoGenerateColumns="True"
+                                             ColumnHeaderStyle="{StaticResource HideableDataGridColumnHeader}"
                                              Margin="10"/>
+                </DockPanel>
             </DockPanel>
         </DockPanel>
     </Grid>

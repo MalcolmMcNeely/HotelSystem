@@ -7,9 +7,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonBrushes.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/CommonStyles.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/Styles/MainWindow/MainWindowStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/WPF/Styles/Fonts.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/WPF/Styles/Icons.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/WPF/Styles/CommonBrushes.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/WPF/Styles/CommonStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HotelSystem.Infrastructure;component/WPF/Styles/MainWindow/MainWindowStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

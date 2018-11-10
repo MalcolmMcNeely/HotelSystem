@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Guests.Views"
              xmlns:localres="clr-namespace:Guests.Resources"
-             xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.UserControls;assembly=HotelSystem.Infrastructure"
+             xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.WPF.UserControls;assembly=HotelSystem.Infrastructure"
              xmlns:constants="clr-namespace:HotelSystem.Infrastructure.Constants;assembly=HotelSystem.Infrastructure"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
@@ -64,7 +64,7 @@
                                                          ShowZeroValue="False"/>
             </StackPanel>
             <WrapPanel HorizontalAlignment="Right"
-                       Margin="0 5 24 0">
+                       Margin="0 0 21 0">
                 <Button Content="Save"
                         Command="{Binding SaveCommand}"/>
                 <Button Content="Undo"

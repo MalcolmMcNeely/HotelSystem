@@ -1,4 +1,4 @@
-﻿using HotelSystem.Infrastructure.MVVM;
+﻿using HotelSystem.Infrastructure.WPF.MVVM;
 
 namespace Guests.ViewModels
 {

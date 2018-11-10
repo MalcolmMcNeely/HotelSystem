@@ -15,6 +15,11 @@ namespace Guests.Resources
         public const string UpdateGuest = "Update";
         public const string DeleteGuest = "Delete";
 
+        public const string Filter = "Filter Results:";
+        public const string ShowAllColumns = "Show All Columns";
+        public const string ResetLayout = "Reset Layout";
+        public const string ResetSort = "Reset Sort";
+
         public const string Name = "Name:";
         public const string Age = "Age:";
         public const string AddressLineOne = "Address:";

@@ -1,4 +1,4 @@
-﻿using HotelSystem.Infrastructure.MVVM;
+﻿using HotelSystem.Infrastructure.WPF.MVVM;
 using NavigationToolbar.ViewModels;
 using System.Windows.Controls;
 

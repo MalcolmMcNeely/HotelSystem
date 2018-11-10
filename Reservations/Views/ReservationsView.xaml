@@ -4,10 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Reservations.Views"
+             xmlns:localres="clr-namespace:Reservations.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
-             d:DesignWidth="800">
+             d:DesignWidth="800"
+             Background="{StaticResource brushPrimaryBackgroundColour}"
+             Foreground="{StaticResource brushPrimaryForegroundColour}">
     <Grid>
-        <TextBlock FontSize="38">Reservations Module</TextBlock>
+        <DockPanel>
+            <WrapPanel DockPanel.Dock="Top"
+                       Style="{StaticResource PrimaryHeaderWrapPanelStyle}">
+                <Image Source="{StaticResource ImageRing}"
+                       Height="30"
+                       Width="30"
+                       Margin="10 0 0 0"/>
+                <TextBlock Text="{x:Static localres:Strings.ModuleHeader}"
+                           Style="{StaticResource PrimaryHeaderTextBlockStyle}"/>
+            </WrapPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

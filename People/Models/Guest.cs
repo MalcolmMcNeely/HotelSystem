@@ -1,6 +1,5 @@
-﻿using HotelSystem.Data.Data;
-using HotelSystem.Data.DataTransferObjects;
-using HotelSystem.Infrastructure.Common;
+﻿using HotelSystem.Data.DataTransferObjects;
+using HotelSystem.Infrastructure.WPF;
 using System;
 
 namespace Guests.Models

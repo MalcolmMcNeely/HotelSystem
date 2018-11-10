@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HotelSystem.Infrastructure.WPF.Styles">    
+    <FontFamily x:Key="Lato">pack://application:,,,/Resources/Fonts/Lato/#Lato</FontFamily>
+    <FontFamily x:Key="Roboto">pack://application:,,,/Resources/Fonts/Roboto/#Roboto</FontFamily>
+</ResourceDictionary>

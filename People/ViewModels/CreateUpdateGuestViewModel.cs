@@ -5,7 +5,7 @@ using Guests.Events;
 using Guests.Models;
 using Guests.Repositories;
 using Guests.Validators;
-using HotelSystem.Infrastructure.Common;
+using HotelSystem.Infrastructure.WPF;
 using Prism.Commands;
 using Prism.Events;
 using System;

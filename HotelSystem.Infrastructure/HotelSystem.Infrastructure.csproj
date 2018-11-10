@@ -62,6 +62,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -79,25 +80,27 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BindableBase.cs" />
-    <Compile Include="Common\SmartCollection.cs" />
-    <Compile Include="Common\ValidatableBindableBase.cs" />
+    <Compile Include="WPF\BindableBase.cs" />
+    <Compile Include="WPF\RibbonBehaviour.cs" />
+    <Compile Include="WPF\SmartCollection.cs" />
+    <Compile Include="WPF\ValidatableBindableBase.cs" />
+    <Compile Include="WPF\VisualTreeExtensions.cs" />
     <Compile Include="Constants\ErrorStrings.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\InverseBooleanConverter.cs" />
-    <Compile Include="Attributes\DoNotAutoGenerateAttribute.cs" />
+    <Compile Include="WPF\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="WPF\Converters\InverseBooleanConverter.cs" />
+    <Compile Include="WPF\Attributes\DoNotAutoGenerateAttribute.cs" />
     <Compile Include="DryIoc\DryIocContainerExtension.cs" />
     <Compile Include="DryIoc\DryIocServiceLocatorAdapter.cs" />
     <Compile Include="DryIoc\PrismIocExtensions.cs" />
     <Compile Include="Helpers\InputHelper.cs" />
-    <Compile Include="CustomControls\CustomDataGrid.cs" />
-    <Compile Include="CustomControls\DataGridDecimalColumn.cs" />
-    <Compile Include="CustomControls\DataGridIntegerColumn.cs" />
-    <Compile Include="CustomControls\DecimalTextBox.cs" />
-    <Compile Include="CustomControls\IntegerTextBox.cs" />
-    <Compile Include="MVVM\IView.cs" />
-    <Compile Include="MVVM\IViewModel.cs" />
+    <Compile Include="WPF\CustomControls\CustomDataGrid.cs" />
+    <Compile Include="WPF\CustomControls\DataGridDecimalColumn.cs" />
+    <Compile Include="WPF\CustomControls\DataGridIntegerColumn.cs" />
+    <Compile Include="WPF\CustomControls\DecimalTextBox.cs" />
+    <Compile Include="WPF\CustomControls\IntegerTextBox.cs" />
+    <Compile Include="WPF\MVVM\IView.cs" />
+    <Compile Include="WPF\MVVM\IViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -113,24 +116,24 @@
     </Compile>
     <Compile Include="Constants\RegionNames.cs" />
     <Compile Include="PRISM\StackPanelRegionAdapter.cs" />
-    <Compile Include="Styles\MainWindow\ControlDoubleClickBehavior.cs" />
-    <Compile Include="Styles\MainWindow\ShowSystemMenuBehavior.cs" />
-    <Compile Include="Styles\MainWindow\SystemMenuManager.cs" />
-    <Compile Include="Styles\MainWindow\WindowCloseCommand.cs" />
-    <Compile Include="Styles\MainWindow\WindowDragBehavior.cs" />
-    <Compile Include="Styles\MainWindow\WindowMaximizeCommand.cs" />
-    <Compile Include="Styles\MainWindow\WindowMinimizeCommand.cs" />
-    <Compile Include="Styles\MainWindow\WindowResizeBehavior.cs" />
-    <Compile Include="UserControls\LabelledDecimalTextBox.xaml.cs">
+    <Compile Include="WPF\Styles\MainWindow\ControlDoubleClickBehavior.cs" />
+    <Compile Include="WPF\Styles\MainWindow\ShowSystemMenuBehavior.cs" />
+    <Compile Include="WPF\Styles\MainWindow\SystemMenuManager.cs" />
+    <Compile Include="WPF\Styles\MainWindow\WindowCloseCommand.cs" />
+    <Compile Include="WPF\Styles\MainWindow\WindowDragBehavior.cs" />
+    <Compile Include="WPF\Styles\MainWindow\WindowMaximizeCommand.cs" />
+    <Compile Include="WPF\Styles\MainWindow\WindowMinimizeCommand.cs" />
+    <Compile Include="WPF\Styles\MainWindow\WindowResizeBehavior.cs" />
+    <Compile Include="WPF\UserControls\LabelledDecimalTextBox.xaml.cs">
       <DependentUpon>LabelledDecimalTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LabelledIntegerTextBox.xaml.cs">
+    <Compile Include="WPF\UserControls\LabelledIntegerTextBox.xaml.cs">
       <DependentUpon>LabelledIntegerTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LabelledTextBox.xaml.cs">
+    <Compile Include="WPF\UserControls\LabelledTextBox.xaml.cs">
       <DependentUpon>LabelledTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\OverlayControl.xaml.cs">
+    <Compile Include="WPF\UserControls\OverlayControl.xaml.cs">
       <DependentUpon>OverlayControl.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -167,34 +170,144 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Styles\CommonBrushes.xaml">
+    <Page Include="WPF\Styles\CommonBrushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\CommonStyles.xaml">
+    <Page Include="WPF\Styles\CommonStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\MainWindow\MainWindowStyle.xaml">
+    <Page Include="WPF\Styles\Fonts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\LabelledDecimalTextBox.xaml">
+    <Page Include="WPF\Styles\Icons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\LabelledIntegerTextBox.xaml">
+    <Page Include="WPF\Styles\MainWindow\MainWindowStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\LabelledTextBox.xaml">
+    <Page Include="WPF\UserControls\LabelledDecimalTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\OverlayControl.xaml">
+    <Page Include="WPF\UserControls\LabelledIntegerTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPF\UserControls\LabelledTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\UserControls\OverlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\24-hours-1.png" />
+    <Resource Include="Resources\Icons\24-hours.png" />
+    <Resource Include="Resources\Icons\acoustic-guitar.png" />
+    <Resource Include="Resources\Icons\aeroplane.png" />
+    <Resource Include="Resources\Icons\air-conditioner.png" />
+    <Resource Include="Resources\Icons\airplane.png" />
+    <Resource Include="Resources\Icons\alarm-clock.png" />
+    <Resource Include="Resources\Icons\alcoholic-drinks.png" />
+    <Resource Include="Resources\Icons\atm.png" />
+    <Resource Include="Resources\Icons\bathtub.png" />
+    <Resource Include="Resources\Icons\bed-1.png" />
+    <Resource Include="Resources\Icons\bed.png" />
+    <Resource Include="Resources\Icons\beer.png" />
+    <Resource Include="Resources\Icons\bellboy-1.png" />
+    <Resource Include="Resources\Icons\bellboy.png" />
+    <Resource Include="Resources\Icons\bowling.png" />
+    <Resource Include="Resources\Icons\briefcase.png" />
+    <Resource Include="Resources\Icons\bunk.png" />
+    <Resource Include="Resources\Icons\cctv.png" />
+    <Resource Include="Resources\Icons\champagne.png" />
+    <Resource Include="Resources\Icons\chef.png" />
+    <Resource Include="Resources\Icons\clock-1.png" />
+    <Resource Include="Resources\Icons\clock.png" />
+    <Resource Include="Resources\Icons\close-1.png" />
+    <Resource Include="Resources\Icons\close.png" />
+    <Resource Include="Resources\Icons\cocktail.png" />
+    <Resource Include="Resources\Icons\coconaut.png" />
+    <Resource Include="Resources\Icons\coffee-cup.png" />
+    <Resource Include="Resources\Icons\credit-card.png" />
+    <Resource Include="Resources\Icons\cutlery-1.png" />
+    <Resource Include="Resources\Icons\cutlery.png" />
+    <Resource Include="Resources\Icons\dumbbell.png" />
+    <Resource Include="Resources\Icons\elevator-1.png" />
+    <Resource Include="Resources\Icons\elevator.png" />
+    <Resource Include="Resources\Icons\exchange.png" />
+    <Resource Include="Resources\Icons\fireplace.png" />
+    <Resource Include="Resources\Icons\flip-flops.png" />
+    <Resource Include="Resources\Icons\french-fries.png" />
+    <Resource Include="Resources\Icons\gamepad.png" />
+    <Resource Include="Resources\Icons\hairdresser.png" />
+    <Resource Include="Resources\Icons\hanger.png" />
+    <Resource Include="Resources\Icons\hotel-1.png" />
+    <Resource Include="Resources\Icons\hotel-2.png" />
+    <Resource Include="Resources\Icons\hotel-3.png" />
+    <Resource Include="Resources\Icons\hotel-4.png" />
+    <Resource Include="Resources\Icons\hotel-5.png" />
+    <Resource Include="Resources\Icons\hotel-6.png" />
+    <Resource Include="Resources\Icons\hotel-7.png" />
+    <Resource Include="Resources\Icons\hotel-8.png" />
+    <Resource Include="Resources\Icons\hotel.png" />
+    <Resource Include="Resources\Icons\key.png" />
+    <Resource Include="Resources\Icons\laptop.png" />
+    <Resource Include="Resources\Icons\maid.png" />
+    <Resource Include="Resources\Icons\map-1.png" />
+    <Resource Include="Resources\Icons\map.png" />
+    <Resource Include="Resources\Icons\menu.png" />
+    <Resource Include="Resources\Icons\minibar.png" />
+    <Resource Include="Resources\Icons\money-1.png" />
+    <Resource Include="Resources\Icons\money.png" />
+    <Resource Include="Resources\Icons\mortgage.png" />
+    <Resource Include="Resources\Icons\no-smoking.png" />
+    <Resource Include="Resources\Icons\notebook.png" />
+    <Resource Include="Resources\Icons\notes.png" />
+    <Resource Include="Resources\Icons\open.png" />
+    <Resource Include="Resources\Icons\parking.png" />
+    <Resource Include="Resources\Icons\passport-1.png" />
+    <Resource Include="Resources\Icons\passport.png" />
+    <Resource Include="Resources\Icons\photo-camera.png" />
+    <Resource Include="Resources\Icons\picture.png" />
+    <Resource Include="Resources\Icons\poker.png" />
+    <Resource Include="Resources\Icons\reception.png" />
+    <Resource Include="Resources\Icons\rent.png" />
+    <Resource Include="Resources\Icons\ring.png" />
+    <Resource Include="Resources\Icons\room-key-1.png" />
+    <Resource Include="Resources\Icons\room-key.png" />
+    <Resource Include="Resources\Icons\safebox.png" />
+    <Resource Include="Resources\Icons\shirt-1.png" />
+    <Resource Include="Resources\Icons\shirt.png" />
+    <Resource Include="Resources\Icons\shower.png" />
+    <Resource Include="Resources\Icons\sofa.png" />
+    <Resource Include="Resources\Icons\stationary-bike.png" />
+    <Resource Include="Resources\Icons\sun-glasses.png" />
+    <Resource Include="Resources\Icons\sun-umbrella.png" />
+    <Resource Include="Resources\Icons\sunglasses.png" />
+    <Resource Include="Resources\Icons\tag.png" />
+    <Resource Include="Resources\Icons\taxi-1.png" />
+    <Resource Include="Resources\Icons\taxi.png" />
+    <Resource Include="Resources\Icons\telephone.png" />
+    <Resource Include="Resources\Icons\television-1.png" />
+    <Resource Include="Resources\Icons\television-2.png" />
+    <Resource Include="Resources\Icons\television-3.png" />
+    <Resource Include="Resources\Icons\television.png" />
+    <Resource Include="Resources\Icons\terrace.png" />
+    <Resource Include="Resources\Icons\ticket.png" />
+    <Resource Include="Resources\Icons\toilet-paper.png" />
+    <Resource Include="Resources\Icons\trolley.png" />
+    <Resource Include="Resources\Icons\wifi.png" />
+    <Resource Include="Resources\Icons\wine-bottle.png" />
+    <Resource Include="Resources\Icons\wine-menu.png" />
+    <Resource Include="Resources\Icons\woman.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
