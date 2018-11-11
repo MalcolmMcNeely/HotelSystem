@@ -13,10 +13,12 @@
              Foreground="{StaticResource brushPrimaryForegroundColour}">
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
-            <inf.userControls:ImageButton ImageSource="{StaticResource ImageWoman}"
-                                          Text="Guests"/>
             <inf.userControls:ImageButton ImageSource="{StaticResource ImageRing}"
                                           Text="Reservations"/>
+            <inf.userControls:ImageButton ImageSource="{StaticResource ImageWoman}"
+                                          Text="Guests"/>
+            <inf.userControls:ImageButton ImageSource="{StaticResource ImageBed}"
+                                          Text="Rooms"/>
         </WrapPanel>
     </DockPanel>
 </UserControl>

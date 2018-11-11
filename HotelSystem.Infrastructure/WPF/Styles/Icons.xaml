@@ -2,5 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:HotelSystem.Infrastructure.WPF.Styles">
     <BitmapImage x:Key="ImageWoman" UriSource="../../Resources/Icons/woman.png"/>
-    <BitmapImage x:Key="ImageRing" UriSource="../../Resources/Icons/ring.png"/>    
+    <BitmapImage x:Key="ImageRing" UriSource="../../Resources/Icons/ring.png"/>
+    <BitmapImage x:Key="ImageBed" UriSource="../../Resources/Icons/bed-1.png"/>
 </ResourceDictionary>

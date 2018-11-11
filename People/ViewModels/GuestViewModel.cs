@@ -47,12 +47,14 @@ namespace Guests.ViewModels
             set => _model.Age = value;
         }
 
+        [DisplayName("Address Line One")]
         public string AddressLineOne
         {
             get => _model.AddressLineOne;
             set => _model.AddressLineOne = value;
         }
 
+        [DisplayName("Address Line Two")]
         public string AddressLineTwo
         {
             get => _model.AddressLineTwo;
@@ -65,30 +67,35 @@ namespace Guests.ViewModels
             set => _model.City = value;
         }
 
+        [DisplayName("Post Code")]
         public string PostCode
         {
             get => _model.PostCode;
             set => _model.PostCode = value;
         }
 
+        [DisplayName("Phone Number")]
         public string PhoneNumber
         {
             get => _model.PhoneNumber;
             set => _model.PhoneNumber = value;
         }
 
+        [DisplayName("Credit Card Number")]
         public string CreditCardNumber
         {
             get => _model.CreditCardNumber;
             set => _model.CreditCardNumber = value;
         }
 
+        [DisplayName("Amount Owed")]
         public decimal AmountOwed
         {
             get => _model.AmountOwed;
             set => _model.AmountOwed = value;
         }
 
+        [DisplayName("Amount Paid")]
         public decimal AmountPaid
         {
             get => _model.AmountPaid;

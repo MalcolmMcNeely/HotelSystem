@@ -349,15 +349,32 @@ namespace HotelSystem.Infrastructure.WPF.CustomControls
             {
                 e.Cancel = true;
             }
+            else
+            {
+                // Replace the auto generated column with the column we generate ourselves
+                if (typeof(decimal).IsAssignableFrom(propertyType))
+                {
+                    e.Column = GenerateDecimalTextBoxColumn(e);
+                }
+                else if (typeof(int).IsAssignableFrom(propertyType))
+                {
+                    e.Column = GenerateIntegerTextBoxColumn(e);
+                }
+                else
+                {
+                    // If we don't generate out own columns then configure according
+                    // to any attributes specified
+                    if (pd.Attributes.OfType<DisplayNameAttribute>().Any())
+                    {
+                        var boundColumn = e.Column as DataGridBoundColumn;
 
-            // Replace the auto generated column with the column we generate ourselves
-            if (typeof(decimal).IsAssignableFrom(propertyType))
-            {
-                e.Column = GenerateDecimalTextBoxColumn(e);
-            }
-            else if (typeof(int).IsAssignableFrom(propertyType))
-            {
-                e.Column = GenerateIntegerTextBoxColumn(e);
+                        if (boundColumn != null)
+                        {
+                            var displayName = pd.Attributes.OfType<DisplayNameAttribute>().First();
+                            boundColumn.Header = displayName.DisplayName;
+                        }
+                    }
+                }
             }
         }
 

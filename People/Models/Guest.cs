@@ -1,6 +1,7 @@
 ﻿using HotelSystem.Data.DataTransferObjects;
 using HotelSystem.Infrastructure.WPF;
 using System;
+using System.ComponentModel;
 
 namespace Guests.Models
 {
