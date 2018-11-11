@@ -96,8 +96,20 @@ namespace Guests.ViewModels
                 if(SetProperty(ref _filterString, value))
                 {
                     ValidateProperty(nameof(FilterString));
+
+                    if(ValidationPassed)
+                    {
+                        FilterGuests();
+                    }
                 }
             }
+        }
+
+        private IEnumerable<GuestViewModel> _filteredGuests;
+        public IEnumerable<GuestViewModel> FilteredGuests
+        {
+            get => _filteredGuests;
+            set => SetProperty(ref _filteredGuests, value);
         }
 
         #endregion
@@ -183,8 +195,6 @@ namespace Guests.ViewModels
 
         #region Validation
 
-        #region Validation
-
         public ValidationResult Validate()
         {
             ClearAllErrors();
@@ -211,8 +221,6 @@ namespace Guests.ViewModels
 
         #endregion
 
-        #endregion
-
         private void PopulateAllGuestsFromDatabase()
         {
             Guests.Clear();
@@ -226,6 +234,27 @@ namespace Guests.ViewModels
             }
 
             Guests.Reset(allGuestViewModel);
+            FilterGuests();
+        }
+
+        private void FilterGuests()
+        {
+            IEnumerable<GuestViewModel> filteredGuests = Guests;
+
+            if(!String.IsNullOrEmpty(FilterString))
+            {
+                var filter = FilterString.ToUpper();
+
+                filteredGuests = filteredGuests.Where(g => 
+                    g.Name.ToUpper().Contains(filter) ||
+                    g.AddressLineOne.ToUpper().Contains(filter) ||
+                    g.AddressLineTwo.ToUpper().Contains(filter) ||
+                    g.City.ToUpper().Contains(filter) ||
+                    g.PostCode.ToUpper().Contains(filter)
+                    );
+            }
+
+            FilteredGuests = filteredGuests;
         }
     }
 }

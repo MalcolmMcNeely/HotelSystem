@@ -22,6 +22,7 @@ namespace HotelSystem.Infrastructure.WPF.CustomControls
         private Key _lastKeyPress = Key.None;
         private Dictionary<string, int> _defaultColumnDisplayOrder = new Dictionary<string, int>();
         private Dictionary<string, double> _defaultColumnWidths = new Dictionary<string, double>();
+        private bool _isInitialized;
 
         #endregion
 
@@ -325,8 +326,12 @@ namespace HotelSystem.Infrastructure.WPF.CustomControls
             // columns will not be generated yet
             if (!AutoGenerateColumns)
             {
-                CacheDefaultColumnDisplayOrder();
-                CacheDefaultColumnWidth();
+                if (!_isInitialized)
+                {
+                    CacheDefaultColumnDisplayOrder();
+                    CacheDefaultColumnWidth();
+                    _isInitialized = true;
+                }
             }
 
             AttachEvents();
@@ -389,8 +394,12 @@ namespace HotelSystem.Infrastructure.WPF.CustomControls
 
             if (AutoGenerateColumns)
             {
-                CacheDefaultColumnDisplayOrder();
-                CacheDefaultColumnWidth();
+                if (!_isInitialized)
+                {
+                    CacheDefaultColumnDisplayOrder();
+                    CacheDefaultColumnWidth();
+                    _isInitialized = true;
+                }
             }
         }
 

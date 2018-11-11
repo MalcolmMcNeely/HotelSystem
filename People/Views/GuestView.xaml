@@ -80,7 +80,7 @@
                         <Button x:Name="ShowAllColumnsButton"
                                 Content="{x:Static localres:Strings.ShowAllColumns}"/>
                     </WrapPanel>
-                    <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
+                    <inf.controls:CustomDataGrid ItemsSource="{Binding FilteredGuests}"
                                                  SelectedItem="{Binding SelectedGuest}"
                                                  DataGridDoubleClickCommand="{Binding UpdateGuestCommand}"
                                                  ResetLayoutButton="{Binding ElementName=ResetLayoutButton}"
