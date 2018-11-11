@@ -48,9 +48,7 @@ namespace HotelSystem.Data.Repositories
                 }
                 catch (DbEntityValidationException e)
                 {
-                    if (!System.Diagnostics.Debugger.IsAttached)
-                        System.Diagnostics.Debugger.Launch();
-
+                    // TODO: refactor this, use it in the other operations
                     foreach (var eve in e.EntityValidationErrors)
                     {
                         Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
@@ -71,7 +69,14 @@ namespace HotelSystem.Data.Repositories
         {
             using (var context = new Context())
             {
-                context.Set<T>().RemoveRange(entities);
+                foreach (var entity in entities)
+                {
+                    // Entities need to be attached if they were
+                    // not loaded by the same context instance
+                    context.Set<T>().Attach(entity);
+                    context.Set<T>().Remove(entity);
+                }
+
                 context.SaveChanges();
             }
         }

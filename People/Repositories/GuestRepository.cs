@@ -45,5 +45,10 @@ namespace Guests.Repositories
 
             return null;
         }
+
+        public void Remove(GuestDataTransferObject dto)
+        {
+            _repository.Remove(dto.ToGuestData());
+        }
     }
 }

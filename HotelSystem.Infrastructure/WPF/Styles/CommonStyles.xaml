@@ -93,6 +93,31 @@
         <Setter Property="ColumnWidth" Value="*"/>
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource CustomDataGridHeader}"/>
     </Style>
+    
+    <!--ImageButton Styles-->
+    <Style x:Key="ImageButtonButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="80"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+    <Style x:Key="ImageButtonImageStyle"
+           TargetType="{x:Type Image}">
+        <Setter Property="Height" Value="50"/>
+    </Style>
+
+    <Style x:Key="ImageButtonTextBlockStyle"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="{x:Type inf.userControls:ImageButton}">
+        <Setter Property="ButtonStyle" Value="{StaticResource ImageButtonButtonStyle}"/>
+        <Setter Property="ImageStyle" Value="{StaticResource ImageButtonImageStyle}"/>
+        <Setter Property="TextBlockStyle" Value="{StaticResource ImageButtonTextBlockStyle}"/>
+        <Setter Property="Margin" Value="10 10 0 10"/>
+    </Style>    
 
     <!--Validation Error Template-->
     <ControlTemplate x:Key="ValidationErrorTemplate">

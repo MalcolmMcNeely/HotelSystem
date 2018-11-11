@@ -62,7 +62,6 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -81,10 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WPF\BindableBase.cs" />
-    <Compile Include="WPF\RibbonBehaviour.cs" />
     <Compile Include="WPF\SmartCollection.cs" />
+    <Compile Include="WPF\UserControls\ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\ValidatableBindableBase.cs" />
-    <Compile Include="WPF\VisualTreeExtensions.cs" />
     <Compile Include="Constants\ErrorStrings.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="WPF\Converters\BooleanToVisibilityConverter.cs" />
@@ -187,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\Styles\MainWindow\MainWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\UserControls\ImageButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

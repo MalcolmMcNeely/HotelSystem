@@ -10,5 +10,6 @@ namespace Guests.Repositories
         void AddOrUpdate(GuestDataTransferObject person);
         List<GuestDataTransferObject> GetAll();
         GuestDataTransferObject Get(int id);
+        void Remove(GuestDataTransferObject dto);
     }
 }

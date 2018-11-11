@@ -68,7 +68,8 @@ namespace Guests.ViewModels
             {
                 if (SetProperty(ref _editingGuest, value))
                 {
-                    _eventAggregator.GetEvent<GuestSelectedEvent>().Publish(value);
+                    var guestViewModel = value == null ? new GuestViewModel(new Guest()) : value;
+                    _eventAggregator.GetEvent<GuestSelectedEvent>().Publish(guestViewModel);
                 }
             }
         }
@@ -124,7 +125,14 @@ namespace Guests.ViewModels
         public void DeleteGuestCommandExecute()
         {
             EditingGuest = new GuestViewModel(new Guest());
-            
+
+            var selectedGuest = SelectedGuest;
+
+            if(selectedGuest != null)
+            {
+                Guests.Remove(selectedGuest);
+                _repository.Remove(selectedGuest.Model.ToGuestDataTransferObject());
+            }
         }
 
         #endregion

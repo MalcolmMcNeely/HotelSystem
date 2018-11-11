@@ -4,43 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Navigation.Views"
-             xmlns:ribbon="clr-namespace:System.Windows.Controls.Ribbon;assembly=System.Windows.Controls.Ribbon"
+             xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.WPF.UserControls;assembly=HotelSystem.Infrastructure"
              xmlns:wpf="clr-namespace:HotelSystem.Infrastructure.WPF;assembly=HotelSystem.Infrastructure"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
              Background="{StaticResource brushPrimaryBackgroundColour}"
              Foreground="{StaticResource brushPrimaryForegroundColour}">
-    <UserControl.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Width" Value="80"/>
-            <Setter Property="Height" Value="80"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-
-        <Style TargetType="{x:Type Image}">
-            <Setter Property="Height" Value="50"/>
-        </Style>
-
-        <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="TextAlignment" Value="Center"/>
-        </Style>
-    </UserControl.Resources>
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
-            <Button>
-                <StackPanel>
-                    <Image Source="{StaticResource ImageWoman}"/>
-                    <TextBlock Text="Guests"/>
-                </StackPanel>
-            </Button>
-
-            <Button>
-                <StackPanel>
-                    <Image Source="{StaticResource ImageRing}"/>
-                    <TextBlock Text="Reservations"/>
-                </StackPanel>
-            </Button>
+            <inf.userControls:ImageButton ImageSource="{StaticResource ImageWoman}"
+                                          Text="Guests"/>
+            <inf.userControls:ImageButton ImageSource="{StaticResource ImageRing}"
+                                          Text="Reservations"/>
         </WrapPanel>
     </DockPanel>
 </UserControl>
