@@ -25,6 +25,20 @@ namespace HotelSystem.Data.Migrations
             {
                 context.Guests.AddOrUpdate(guest);
             }
+
+            var roomTypes = seedData.GetRoomTypeData();
+
+            foreach (var roomType in roomTypes)
+            {
+                context.RoomTypes.AddOrUpdate(roomType);
+            }
+
+            var rooms = seedData.GetRoomData(roomTypes);
+
+            foreach (var room in rooms)
+            {
+                context.Rooms.AddOrUpdate(room);
+            }
         }
     }
 }

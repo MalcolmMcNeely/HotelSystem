@@ -16,8 +16,8 @@ namespace Guests.ViewModels
     public class CreateUpdateGuestViewModel : ValidatableBindableBase, ICreateUpdateGuestViewModel
     {
         private GuestValidator _validator = new GuestValidator();
-        IGuestRepository _repository;
-        IEventAggregator _eventAggregator;
+        private IGuestRepository _repository;
+        private IEventAggregator _eventAggregator;
 
         public CreateUpdateGuestViewModel(IGuestRepository repository,
                                           IEventAggregator eventAggregator)
@@ -210,6 +210,8 @@ namespace Guests.ViewModels
 
         #endregion
 
+        #region Validation
+
         public ValidationResult ValidateModel()
         {
             ClearAllErrors();
@@ -225,14 +227,15 @@ namespace Guests.ViewModels
         {
             ClearError(propertyName);
 
-            var context = new ValidationContext<Guest>(
-                EditedModel.Model, new PropertyChain(),
-                new MemberNameValidatorSelector(new[] { propertyName }));
+            var context = new ValidationContext<Guest>(EditedModel.Model, 
+                new PropertyChain(), new MemberNameValidatorSelector(new[] { propertyName }));
             var result = _validator.Validate(context);
 
             AddErrors(result);
 
             return result;
         }
+
+        #endregion
     }
 }

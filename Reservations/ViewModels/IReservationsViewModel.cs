@@ -1,6 +1,6 @@
 ﻿using HotelSystem.Infrastructure.WPF.MVVM;
 
-namespace Reservations.Intefaces
+namespace Reservations.ViewModels
 {
     public interface IReservationsViewModel : IViewModel
     {

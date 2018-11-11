@@ -1,5 +1,5 @@
 ﻿using HotelSystem.Infrastructure.WPF.MVVM;
-using Reservations.Intefaces;
+using Reservations.ViewModels;
 using System.Windows.Controls;
 
 namespace Reservations.Views
@@ -19,7 +19,17 @@ namespace Reservations.Views
         public IViewModel ViewModel
         {
             get => (IViewModel)DataContext;
-            set => DataContext = value;
+            set
+            {
+                if (DataContext != null)
+                {
+                    ((IViewModel)DataContext).ShutDown();
+                }
+
+                DataContext = value;
+
+                ((IViewModel)DataContext).Initialise();
+            }
         }
     }
 }

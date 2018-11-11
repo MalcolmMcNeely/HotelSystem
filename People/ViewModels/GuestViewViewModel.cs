@@ -1,16 +1,22 @@
-﻿using Guests.Events;
+﻿using FluentValidation;
+using FluentValidation.Internal;
+using FluentValidation.Results;
+using Guests.Events;
 using Guests.Models;
 using Guests.Repositories;
+using Guests.Validators;
 using HotelSystem.Infrastructure.WPF;
 using Prism.Commands;
 using Prism.Events;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Guests.ViewModels
 {
-    public class GuestViewViewModel : BindableBase, IGuestViewViewModel
+    public class GuestViewViewModel : ValidatableBindableBase, IGuestViewViewModel
     {
+        GuestViewViewModelValidator _validator = new GuestViewViewModelValidator();
         IGuestRepository _repository;
         IEventAggregator _eventAggregator;
 
@@ -23,9 +29,10 @@ namespace Guests.ViewModels
 
         public void Initialise()
         {
-            PopulateAllGuestsFromDatabase();
             AttachEvents();
             SetupCommands();
+
+            PopulateAllGuestsFromDatabase();
         }
 
         public void ShutDown()
@@ -78,6 +85,19 @@ namespace Guests.ViewModels
         {
             get => _isCreateUpdateGuestViewVisible;
             set => SetProperty(ref _isCreateUpdateGuestViewVisible, value);
+        }
+
+        private string _filterString;
+        public string FilterString
+        {
+            get => _filterString;
+            set
+            {
+                if(SetProperty(ref _filterString, value))
+                {
+                    ValidateProperty(nameof(FilterString));
+                }
+            }
         }
 
         #endregion
@@ -161,16 +181,51 @@ namespace Guests.ViewModels
 
         #endregion
 
+        #region Validation
+
+        #region Validation
+
+        public ValidationResult Validate()
+        {
+            ClearAllErrors();
+
+            var result = _validator.Validate(this);
+
+            AddErrors(result);
+
+            return result;
+        }
+
+        public ValidationResult ValidateProperty(string propertyName)
+        {
+            ClearError(propertyName);
+
+            var context = new ValidationContext<GuestViewViewModel>(this,
+                new PropertyChain(), new MemberNameValidatorSelector(new[] { propertyName }));
+            var result = _validator.Validate(context);
+
+            AddErrors(result);
+
+            return result;
+        }
+
+        #endregion
+
+        #endregion
+
         private void PopulateAllGuestsFromDatabase()
         {
             Guests.Clear();
 
             var allGuestData = _repository.GetAll();
+            var allGuestViewModel = new List<GuestViewModel>();
 
             foreach (var guest in allGuestData)
             {
-                Guests.Add(new GuestViewModel(new Guest(guest)));
+                allGuestViewModel.Add(new GuestViewModel(new Guest(guest)));
             }
+
+            Guests.Reset(allGuestViewModel);
         }
     }
 }

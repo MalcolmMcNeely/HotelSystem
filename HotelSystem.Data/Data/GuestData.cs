@@ -42,5 +42,7 @@ namespace HotelSystem.Data.Data
 
         [Required]
         public DateTime LastUpdated { get; set; }
+
+        public int? RoomId { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace HotelSystem.Data.Data
         [Required]
         public int RoomTypeDataId { get; set; }
 
+        [Required]
         public RoomTypeData RoomTypeData { get; set; }
 
         [Required]
@@ -31,9 +32,9 @@ namespace HotelSystem.Data.Data
         [Required]
         public bool IsOccupied { get; set; }
 
-        public DateTime BookedFrom { get; set; }
+        public DateTime? BookedFrom { get; set; }
 
-        public DateTime BookedTo { get; set; }
+        public DateTime? BookedTo { get; set; }
 
         public ICollection<GuestData> Guests { get; set; }
     }

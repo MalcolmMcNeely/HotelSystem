@@ -9,8 +9,6 @@ namespace Guests.ViewModels
 {
     public class GuestViewModel : BindableBase
     {
-        private GuestValidator _validator = new GuestValidator();
-
         public GuestViewModel(Guest guest)
         {
             Model = guest;
@@ -102,7 +100,14 @@ namespace Guests.ViewModels
             set => _model.AmountPaid = value;
         }
 
-        [DoNotAutoGenerate]
+        [DisplayName("Date Created")]
+        public DateTime DateCreated
+        {
+            get => _model.DateCreated;
+            set => _model.DateCreated = value;
+        }
+
+        [DisplayName("Last Updated")]
         public DateTime LastUpdated
         {
             get => _model.LastUpdated;

@@ -1,28 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using HotelSystem.Infrastructure.WPF.MVVM;
+using Rooms.ViewModels;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Rooms.Views
 {
     /// <summary>
     /// Interaction logic for RoomsView.xaml
     /// </summary>
-    public partial class RoomsView : UserControl
+    public partial class RoomsView : UserControl, IView
     {
-        public RoomsView()
+        public RoomsView(IRoomsViewViewModel viewModel)
         {
             InitializeComponent();
+
+            ViewModel = viewModel;
+        }
+
+        public IViewModel ViewModel
+        {
+            get => (IViewModel)DataContext;
+            set
+            {
+                if (DataContext != null)
+                {
+                    ((IViewModel)DataContext).ShutDown();
+                }
+
+                DataContext = value;
+
+                ((IViewModel)DataContext).Initialise();
+            }
         }
     }
 }

@@ -70,8 +70,9 @@
                                 DockPanel.Dock="Top"
                                 Margin="10 10 0 0">
                         <inf.userControls:LabelledTextBox LabelText="{x:Static localres:Strings.Filter}"
-                                                          Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
-                                                          Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"/>
+                                                          Text="{Binding FilterString, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                                          Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}"
+                                                          Margin="0 0 40 0"/>
                         <Button x:Name="ResetLayoutButton"
                                 Content="{x:Static localres:Strings.ResetLayout}"/>
                         <Button x:Name="ResetSortButton"

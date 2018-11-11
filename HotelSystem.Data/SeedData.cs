@@ -98,5 +98,100 @@ namespace HotelSystem.Data
             return guestData;
         }
 
+        public List<RoomTypeData> GetRoomTypeData()
+        {
+            var roomTypeData = new List<RoomTypeData>();
+
+            roomTypeData.Add(new RoomTypeData
+            {
+                Id = 1,
+                Name = "Single Room",
+                NumberOfBeds = 1,
+                HasBalcony = false,
+                IsDisabilityFriendly = true
+            });
+
+            roomTypeData.Add(new RoomTypeData
+            {
+                Id = 2,
+                Name = "Single Room (Executive)",
+                NumberOfBeds = 1,
+                HasBalcony = true,
+                IsDisabilityFriendly = true
+            });
+
+            roomTypeData.Add(new RoomTypeData
+            {
+                Id = 3,
+                Name = "Double Room",
+                NumberOfBeds = 2,
+                HasBalcony = false,
+                IsDisabilityFriendly = true
+            });
+
+            roomTypeData.Add(new RoomTypeData
+            {
+                Id = 4,
+                Name = "Double Room (Executive)",
+                NumberOfBeds = 2,
+                HasBalcony = true,
+                IsDisabilityFriendly = true
+            });
+
+            roomTypeData.Add(new RoomTypeData
+            {
+                Id = 5,
+                Name = "Triple Room",
+                NumberOfBeds = 3,
+                HasBalcony = false,
+                IsDisabilityFriendly = false
+            });
+
+            roomTypeData.Add(new RoomTypeData
+            {
+                Id = 6,
+                Name = "Triple Room (Executive)",
+                NumberOfBeds = 3,
+                HasBalcony = true,
+                IsDisabilityFriendly = false
+            });
+
+            return roomTypeData;
+        }
+
+        public List<RoomData> GetRoomData(List<RoomTypeData> roomTypeData)
+        {
+            var roomData = new List<RoomData>();
+            var roomsPerRoomType = 10;
+
+            for (int i = 0; i < roomTypeData.Count; i++)
+            {
+                var price = 40M * (i + 1);
+                var demandMultiplier = 5M;
+                var demandLevel = 0;
+
+                for (int j = 0; j < roomsPerRoomType; j++)
+                {
+                    if(j % 2 == 0)
+                    {
+                        demandLevel++;
+                    }
+
+                    roomData.Add(new RoomData
+                    {
+                        Id = i + j + 1,
+                        RoomNumber = String.Format("{0}0{1}", i, j),
+                        RoomTypeDataId = roomTypeData[i].Id,
+                        RoomTypeData = roomTypeData[i],
+                        Price = price + (demandLevel * demandMultiplier),
+                        OnPromotion = false,
+                        OnPromotionPrice = price * 0.80M,
+                        IsOccupied = false
+                    });
+                }
+            }
+
+            return roomData;
+        }
     }
 }

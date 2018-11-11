@@ -19,7 +19,17 @@ namespace Navigation.Views
         public IViewModel ViewModel
         {
             get => (IViewModel)DataContext;
-            set => DataContext = value;
+            set
+            {
+                if (DataContext != null)
+                {
+                    ((IViewModel)DataContext).ShutDown();
+                }
+
+                DataContext = value;
+
+                ((IViewModel)DataContext).Initialise();
+            }
         }
     }
 }

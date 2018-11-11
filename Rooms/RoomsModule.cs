@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using Rooms.ViewModels;
 using Rooms.Views;
 
 namespace Rooms
@@ -23,6 +24,12 @@ namespace Rooms
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // Views
+            containerRegistry.Register<RoomsView>();
+
+            // Interfaces
+            containerRegistry.Register<IRoomsViewViewModel, RoomsViewViewModel>();
+
             // Navigation
             containerRegistry.RegisterForNavigation(typeof(RoomsView), RegionNames.RoomsView);
         }

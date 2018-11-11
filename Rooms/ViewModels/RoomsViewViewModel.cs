@@ -15,12 +15,12 @@ namespace Rooms.ViewModels
 
         public void Initialise()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void ShutDown()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
     }
