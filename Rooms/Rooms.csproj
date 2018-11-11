@@ -80,6 +80,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,8 +96,10 @@
     </Compile>
     <Compile Include="Resources\Strings.cs" />
     <Compile Include="RoomsModule.cs" />
+    <Compile Include="ValueTypes\RoomType.cs" />
     <Compile Include="ViewModels\IRoomsViewViewModel.cs" />
     <Compile Include="ViewModels\RoomsViewViewModel.cs" />
+    <Compile Include="ViewModels\RoomViewModel.cs" />
     <Compile Include="Views\RoomsView.xaml.cs">
       <DependentUpon>RoomsView.xaml</DependentUpon>
     </Compile>
@@ -111,7 +114,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>

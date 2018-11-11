@@ -36,7 +36,7 @@ namespace HotelSystem.Data.DataTransferObjects
         public bool IsOccupied { get; set; }
         public DateTime? BookedFrom { get; set; }
         public DateTime? BookedTo { get; set; }
-        ICollection<GuestDataTransferObject> Guests { get; set; }
+        public ICollection<GuestDataTransferObject> Guests { get; set; }
 
         public RoomData ToRoomData()
         {

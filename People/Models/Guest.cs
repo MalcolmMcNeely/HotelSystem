@@ -27,11 +27,8 @@ namespace Guests.Models
             _creditCardNumber = data.CreditCardNumber;
             _amountOwed = data.AmountOwed;
             _amountPaid = data.AmountPaid;
-        }
-
-        public void Update(Guest other)
-        {
-            UpdateFromGuest(other);
+            _dateCreated = data.DateCreated;
+            _lastUpdated = data.LastUpdated;
         }
 
         #region Properties
@@ -123,6 +120,11 @@ namespace Guests.Models
         }
 
         #endregion
+
+        public void Update(Guest other)
+        {
+            UpdateFromGuest(other);
+        }
 
         public GuestDataTransferObject ToGuestDataTransferObject()
         {
