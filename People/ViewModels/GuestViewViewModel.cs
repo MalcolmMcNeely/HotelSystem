@@ -105,8 +105,9 @@ namespace Guests.ViewModels
             }
         }
 
-        private IEnumerable<GuestViewModel> _filteredGuests;
-        public IEnumerable<GuestViewModel> FilteredGuests
+        private SmartCollection<GuestViewModel> _filteredGuests = 
+            new SmartCollection<GuestViewModel>();
+        public SmartCollection<GuestViewModel> FilteredGuests
         {
             get => _filteredGuests;
             set => SetProperty(ref _filteredGuests, value);
@@ -254,7 +255,7 @@ namespace Guests.ViewModels
                     );
             }
 
-            FilteredGuests = filteredGuests;
+            FilteredGuests.Reset(filteredGuests);
         }
     }
 }
