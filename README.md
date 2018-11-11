@@ -1,6 +1,6 @@
 ﻿# Hotel System
 
-A WPF/PRISM based hotel reservation system. WIP but my main personal project of interest right now.
+A WPF/PRISM/DryIoc based hotel reservation system which uses EF code first for data persistence. First attempt at using a DDD styled architecture. WIP but my main personal project of interest right now.
 
 # Resources
 
