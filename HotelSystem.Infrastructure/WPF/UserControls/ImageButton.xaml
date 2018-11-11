@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:HotelSystem.Infrastructure.WPF.UserControls"
              mc:Ignorable="d">
     <Grid x:Name="LayoutRoot">
-        <Button Style="{Binding ButtonStyle}">
+        <Button Style="{Binding ButtonStyle}"
+                Command="{Binding Command}"
+                CommandParameter="{Binding CommandParameter}">
             <StackPanel>
                 <Image Source="{Binding ImageSource}"
                        Style="{Binding ImageStyle}"/>

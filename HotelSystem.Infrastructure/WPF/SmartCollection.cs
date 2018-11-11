@@ -34,14 +34,6 @@ namespace HotelSystem.Infrastructure.WPF
         public SmartCollection() : base() { }
         public SmartCollection(IEnumerable<T> collection) : base(collection) { }
 
-        // TODO: I think this can be deleted
-        //public void RaisePropertyChangedEvent()
-        //{
-        //    OnPropertyChanged(new PropertyChangedEventArgs("Count"));
-        //    OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
-        //    OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
-        //}
-
         /// <summary>
         /// Takes an IEnumerable of items and adds them to this object's underlying
         /// collection and fires off an event once the operation is complete

@@ -19,13 +19,12 @@ namespace Guests.ViewModels
         {
             _repository = repository;
             _eventAggregator = eventAggregator;
-
-            PopulateAllGuestsFromDatabase();
-            AttachEvents();
         }
 
         public void Initialise()
         {
+            PopulateAllGuestsFromDatabase();
+            AttachEvents();
             SetupCommands();
         }
 

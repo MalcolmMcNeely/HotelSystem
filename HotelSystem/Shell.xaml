@@ -13,7 +13,7 @@
         <DockPanel>
             <StackPanel prism:RegionManager.RegionName="{x:Static constants:RegionNames.NavigationRegion}"
                         DockPanel.Dock="Top"/>
-            <ContentControl prism:RegionManager.RegionName="{x:Static constants:RegionNames.GuestsRegion}"/>
+            <ContentControl prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellContentRegion}"/>
         </DockPanel>
     </Grid>
 </Window>

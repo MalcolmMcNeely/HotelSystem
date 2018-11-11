@@ -26,7 +26,8 @@ namespace Navigation
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<NavigationView>();
-            containerRegistry.Register<INavigationViewModel, NavigationViewModel>();
+
+            containerRegistry.Register<INavigationViewViewModel, NavigationViewViewModel>();
 
             _regionManager.RegisterViewWithRegion(RegionNames.NavigationRegion, typeof(NavigationView));
         }

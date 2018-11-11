@@ -80,15 +80,15 @@
                                 Content="{x:Static localres:Strings.ShowAllColumns}"/>
                     </WrapPanel>
                     <inf.controls:CustomDataGrid ItemsSource="{Binding Guests}"
-                                             SelectedItem="{Binding SelectedGuest}"
-                                             DataGridDoubleClickCommand="{Binding UpdateGuestCommand}"
-                                             ResetLayoutButton="{Binding ElementName=ResetLayoutButton}"
-                                             ResetSortButton="{Binding ElementName=ResetSortButton}"
-                                             ShowAllColumnsButton="{Binding ElementName=ShowAllColumnsButton}"
-                                             IsReadOnly="True"
-                                             AutoGenerateColumns="True"
-                                             ColumnHeaderStyle="{StaticResource HideableDataGridColumnHeader}"
-                                             Margin="10"/>
+                                                 SelectedItem="{Binding SelectedGuest}"
+                                                 DataGridDoubleClickCommand="{Binding UpdateGuestCommand}"
+                                                 ResetLayoutButton="{Binding ElementName=ResetLayoutButton}"
+                                                 ResetSortButton="{Binding ElementName=ResetSortButton}"
+                                                 ShowAllColumnsButton="{Binding ElementName=ShowAllColumnsButton}"
+                                                 IsReadOnly="True"
+                                                 AutoGenerateColumns="True"
+                                                 ColumnHeaderStyle="{StaticResource HideableDataGridColumnHeader}"
+                                                 Margin="10"/>
                 </DockPanel>
             </DockPanel>
         </DockPanel>

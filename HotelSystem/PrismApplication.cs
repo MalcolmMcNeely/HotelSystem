@@ -10,6 +10,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 using Reservations;
+using Rooms;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -91,6 +92,14 @@ namespace HotelSystem
             {
                 ModuleName = peopleModuleType.Name,
                 ModuleType = peopleModuleType.AssemblyQualifiedName,
+                InitializationMode = InitializationMode.WhenAvailable
+            });
+
+            var roomsModuleType = typeof(RoomsModule);
+            moduleCatalog.AddModule(new ModuleInfo()
+            {
+                ModuleName = roomsModuleType.Name,
+                ModuleType = roomsModuleType.AssemblyQualifiedName,
                 InitializationMode = InitializationMode.WhenAvailable
             });
         }

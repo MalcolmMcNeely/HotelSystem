@@ -2,7 +2,7 @@
 
 namespace NavigationToolbar.ViewModels
 {
-    public interface INavigationViewModel : IViewModel
+    public interface INavigationViewViewModel : IViewModel
     {
     }
 }

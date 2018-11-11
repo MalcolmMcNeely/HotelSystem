@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BD7211D-80DC-4E70-A4EA-87C2638B2A0C}</ProjectGuid>
+    <ProjectGuid>{7D98CE57-F60F-4DFB-998A-9460B9EC4670}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>NavigationToolbar</RootNamespace>
-    <AssemblyName>NavigationToolbar</AssemblyName>
+    <RootNamespace>Rooms</RootNamespace>
+    <AssemblyName>Rooms</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -79,14 +80,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\INavigationViewViewModel.cs" />
-    <Compile Include="NavigationModule.cs" />
-    <Compile Include="ViewModels\NavigationViewViewModel.cs" />
-    <Compile Include="Views\NavigationView.xaml.cs">
-      <DependentUpon>NavigationView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -100,6 +93,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Resources\Strings.cs" />
+    <Compile Include="RoomsModule.cs" />
+    <Compile Include="ViewModels\IRoomsViewViewModel.cs" />
+    <Compile Include="ViewModels\RoomsViewViewModel.cs" />
+    <Compile Include="Views\RoomsView.xaml.cs">
+      <DependentUpon>RoomsView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -111,12 +111,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\NavigationView.xaml">
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\RoomsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HotelSystem.Data\HotelSystem.Data.csproj">
+      <Project>{10bd477c-1a60-4402-90d8-bff380789e89}</Project>
+      <Name>HotelSystem.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HotelSystem.Infrastructure\HotelSystem.Infrastructure.csproj">
       <Project>{802cc3fc-cb7f-4a7c-9ad0-ed85c9ab59e2}</Project>
       <Name>HotelSystem.Infrastructure</Name>

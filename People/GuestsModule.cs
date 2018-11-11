@@ -29,16 +29,22 @@ namespace Guests
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // Views
             containerRegistry.Register<GuestView>();
             containerRegistry.Register<CreateUpdateGuestView>();
 
+            // Interfaces
             containerRegistry.Register<IGuestViewViewModel, GuestViewViewModel>();
             containerRegistry.Register<ICreateUpdateGuestViewModel, CreateUpdateGuestViewModel>();
 
+            // Repositories
             containerRegistry.Register<IGuestRepository, GuestRepository>();
             containerRegistry.Register<IRepository<GuestData>, Repository<GuestData>>();
 
-            _regionManager.RegisterViewWithRegion(RegionNames.GuestsRegion, typeof(GuestView));
+            // Navigation
+            containerRegistry.RegisterForNavigation(typeof(GuestView), RegionNames.GuestsView);
+
+            // Local Regions
             _regionManager.RegisterViewWithRegion(Strings.CreateUpdateGuestRegion, typeof(CreateUpdateGuestView));
         }
     }

@@ -25,10 +25,14 @@ namespace Reservations
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // Views
             containerRegistry.Register<ReservationsView>();
+
+            // Interfaces
             containerRegistry.Register<IReservationsViewModel, ReservationsViewModel>();
 
-            _regionManager.RegisterViewWithRegion(RegionNames.ReservationsRegion, typeof(ReservationsView));
+            // Navigation
+            containerRegistry.RegisterForNavigation(typeof(ReservationsView), RegionNames.ReservationsView);
         }
     }
 }

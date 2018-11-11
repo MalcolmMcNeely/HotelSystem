@@ -9,7 +9,7 @@ namespace Navigation.Views
     /// </summary>
     public partial class NavigationView : UserControl, IView
     {
-        public NavigationView(INavigationViewModel viewModel)
+        public NavigationView(INavigationViewViewModel viewModel)
         {
             InitializeComponent();
 

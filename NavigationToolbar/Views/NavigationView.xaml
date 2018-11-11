@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Navigation.Views"
              xmlns:inf.userControls="clr-namespace:HotelSystem.Infrastructure.WPF.UserControls;assembly=HotelSystem.Infrastructure"
-             xmlns:wpf="clr-namespace:HotelSystem.Infrastructure.WPF;assembly=HotelSystem.Infrastructure"
+             xmlns:constants="clr-namespace:HotelSystem.Infrastructure.Constants;assembly=HotelSystem.Infrastructure"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
@@ -14,11 +14,17 @@
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
             <inf.userControls:ImageButton ImageSource="{StaticResource ImageRing}"
-                                          Text="Reservations"/>
+                                          Text="Reservations"
+                                          Command="{Binding NavigateCommand}"
+                                          CommandParameter="{x:Static constants:RegionNames.ReservationsView}"/>
             <inf.userControls:ImageButton ImageSource="{StaticResource ImageWoman}"
-                                          Text="Guests"/>
+                                          Text="Guests"
+                                          Command="{Binding NavigateCommand}"
+                                          CommandParameter="{x:Static constants:RegionNames.GuestsView}"/>
             <inf.userControls:ImageButton ImageSource="{StaticResource ImageBed}"
-                                          Text="Rooms"/>
+                                          Text="Rooms"
+                                          Command="{Binding NavigateCommand}"
+                                          CommandParameter="{x:Static constants:RegionNames.RoomsView}"/>
         </WrapPanel>
     </DockPanel>
 </UserControl>

@@ -137,6 +137,10 @@
       <Project>{9a56d723-99b0-447f-9422-740bf3515b7d}</Project>
       <Name>Reservations</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Rooms\Rooms.csproj">
+      <Project>{7d98ce57-f60f-4dfb-998a-9460b9ec4670}</Project>
+      <Name>Rooms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
