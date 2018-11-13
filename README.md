@@ -2,6 +2,10 @@
 
 A WPF/PRISM/DryIoc based hotel reservation system which uses EF code first for data persistence. First attempt at using a DDD styled architecture. WIP but my main personal project of interest right now.
 
+## Usage
+
+Run the 'Update-Database' command from the nuget package manager console to seed the database before running the application.
+
 ## Modules
 
 * Guests: Create, Updates, and Remove guests from the database

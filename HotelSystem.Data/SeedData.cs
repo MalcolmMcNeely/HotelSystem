@@ -13,7 +13,7 @@ namespace HotelSystem.Data
             guestData.Add(new GuestData()
             {
                 Id = 1,
-                Name = "Clive",
+                Name = "Clive Marshall",
                 Age = 64,
                 AddressLineOne = "Flat 1",
                 AddressLineTwo = "99  Warren St",
@@ -30,14 +30,14 @@ namespace HotelSystem.Data
             guestData.Add(new GuestData()
             {
                 Id = 2,
-                Name = "Jimmy",
+                Name = "Jimmy Marshall",
                 Age = 15,
                 AddressLineOne = "Flat 1",
                 AddressLineTwo = "99  Warren St",
                 PostCode = "SO30 1ZA",
                 City = "Birmingham",
                 PhoneNumber = "03069 990783",
-                CreditCardNumber = "343816485977867",
+                CreditCardNumber = "",
                 AmountOwed = 0M,
                 AmountPaid = 0M,
                 DateCreated = DateTime.Now,
@@ -47,13 +47,13 @@ namespace HotelSystem.Data
             guestData.Add(new GuestData()
             {
                 Id = 3,
-                Name = "Andrea",
+                Name = "Andrea Brooks",
                 Age = 28,
-                AddressLineOne = "123 Fakestreet",
-                AddressLineTwo = "Fake Estate",
-                PostCode = "FAK3 C0DE",
-                City = "Faketown",
-                PhoneNumber = "03069 990458",
+                AddressLineOne = "132 Ploughley Rd",
+                AddressLineTwo = "Ashtown",
+                PostCode = "PO32 8LH",
+                City = "Tittleshall",
+                PhoneNumber = "07700 900236",
                 CreditCardNumber = "6011076971077072",
                 AmountOwed = 0M,
                 AmountPaid = 0M,
@@ -70,7 +70,7 @@ namespace HotelSystem.Data
                 AddressLineTwo = "",
                 PostCode = "CE01 2UK",
                 City = "Camelot",
-                PhoneNumber = "03069 990787",
+                PhoneNumber = "07700 900495",
                 CreditCardNumber = "5355044801071976",
                 AmountOwed = 0M,
                 AmountPaid = 0M,
@@ -81,14 +81,99 @@ namespace HotelSystem.Data
             guestData.Add(new GuestData()
             {
                 Id = 5,
-                Name = "Arthur",
+                Name = "Arthur Cook",
                 Age = 52,
-                AddressLineOne = "Throne Room",
+                AddressLineOne = "74 Southlands Road",
                 AddressLineTwo = "",
-                PostCode = "CE01 2UK",
-                City = "Camelot",
-                PhoneNumber = "03069 990295",
+                PostCode = "SA15 3QS",
+                City = "Pontyberem",
+                PhoneNumber = "08081 570059",
+                CreditCardNumber = "5576449219048099",
+                AmountOwed = 0M,
+                AmountPaid = 0M,
+                DateCreated = DateTime.Now,
+                LastUpdated = DateTime.Now
+            });
+
+            guestData.Add(new GuestData()
+            {
+                Id = 6,
+                Name = "Veronica King",
+                Age = 47,
+                AddressLineOne = "8 Maidstone Road",
+                AddressLineTwo = "Hodge Lea",
+                PostCode = "TD15 7HP",
+                City = "West Allerdean",
+                PhoneNumber = "08081 570978",
                 CreditCardNumber = "4716011593316627",
+                AmountOwed = 0M,
+                AmountPaid = 0M,
+                DateCreated = DateTime.Now,
+                LastUpdated = DateTime.Now
+            });
+
+            guestData.Add(new GuestData()
+            {
+                Id = 7,
+                Name = "Veronica Foster",
+                Age = 49,
+                AddressLineOne = "82 St Dunstans Street",
+                AddressLineTwo = "Fishermead",
+                PostCode = "HP1 1HX",
+                City = "Water End",
+                PhoneNumber = "08081 570978",
+                CreditCardNumber = "4532470325730855",
+                AmountOwed = 0M,
+                AmountPaid = 0M,
+                DateCreated = DateTime.Now,
+                LastUpdated = DateTime.Now
+            });
+
+            guestData.Add(new GuestData()
+            {
+                Id = 8,
+                Name = "Monty Green",
+                Age = 39,
+                AddressLineOne = "93 Felix Lane",
+                AddressLineTwo = "Blubberhill",
+                PostCode = "IV17 5TT",
+                City = "Shoretown",
+                PhoneNumber = "08081 570978",
+                CreditCardNumber = "4716446271059091",
+                AmountOwed = 0M,
+                AmountPaid = 0M,
+                DateCreated = DateTime.Now,
+                LastUpdated = DateTime.Now
+            });
+
+            guestData.Add(new GuestData()
+            {
+                Id = 9,
+                Name = "Callie Lowe",
+                Age = 22,
+                AddressLineOne = "85 Grey Street",
+                AddressLineTwo = "Woolstone",
+                PostCode = "KY15 0PH",
+                City = "Kettlebridge",
+                PhoneNumber = "07882 384648",
+                CreditCardNumber = "5401712402374858",
+                AmountOwed = 0M,
+                AmountPaid = 0M,
+                DateCreated = DateTime.Now,
+                LastUpdated = DateTime.Now
+            });
+
+            guestData.Add(new GuestData()
+            {
+                Id = 10,
+                Name = "Daria Hall",
+                Age = 31,
+                AddressLineOne = "Flat 5",
+                AddressLineTwo = "130 Boat Lane",
+                PostCode = "SP5 3JQ",
+                City = "Craigdarroch",
+                PhoneNumber = "07835 795710",
+                CreditCardNumber = "5496617331731175",
                 AmountOwed = 0M,
                 AmountPaid = 0M,
                 DateCreated = DateTime.Now,
