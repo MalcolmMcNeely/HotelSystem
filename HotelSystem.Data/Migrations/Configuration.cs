@@ -1,18 +1,16 @@
 namespace HotelSystem.Data.Migrations
 {
-    using System;
+    using HotelSystem.Data.Contexts;
     using System.Data.Entity.Migrations;
-    using System.Data.Entity.Validation;
-    using System.Diagnostics;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HotelSystem.Data.Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<HotelContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HotelSystem.Data.Context context)
+        protected override void Seed(HotelContext context)
         {
             //  This method will be called after migrating to the latest version.
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

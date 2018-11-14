@@ -51,7 +51,7 @@
     <Compile Include="DataTransferObjects\RoomDataTransferObject.cs" />
     <Compile Include="DataTransferObjects\RoomTypeDataTransferObject.cs" />
     <Compile Include="Data\GuestData.cs" />
-    <Compile Include="Context.cs" />
+    <Compile Include="Contexts\HotelContext.cs" />
     <Compile Include="Data\RoomData.cs" />
     <Compile Include="Data\RoomTypeData.cs" />
     <Compile Include="Migrations\201811101950560_FirstCreate.cs" />
@@ -64,6 +64,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="SeedData.cs" />

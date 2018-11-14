@@ -159,7 +159,7 @@ namespace Guests.ViewModels
             {
                 _editedModel.LastUpdated = DateTime.Now;
 
-                _model = _editedModel;
+                _model.Update(_editedModel);
 
                 _repository.AddOrUpdate(_model.Model.ToGuestDataTransferObject());
 
@@ -171,8 +171,11 @@ namespace Guests.ViewModels
 
         public void UndoCommandExecute()
         {
-            EditedModel = Model;
+            EditedModel.Update(Model);
+
             ClearAllErrors();
+
+            RaisePropertyChanged(string.Empty);
         }
 
         #endregion

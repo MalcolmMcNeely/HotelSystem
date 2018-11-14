@@ -1,9 +1,9 @@
 ﻿using System.Data.Entity;
 using HotelSystem.Data.Data;
 
-namespace HotelSystem.Data
+namespace HotelSystem.Data.Contexts
 {
-    public class Context : DbContext
+    public class HotelContext : DbContext
     {
         public DbSet<GuestData> Guests { get; set; }
 

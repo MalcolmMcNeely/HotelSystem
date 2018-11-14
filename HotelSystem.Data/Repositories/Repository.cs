@@ -1,12 +1,9 @@
-﻿using System;
+﻿using HotelSystem.Data.Contexts;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelSystem.Data.Repositories
 {
@@ -14,7 +11,7 @@ namespace HotelSystem.Data.Repositories
     {
         public T Get(int id)
         {
-            using (var context = new Context())
+            using (var context = new HotelContext())
             {
                 return context.Set<T>().Find(id);
             }
@@ -22,7 +19,7 @@ namespace HotelSystem.Data.Repositories
 
         public List<T> GetAll()
         {
-            using (var context = new Context())
+            using (var context = new HotelContext())
             {
                 return context.Set<T>().ToList();
             }
@@ -30,7 +27,7 @@ namespace HotelSystem.Data.Repositories
 
         public void Add(params T[] entities)
         {
-            using (var context = new Context())
+            using (var context = new HotelContext())
             {
                 context.Set<T>().AddRange(entities);
                 context.SaveChanges();
@@ -39,7 +36,7 @@ namespace HotelSystem.Data.Repositories
 
         public void AddOrUpdate(T entity)
         {
-            using (var context = new Context())
+            using (var context = new HotelContext())
             {
                 try
                 {
@@ -67,7 +64,7 @@ namespace HotelSystem.Data.Repositories
 
         public void Remove(params T[] entities)
         {
-            using (var context = new Context())
+            using (var context = new HotelContext())
             {
                 foreach (var entity in entities)
                 {
